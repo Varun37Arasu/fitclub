@@ -36,23 +36,30 @@ const About = () => {
   return (
     <div className="pt-20 bg-[#0f0f0f]">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Glow Orbs */}
-        <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-[#ff4500] opacity-20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-[#ff8c00] opacity-15 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1.5s'}}></div>
+       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+         {/* Full Viewport Background */}
+         <div className="absolute inset-0">
+           <img 
+             src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000" 
+             alt="Gym background"
+             className="w-full h-full object-cover"
+           />
+           <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black"></div>
+           <div className="absolute inset-0 bg-gradient-to-tr from-[#ff4500]/20 via-transparent to-[#ff8c00]/20"></div>
+         </div>
 
         <div className="container-custom relative z-10">
           <div className="about-hero-title text-center">
-            <div className="inline-block px-8 py-3 bg-[#ff4500] mb-8 transform rotate-1 border-4 border-black">
-              <span className="text-white font-heading font-black text-xl uppercase tracking-widest">OUR STORY</span>
+            <div className="inline-block px-6 py-2 bg-[#ff4500]/20 border border-[#ff4500] rounded mb-6">
+              <span className="text-[#ff4500] font-bold text-sm uppercase tracking-wider">Our Story</span>
             </div>
-            <h1 className="text-[clamp(4rem,15vw,14rem)] font-heading font-black leading-[0.85] tracking-tighter mb-8">
-              <span className="block text-white">BUILDING</span>
-              <span className="block text-[#ff4500] neon-text">CHAMPIONS</span>
-            </h1>
-            <p className="text-2xl md:text-3xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-              For over 10 years, we've been transforming lives through elite training, personalized nutrition, and unwavering commitment to excellence.
-            </p>
+             <h1 className="text-6xl md:text-8xl font-heading font-black leading-tight mb-6">
+               <span className="block text-white">Building</span>
+               <span className="block text-[#ff4500] neon-text">Champions</span>
+             </h1>
+             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
+               For over 10 years, we've been transforming lives through elite training, personalized nutrition, and unwavering commitment to excellence.
+             </p>
           </div>
 
           {/* Quick Stats - Hard Shadow Cards */}
@@ -64,7 +71,7 @@ const About = () => {
               { value: '95%', label: 'SUCCESS' },
               { value: '4.9★', label: 'RATING' },
             ].map((stat, idx) => (
-              <div key={idx} className="bg-[#242424] border-4 border-[#ff4500] p-6 text-center transform hover:scale-105 transition-transform">
+              <div key={idx} className="bg-black/60 border-2 border-[#ff4500] p-6 text-center hover:scale-105 transition-transform">
                 <div className="text-5xl font-heading font-black text-[#ff4500] mb-2">{stat.value}</div>
                 <div className="text-xs text-gray-400 uppercase font-bold">{stat.label}</div>
               </div>
@@ -92,14 +99,14 @@ const About = () => {
             </div>
 
             <div className="space-y-8">
-              <div className="bg-[#242424] border-l-8 border-[#ff4500] p-8">
+              <div className="bg-black/40 backdrop-blur-sm border-l-4 border-[#ff4500] p-8">
                 <h3 className="text-4xl font-heading font-black text-white mb-4 uppercase">OUR VISION</h3>
                 <p className="text-xl text-gray-300 leading-relaxed">
                   To become India's most trusted fitness transformation partner, setting the gold standard for personalized training and measurable results.
                 </p>
               </div>
 
-              <div className="bg-[#242424] border-l-8 border-[#ff4500] p-8">
+              <div className="bg-black/40 backdrop-blur-sm border-l-4 border-[#ff4500] p-8">
                 <h3 className="text-4xl font-heading font-black text-white mb-4 uppercase">OUR COMMITMENT</h3>
                 <p className="text-xl text-gray-300 leading-relaxed">
                   Every client deserves individualized attention, science-backed protocols, and a supportive environment that fosters lasting change.
@@ -179,7 +186,7 @@ const About = () => {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[250px]">
-            <div className="md:col-span-2 md:row-span-2 bg-[#242424] border-2 border-gray-700 hover:border-[#ff4500] rounded-2xl p-8 flex flex-col justify-between transition-all group">
+               <div className="md:col-span-2 md:row-span-2 bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-[#ff4500] rounded-2xl p-8 flex flex-col justify-between transition-all group">
               <div>
                 <div className="w-20 h-20 border-4 border-[#ff4500] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <span className="text-5xl">💪</span>
@@ -192,7 +199,7 @@ const About = () => {
               <div className="text-9xl font-heading font-black text-[#ff4500]/10 group-hover:text-[#ff4500]/20 transition-colors">01</div>
             </div>
 
-            <div className="md:col-span-2 bg-[#242424] border-2 border-gray-700 hover:border-[#ff4500] rounded-2xl p-8 flex flex-col justify-between transition-all group">
+             <div className="md:col-span-2 bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-[#ff4500] rounded-2xl p-8 flex flex-col justify-between transition-all group">
               <div>
                 <div className="w-16 h-16 border-4 border-[#ff4500] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <span className="text-4xl">🎯</span>
@@ -204,21 +211,21 @@ const About = () => {
               </div>
             </div>
 
-            <div className="bg-[#242424] border-2 border-gray-700 hover:border-[#ff4500] rounded-2xl p-8 flex items-center justify-center text-center transition-all">
+            <div className="bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-[#ff4500] rounded-2xl p-8 flex items-center justify-center text-center transition-all">
               <div>
                 <div className="text-6xl mb-4">🔥</div>
                 <h3 className="text-2xl font-heading font-black text-white uppercase">PASSION</h3>
               </div>
             </div>
 
-            <div className="bg-[#242424] border-2 border-gray-700 hover:border-[#ff4500] rounded-2xl p-8 flex items-center justify-center text-center transition-all">
+            <div className="bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-[#ff4500] rounded-2xl p-8 flex items-center justify-center text-center transition-all">
               <div>
                 <div className="text-6xl mb-4">🤝</div>
                 <h3 className="text-2xl font-heading font-black text-white uppercase">COMMUNITY</h3>
               </div>
             </div>
 
-            <div className="md:col-span-3 bg-[#242424] border-2 border-gray-700 hover:border-[#ff4500] rounded-2xl p-8 transition-all">
+             <div className="md:col-span-3 bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-[#ff4500] rounded-2xl p-8 transition-all">
               <div className="w-16 h-16 border-4 border-[#ff4500] flex items-center justify-center mb-4">
                 <span className="text-4xl">🚀</span>
               </div>
@@ -228,7 +235,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="bg-[#242424] border-2 border-gray-700 hover:border-[#ff4500] rounded-2xl p-8 flex items-center justify-center text-center transition-all">
+            <div className="bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-[#ff4500] rounded-2xl p-8 flex items-center justify-center text-center transition-all">
               <div>
                 <div className="text-6xl mb-4">💯</div>
                 <h3 className="text-2xl font-heading font-black text-white uppercase">RESULTS</h3>
@@ -299,8 +306,8 @@ const About = () => {
                 img: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?q=80&w=800',
               },
             ].map((member, idx) => (
-              <div key={idx} className="team-card relative group">
-                <div className="bg-[#1a1a1a] border-4 border-gray-700 group-hover:border-[#ff4500] overflow-hidden transition-all">
+               <div key={idx} className="team-card relative group">
+                 <div className="bg-black/40 backdrop-blur-sm border-2 border-gray-800 group-hover:border-[#ff4500] overflow-hidden transition-all">
                   <div className="aspect-[3/4] relative overflow-hidden">
                     <img
                       src={member.img}
@@ -309,23 +316,23 @@ const About = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-3xl font-heading font-black text-white mb-2 uppercase">{member.name}</h3>
-                    <div className="mb-4">
-                      <div className="text-sm text-[#ff4500] font-bold uppercase mb-1">{member.role}</div>
-                      <div className="text-xs text-gray-400">{member.cert}</div>
-                    </div>
-                    <div className="space-y-2 text-gray-300">
-                      <div className="flex justify-between">
-                        <span className="font-bold">Experience:</span>
-                        <span>{member.exp}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="font-bold">Speciality:</span>
-                        <span className="text-right">{member.speciality}</span>
-                      </div>
-                    </div>
-                  </div>
+                   <div className="p-6 bg-black/60">
+                     <h3 className="text-2xl font-heading font-black text-white mb-2">{member.name}</h3>
+                     <div className="mb-3">
+                       <div className="text-xs text-[#ff4500] font-bold uppercase mb-1">{member.role}</div>
+                       <div className="text-xs text-gray-400">{member.cert}</div>
+                     </div>
+                     <div className="space-y-1 text-gray-300 text-sm">
+                       <div className="flex justify-between">
+                         <span className="font-bold">Experience:</span>
+                         <span>{member.exp}</span>
+                       </div>
+                       <div className="flex justify-between">
+                         <span className="font-bold">Speciality:</span>
+                         <span className="text-right text-xs">{member.speciality}</span>
+                       </div>
+                     </div>
+                   </div>
                 </div>
               </div>
             ))}

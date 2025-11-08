@@ -107,25 +107,30 @@ const Testimonials = () => {
   return (
     <div className="pt-20 bg-[#0f0f0f]">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        {/* Radial Gradients */}
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#ff4500] opacity-20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#ff8c00] opacity-15 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        </div>
+       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+         {/* Full Viewport Background */}
+         <div className="absolute inset-0">
+           <img 
+             src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2000" 
+             alt="Gym background"
+             className="w-full h-full object-cover"
+           />
+           <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black"></div>
+           <div className="absolute inset-0 bg-gradient-to-tr from-[#ff4500]/20 via-transparent to-[#ff8c00]/20"></div>
+         </div>
 
         <div className="container-custom relative z-10">
           <div className="testimonials-hero-title text-center">
-            <div className="inline-block px-8 py-3 bg-[#ff4500] mb-8 transform -rotate-1 border-4 border-black">
-              <span className="text-white font-heading font-black text-xl uppercase tracking-widest">SUCCESS STORIES</span>
+            <div className="inline-block px-6 py-2 bg-[#ff4500]/20 border border-[#ff4500] rounded mb-6">
+              <span className="text-[#ff4500] font-bold text-sm uppercase tracking-wider">Success Stories</span>
             </div>
-            <h1 className="text-[clamp(4rem,15vw,14rem)] font-heading font-black leading-[0.85] tracking-tighter mb-8">
-              <span className="block text-white">REAL</span>
-              <span className="block text-[#ff4500] neon-text">TRANSFORMATIONS</span>
-            </h1>
-            <p className="text-2xl md:text-3xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-              500+ clients transformed. Real people. Real results. Real stories.
-            </p>
+             <h1 className="text-6xl md:text-8xl font-heading font-black leading-tight mb-6">
+               <span className="block text-white">Real</span>
+               <span className="block text-[#ff4500] neon-text">Transformations</span>
+             </h1>
+             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
+               500+ clients transformed. Real people. Real results. Real stories.
+             </p>
           </div>
 
           {/* Stats - Hard Shadow Style */}
@@ -174,15 +179,15 @@ const Testimonials = () => {
       {/* Transformations Grid - Before/After Cards */}
       <section className="transformations-grid section-padding bg-[#0f0f0f] min-h-screen">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {filteredTransformations.map((transformation, idx) => (
-              <div
-                key={idx}
-                className="transformation-card relative group bg-[#1a1a1a] border-4 border-gray-700 hover:border-[#ff4500] p-8 transition-all rounded-2xl"
-              >
-                {/* Before/After Images - Split Screen */}
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                    <div className="relative aspect-[3/4] overflow-hidden">
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+             {filteredTransformations.map((transformation, idx) => (
+               <div
+                 key={idx}
+                 className="transformation-card relative group bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-[#ff4500] p-4 transition-all"
+               >
+                 {/* Before/After Images - Split Screen */}
+                 <div className="grid grid-cols-2 gap-2 mb-4">
+                     <div className="relative aspect-[3/4] overflow-hidden">
                       <img
                         src={transformation.before}
                         alt="Before"
@@ -204,41 +209,39 @@ const Testimonials = () => {
                     </div>
                   </div>
 
-                  {/* Info */}
-                  <div className="mb-6">
-                    <h3 className="text-4xl font-heading font-black text-white mb-2 uppercase">
-                      {transformation.name}
-                    </h3>
-                    <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
-                      <span>Age: {transformation.age}</span>
-                      <span>•</span>
-                      <span>{transformation.program}</span>
-                    </div>
-                    <p className="text-xl text-gray-300 italic mb-6 leading-relaxed">
-                      "{transformation.quote}"
-                    </p>
-                  </div>
+                   {/* Info */}
+                   <div className="mb-3">
+                     <h3 className="text-lg font-heading font-black text-white mb-1">
+                       {transformation.name}
+                     </h3>
+                     <div className="flex items-center gap-2 text-xs text-gray-400 mb-2">
+                       <span>Age: {transformation.age}</span>
+                       <span>•</span>
+                       <span className="text-xs">{transformation.program}</span>
+                     </div>
+                     <p className="text-sm text-gray-300 italic mb-3 leading-relaxed line-clamp-2">
+                       "{transformation.quote}"
+                     </p>
+                   </div>
 
                   {/* Results - Bento Grid */}
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="bg-[#242424] border-2 border-[#ff4500] p-4 text-center">
-                      <div className="text-3xl font-heading font-black text-[#ff4500] mb-1">{transformation.lost}</div>
-                      <div className="text-xs text-gray-400 uppercase">FAT LOSS</div>
+                  <div className="grid grid-cols-2 gap-2 mb-3">
+                    <div className="bg-black/60 border border-[#ff4500]/50 p-3 text-center">
+                      <div className="text-2xl font-heading font-black text-[#ff4500] mb-1">{transformation.lost}</div>
+                      <div className="text-xs text-gray-400">Fat Loss</div>
                     </div>
-                    <div className="bg-[#242424] border-2 border-[#ff4500] p-4 text-center">
-                      <div className="text-3xl font-heading font-black text-[#ff4500] mb-1">{transformation.gained}</div>
-                      <div className="text-xs text-gray-400 uppercase">MUSCLE GAIN</div>
+                    <div className="bg-black/60 border border-[#ff4500]/50 p-3 text-center">
+                      <div className="text-2xl font-heading font-black text-[#ff4500] mb-1">{transformation.gained}</div>
+                      <div className="text-xs text-gray-400">Muscle Gain</div>
                     </div>
                   </div>
 
                   {/* Detailed Results */}
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     {transformation.results.map((result, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-[#ff4500] flex items-center justify-center flex-shrink-0">
-                          <span className="text-white text-sm font-bold">✓</span>
-                        </div>
-                        <span className="text-gray-300">{result}</span>
+                      <div key={i} className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-[#ff4500] rounded-full flex-shrink-0"></div>
+                        <span className="text-gray-300 text-xs">{result}</span>
                       </div>
                     ))}
                   </div>

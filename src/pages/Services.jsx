@@ -122,34 +122,34 @@ const Services = () => {
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#ff8c00] opacity-15 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
 
         <div className="container-custom relative z-10">
-          <div className="services-hero-title text-center">
-            <div className="inline-block px-8 py-3 bg-[#ff4500] mb-8 transform -rotate-2 border-4 border-black">
-              <span className="text-white font-heading font-black text-xl uppercase tracking-widest">PROGRAMS</span>
-            </div>
-            <h1 className="text-[clamp(4rem,15vw,14rem)] font-heading font-black leading-[0.85] tracking-tighter mb-8">
-              <span className="block text-white">CHOOSE</span>
-              <span className="block text-[#ff4500] neon-text">YOUR PATH</span>
-            </h1>
-            <p className="text-2xl md:text-4xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-              Elite training programs designed for serious results. From kickstart to complete transformation.
-            </p>
-          </div>
+           <div className="services-hero-title text-center">
+             <div className="inline-block px-6 py-2 bg-[#ff4500]/20 border border-[#ff4500] rounded mb-6">
+               <span className="text-[#ff4500] font-bold text-sm uppercase tracking-wider">Our Programs</span>
+             </div>
+             <h1 className="text-6xl md:text-7xl font-heading font-black leading-tight mb-6">
+               <span className="block text-white">Choose Your</span>
+               <span className="block text-[#ff4500] neon-text">Training Program</span>
+             </h1>
+             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
+               Elite training programs designed for serious results. From kickstart to complete transformation.
+             </p>
+           </div>
 
-          {/* Quick Stats - Hard Shadow Cards */}
-          <div className="grid grid-cols-3 md:grid-cols-5 gap-4 max-w-5xl mx-auto">
-            {[
-              { value: '500+', label: 'CLIENTS' },
-              { value: '95%', label: 'SUCCESS' },
-              { value: '3', label: 'PROGRAMS' },
-              { value: '10Y', label: 'EXPERIENCE' },
-              { value: '4.9★', label: 'RATING' },
-            ].map((stat, idx) => (
-              <div key={idx} className="bg-[#242424] border-4 border-[#ff4500] p-4 text-center transform hover:scale-105 transition-transform">
-                <div className="text-3xl md:text-4xl font-heading font-black text-[#ff4500] mb-1">{stat.value}</div>
-                <div className="text-xs text-gray-400 uppercase font-bold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+           {/* Quick Stats */}
+           <div className="grid grid-cols-3 md:grid-cols-5 gap-3 max-w-4xl mx-auto">
+             {[
+               { value: '500+', label: 'Clients' },
+               { value: '95%', label: 'Success' },
+               { value: '3', label: 'Programs' },
+               { value: '10Y', label: 'Experience' },
+               { value: '4.9★', label: 'Rating' },
+             ].map((stat, idx) => (
+               <div key={idx} className="bg-[#1a1a1a] border-2 border-[#ff4500] p-4 text-center">
+                 <div className="text-3xl font-heading font-black text-[#ff4500] mb-1">{stat.value}</div>
+                 <div className="text-xs text-gray-400 uppercase font-bold">{stat.label}</div>
+               </div>
+             ))}
+           </div>
         </div>
       </section>
 
@@ -159,14 +159,14 @@ const Services = () => {
         <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiLz48L3N2Zz4=')]"></div>
 
         <div className="container-custom relative z-10">
-          <div className="mb-20">
-            <h2 className="text-6xl md:text-9xl font-heading font-black text-white mb-6 uppercase leading-none">
-              OUR <span className="text-[#ff4500]">PROGRAMS</span>
-            </h2>
-            <p className="text-2xl text-gray-300 max-w-3xl">
-              Each program is meticulously designed to deliver maximum results. Choose the one that aligns with your goals.
-            </p>
-          </div>
+           <div className="mb-16 text-center">
+             <h2 className="text-5xl md:text-6xl font-heading font-black text-white mb-4">
+               Our <span className="text-[#ff4500]">Programs</span>
+             </h2>
+             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+               Each program is designed to deliver maximum results based on your goals and commitment level.
+             </p>
+           </div>
 
           {/* Program Cards with Overlapping Layout */}
           <div className="space-y-12">
@@ -176,89 +176,89 @@ const Services = () => {
                 className="program-card relative"
                 style={{ transform: `translateX(${idx * 20}px)` }}
               >
-                {/* Popular Badge */}
-                {program.popular && (
-                  <div className="absolute -top-6 right-8 z-20 px-8 py-3 bg-[#ff4500] border-4 border-black transform rotate-3">
-                    <span className="text-black font-heading font-black text-sm uppercase tracking-wider">⭐ MOST POPULAR</span>
-                  </div>
-                )}
+                 {/* Popular Badge */}
+                 {program.popular && (
+                   <div className="absolute -top-4 right-6 z-20 px-4 py-2 bg-[#ff4500] text-white text-xs font-bold uppercase">
+                     Most Popular
+                   </div>
+                 )}
 
-                <div className={`relative bg-[#242424] border-4 ${program.popular ? 'border-[#ff4500]' : 'border-gray-700'} p-8 md:p-12 hover:scale-[1.02] transition-all`}>
+                 <div className={`relative bg-black/40 backdrop-blur-sm border-2 ${program.popular ? 'border-[#ff4500]' : 'border-gray-800'} p-8 md:p-12 hover:border-[#ff4500] transition-all`}>
                   {/* Gradient Border Effect */}
                   <div className="absolute -inset-1 bg-gradient-to-r from-[#ff4500] via-[#ff8c00] to-[#ff4500] opacity-0 group-hover:opacity-20 blur-xl transition-opacity"></div>
 
                   <div className="relative z-10">
                     <div className="grid md:grid-cols-3 gap-12">
-                      {/* Left: Title & Description */}
-                      <div className="md:col-span-2">
-                        <div className="mb-6">
-                          <div className="text-sm text-[#ff4500] font-bold mb-2 uppercase tracking-widest">{program.tagline}</div>
-                          <h3 className="text-5xl md:text-7xl font-heading font-black text-white mb-4 uppercase leading-none">
-                            {program.title}
-                          </h3>
-                          <p className="text-xl text-gray-300 leading-relaxed mb-6">
-                            {program.description}
-                          </p>
-                        </div>
+                       {/* Left: Title & Description */}
+                       <div className="md:col-span-2">
+                         <div className="mb-6">
+                           <div className="text-sm text-[#ff4500] font-bold mb-2 uppercase">{program.tagline}</div>
+                           <h3 className="text-3xl md:text-4xl font-heading font-black text-white mb-3">
+                             {program.title}
+                           </h3>
+                           <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                             {program.description}
+                           </p>
+                         </div>
 
-                        {/* Features Grid - Bento Style */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                          {program.features.map((feature, i) => (
-                            <div key={i} className="flex items-start gap-3">
-                              <div className="w-6 h-6 bg-[#ff4500] flex items-center justify-center flex-shrink-0 mt-1">
-                                <span className="text-white text-sm font-bold">✓</span>
-                              </div>
-                              <span className="text-gray-200">{feature}</span>
-                            </div>
-                          ))}
-                        </div>
+                         {/* Features List */}
+                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                           {program.features.map((feature, i) => (
+                             <div key={i} className="flex items-start gap-2">
+                               <div className="w-5 h-5 bg-[#ff4500] flex items-center justify-center flex-shrink-0 mt-0.5">
+                                 <span className="text-white text-xs font-bold">✓</span>
+                               </div>
+                               <span className="text-gray-300 text-sm">{feature}</span>
+                             </div>
+                           ))}
+                         </div>
 
-                        {/* Highlights - Outline Style */}
-                        <div className="flex flex-wrap gap-4 mb-8">
+                        {/* Highlights */}
+                        <div className="flex flex-wrap gap-3 mb-6">
                           {program.highlights.map((highlight, i) => (
-                            <div key={i} className="border-2 border-[#ff4500] px-6 py-3">
-                              <div className="text-3xl font-heading font-black text-[#ff4500] mb-1">{highlight.metric}</div>
-                              <div className="text-xs text-gray-400 uppercase">{highlight.label}</div>
+                            <div key={i} className="border-2 border-[#ff4500] px-4 py-2">
+                              <div className="text-2xl font-heading font-black text-[#ff4500] mb-1">{highlight.metric}</div>
+                              <div className="text-xs text-gray-400">{highlight.label}</div>
                             </div>
                           ))}
                         </div>
 
                         <Link
                           to={program.link}
-                          className="inline-block btn-primary text-lg px-12 py-5"
+                          className="inline-block btn-primary text-base px-8 py-3"
                         >
-                          VIEW FULL DETAILS →
+                          View Details
                         </Link>
                       </div>
 
-                      {/* Right: Pricing & Stats */}
-                      <div className="space-y-6">
-                        {/* Price Card - Hard Shadow */}
-                        <div className="bg-[#ff4500] border-4 border-black p-8 text-center transform hover:translate-y-[-4px] transition-transform">
-                          <div className="text-6xl font-heading font-black text-white mb-2">
+                       {/* Right: Pricing & Stats */}
+                      <div className="space-y-4">
+                        {/* Price Card */}
+                        <div className="bg-black/60 border-2 border-[#ff4500] p-6 text-center">
+                          <div className="text-4xl font-heading font-black text-[#ff4500] mb-1">
                             {program.price}
                           </div>
-                          <div className="text-black font-bold text-lg uppercase">{program.duration}</div>
+                          <div className="text-gray-400 text-sm">{program.duration}</div>
                         </div>
 
                         {/* Quick Stats */}
-                        <div className="space-y-3">
-                          <div className="bg-[#1a1a1a] border-2 border-gray-700 p-4 flex justify-between items-center">
-                            <span className="text-gray-400 uppercase text-sm font-bold">Sessions</span>
-                            <span className="text-2xl font-heading font-black text-[#ff4500]">{program.sessions}</span>
+                        <div className="space-y-2">
+                          <div className="bg-[#1a1a1a] border border-gray-700 p-3 flex justify-between items-center">
+                            <span className="text-gray-400 text-xs font-bold">Sessions</span>
+                            <span className="text-xl font-heading font-black text-[#ff4500]">{program.sessions}</span>
                           </div>
-                          <div className="bg-[#1a1a1a] border-2 border-gray-700 p-4 flex justify-between items-center">
-                            <span className="text-gray-400 uppercase text-sm font-bold">Duration</span>
-                            <span className="text-2xl font-heading font-black text-[#ff4500]">{program.duration}</span>
+                          <div className="bg-[#1a1a1a] border border-gray-700 p-3 flex justify-between items-center">
+                            <span className="text-gray-400 text-xs font-bold">Duration</span>
+                            <span className="text-xl font-heading font-black text-[#ff4500]">{program.duration}</span>
                           </div>
                         </div>
 
                         {/* CTA */}
                         <Link
                           to="/contact"
-                          className="block text-center btn-secondary py-5"
+                          className="block text-center btn-secondary text-sm py-3"
                         >
-                          BOOK CONSULTATION
+                          Book Consultation
                         </Link>
                       </div>
                     </div>
@@ -283,7 +283,7 @@ const Services = () => {
                 <tr className="border-b-4 border-[#ff4500]">
                   <th className="text-left p-8 text-2xl font-heading font-black text-white uppercase bg-[#1a1a1a]">FEATURES</th>
                   <th className="text-center p-8 text-2xl font-heading font-black text-white uppercase bg-[#1a1a1a]">4-WEEK</th>
-                  <th className="text-center p-8 text-2xl font-heading font-black text-white uppercase bg-[#242424] border-x-4 border-[#ff4500]">8-WEEK ⭐</th>
+                  <th className="text-center p-8 text-2xl font-heading font-black text-white uppercase bg-black/60 border-x-4 border-[#ff4500]">8-WEEK</th>
                   <th className="text-center p-8 text-2xl font-heading font-black text-white uppercase bg-[#1a1a1a]">NUTRITION</th>
                 </tr>
               </thead>

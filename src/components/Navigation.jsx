@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -16,10 +17,16 @@ const Navigation = () => {
 
   const navLinks = [
     { name: 'HOME', path: '/' },
-    { name: 'SERVICES', path: '/services' },
     { name: 'ABOUT', path: '/about' },
     { name: 'TESTIMONIALS', path: '/testimonials' },
+    { name: 'FAQ', path: '/faq' },
     { name: 'CONTACT', path: '/contact' },
+  ];
+
+  const serviceLinks = [
+    { name: '4-Week Transformation', path: '/services/4-week-transformation' },
+    { name: '8-Week Transformation', path: '/services/8-week-transformation' },
+    { name: 'Nutrition Coaching', path: '/services/nutrition-plan' },
   ];
 
   return (
@@ -53,6 +60,52 @@ const Navigation = () => {
                 )}
               </Link>
             ))}
+            
+            {/* Services Dropdown */}
+            <div 
+              className="relative group"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              <Link
+                to="/services"
+                className={`relative px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all inline-flex items-center gap-2 ${
+                  location.pathname.startsWith('/services')
+                    ? 'text-[#ff4500]'
+                    : 'text-gray-300 hover:text-white'
+                }`}
+              >
+                SERVICES
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                {location.pathname.startsWith('/services') && (
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 bg-[#ff4500]"></div>
+                )}
+              </Link>
+              
+              {/* Dropdown Menu */}
+              {servicesOpen && (
+                <div className="absolute top-full left-0 mt-2 w-64 bg-[#1a1a1a] border-2 border-gray-700 shadow-xl">
+                  {serviceLinks.map((link) => (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      className="block px-6 py-4 text-sm font-bold text-gray-300 hover:text-white hover:bg-[#242424] border-b border-gray-800 last:border-b-0 transition-all"
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                  <Link
+                    to="/services"
+                    className="block px-6 py-4 text-sm font-bold text-[#ff4500] hover:bg-[#242424] transition-all"
+                  >
+                    View All Programs →
+                  </Link>
+                </div>
+              )}
+            </div>
+            
             <Link to="/contact" className="ml-4 btn-primary text-sm px-8 py-3">
               START NOW
             </Link>
@@ -93,6 +146,29 @@ const Navigation = () => {
                   {link.name}
                 </Link>
               ))}
+              
+              {/* Mobile Services Section */}
+              <div className="border-t border-gray-700 mt-2 pt-2">
+                <div className="px-6 py-3 text-xs text-gray-500 font-bold uppercase">Services</div>
+                {serviceLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block px-6 py-3 text-sm font-bold text-gray-300 hover:text-white hover:bg-[#242424]"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+                <Link
+                  to="/services"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-6 py-3 text-sm font-bold text-[#ff4500] hover:bg-[#242424]"
+                >
+                  View All Programs →
+                </Link>
+              </div>
+              
               <div className="px-6 pt-4">
                 <Link
                   to="/contact"

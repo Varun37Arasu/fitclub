@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import About from './pages/About';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
+import FAQ from './pages/FAQ';
 import FourWeekTransformation from './pages/programs/FourWeekTransformation';
 import EightWeekTransformation from './pages/programs/EightWeekTransformation';
 import NutritionPlan from './pages/programs/NutritionPlan';
@@ -26,6 +27,7 @@ function App() {
             <Route path="/services/nutrition-plan" element={<NutritionPlan />} />
             <Route path="/about" element={<About />} />
             <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

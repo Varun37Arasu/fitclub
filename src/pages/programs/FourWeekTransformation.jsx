@@ -26,32 +26,37 @@ const FourWeekTransformation = () => {
 
   return (
     <div className="pt-20 bg-[#0f0f0f]">
-      {/* Hero Section with Blob Shape */}
+      {/* Hero Section with Full Viewport Background */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated Blob Background */}
+        {/* Full Viewport Background */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-[600px] h-[600px] bg-[#ff4500] opacity-20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#ff8c00] opacity-15 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          <img 
+            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000" 
+            alt="Gym background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#ff4500]/20 via-transparent to-[#ff8c00]/20"></div>
         </div>
 
         <div className="container-custom relative z-10">
           <div className="program-hero-title text-center">
-            <div className="inline-block px-8 py-3 bg-[#ff4500] mb-8 transform -rotate-1">
-              <span className="text-white font-heading font-black text-lg uppercase tracking-widest">4 WEEKS</span>
+            <div className="inline-block px-6 py-2 bg-[#ff4500]/20 border border-[#ff4500] rounded mb-6">
+              <span className="text-[#ff4500] font-bold text-sm uppercase tracking-wider">4 Weeks</span>
             </div>
-            <h1 className="text-[clamp(4rem,12vw,10rem)] font-heading font-black leading-[0.9] tracking-tighter mb-8">
-              <span className="block text-white">KICKSTART</span>
-              <span className="block text-[#ff4500] neon-text">TRANSFORMATION</span>
+            <h1 className="text-6xl md:text-8xl font-heading font-black leading-tight mb-6">
+              <span className="block text-white">Kickstart</span>
+              <span className="block text-[#ff4500] neon-text">Transformation</span>
             </h1>
-            <p className="text-2xl md:text-3xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
               Ignite your fitness journey with our intensive 4-week program designed to build momentum and create lasting habits.
             </p>
             <div className="flex flex-wrap gap-6 justify-center">
-              <Link to="/contact" className="btn-primary text-xl px-12 py-6">
-                START NOW → ₹24,999
+              <Link to="/contact" className="btn-primary text-lg px-12 py-4">
+                Start Now - ₹24,999
               </Link>
-              <a href="#details" className="btn-secondary text-xl px-12 py-6">
-                VIEW DETAILS
+              <a href="#details" className="btn-secondary text-lg px-12 py-4">
+                View Details
               </a>
             </div>
           </div>
@@ -65,7 +70,7 @@ const FourWeekTransformation = () => {
               { label: 'DURATION', value: '4W' },
               { label: 'INTENSITY', value: 'HIGH' },
             ].map((stat, idx) => (
-              <div key={idx} className="bg-[#242424] border-4 border-[#ff4500] p-6 text-center transform hover:translate-y-[-4px] transition-transform">
+              <div key={idx} className="bg-black/60 border-2 border-[#ff4500] p-6 text-center hover:scale-105 transition-transform">
                 <div className="text-5xl font-heading font-black text-[#ff4500] mb-2">{stat.value}</div>
                 <div className="text-sm text-gray-400 uppercase font-bold">{stat.label}</div>
               </div>
