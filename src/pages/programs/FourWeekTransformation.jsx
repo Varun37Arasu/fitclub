@@ -2,13 +2,15 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { fourWeekData } from '../../data/programs';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FourWeekTransformation = () => {
   useEffect(() => {
+    const ctx = gsap.context(() => {
     gsap.from('.program-hero-title', {
-      y: 50,
+      y: 150,
       duration: 0.8,
       ease: 'power4.out',
     });
@@ -22,110 +24,87 @@ const FourWeekTransformation = () => {
         start: 'top 80%',
       },
     });
+  })
+  return () => ctx.revert();
+
   }, []);
 
   return (
     <div className="pt-20 bg-[#0f0f0f]">
       {/* Hero Section with Full Viewport Background */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Full Viewport Background */}
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000" 
-            alt="Gym background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black"></div>
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#ff4500]/20 via-transparent to-[#ff8c00]/20"></div>
-        </div>
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden  pb-16">
+         {/* Full Viewport Background */}
+         <div className="absolute inset-0 ">
+           <img 
+             src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000" 
+             alt="Gym background"
+             className="w-full h-full object-cover"
+           />
+           <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black"></div>
+           <div className="absolute inset-0 bg-gradient-to-tr from-[#ff4500]/20 via-transparent to-[#ff8c00]/20"></div>
+         </div>
 
-        <div className="container-custom relative z-10">
-          <div className="program-hero-title text-center">
-            <div className="inline-block px-6 py-2 bg-[#ff4500]/20 border border-[#ff4500] rounded mb-6">
-              <span className="text-[#ff4500] font-bold text-sm uppercase tracking-wider">4 Weeks</span>
-            </div>
-            <h1 className="text-6xl md:text-8xl font-heading font-black leading-tight mb-6">
-              <span className="block text-white">Kickstart</span>
-              <span className="block text-[#ff4500] neon-text">Transformation</span>
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Ignite your fitness journey with our intensive 4-week program designed to build momentum and create lasting habits.
-            </p>
-            <div className="flex flex-wrap gap-6 justify-center">
-              <Link to="/contact" className="btn-primary text-lg px-12 py-4">
-                Start Now - ₹24,999
-              </Link>
-              <a href="#details" className="btn-secondary text-lg px-12 py-4">
-                View Details
-              </a>
-            </div>
-          </div>
-        </div>
+         <div className="container-custom relative z-10 px-4 flex-1 flex items-center justify-center">
+           <div className="program-hero-title text-center max-w-full w-full">
+             <div className="inline-block px-4 py-2 md:px-6 md:py-2 bg-[#ff4500]/20 border border-[#ff4500] rounded mb-4 md:mb-6">
+               <span className="text-[#ff4500] font-bold text-xs md:text-sm uppercase tracking-wider">{fourWeekData.hero.badge}</span>
+             </div>
+             <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-black leading-tight mb-4 md:mb-6 break-words px-2">
+               <span className="block text-white">{fourWeekData.hero.title.split('-')[0].trim()}</span>
+               <span className="block text-[#ff4500] neon-text">{fourWeekData.hero.title.split('-')[1].trim()}</span>
+             </h1>
+             <p className="text-base md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2">
+               {fourWeekData.hero.description}
+             </p>
+             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center w-full sm:w-auto px-4">
+               <Link to="/contact" className="btn-primary text-sm md:text-lg px-8 md:px-12 py-3 md:py-4 text-center w-full sm:w-auto">
+                 Start Now - {fourWeekData.hero.price}
+               </Link>
+               <a href="#details" className="btn-secondary text-sm md:text-lg px-8 md:px-12 py-3 md:py-4 text-center w-full sm:w-auto">
+                 View Details
+               </a>
+             </div>
+           </div>
+         </div>
 
-        {/* Hard Shadow Stats */}
-        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-full max-w-4xl px-6">
-          <div className="grid grid-cols-3 gap-6">
-            {[
-              { label: 'SESSIONS', value: '16' },
-              { label: 'DURATION', value: '4W' },
-              { label: 'INTENSITY', value: 'HIGH' },
-            ].map((stat, idx) => (
-              <div key={idx} className="bg-black/60 border-2 border-[#ff4500] p-6 text-center hover:scale-105 transition-transform">
-                <div className="text-5xl font-heading font-black text-[#ff4500] mb-2">{stat.value}</div>
-                <div className="text-sm text-gray-400 uppercase font-bold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+         {/* Stats */}
+         <div className="w-full px-4 mt-8 absolute bottom-24 md:left-1/2 md:-translate-x-1/2 max-w-4xl z-10">
+           <div className="grid grid-cols-3 gap-3 md:gap-6">
+             {fourWeekData.stats.map((stat, idx) => (
+               <div key={idx} className="bg-black/60 border-2 border-[#ff4500] p-3 md:p-6 text-center hover:scale-105 transition-transform">
+                 <div className="text-3xl md:text-5xl font-heading font-black text-[#ff4500] mb-1 md:mb-2">{stat.value}</div>
+                 <div className="text-xs text-gray-400 font-bold break-words">{stat.label}</div>
+               </div>
+             ))}
+           </div>
+         </div>
+       </section>
 
       {/* What's Included - Bento Grid */}
       <section id="details" className="features-section section-padding bg-[#1a1a1a]">
-        <div className="container-custom">
-          <h2 className="text-6xl md:text-8xl font-heading font-black text-white mb-16 uppercase">
+        <div className="container-custom px-4">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-white mb-8 md:mb-12 text-center break-words">
             WHAT'S <span className="text-[#ff4500]">INCLUDED</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                title: '16 TRAINING SESSIONS',
-                description: '4 sessions per week with certified personal trainer',
-                icon: '🔥',
-                size: 'md:col-span-2',
-              },
-              {
-                title: 'CUSTOM WORKOUT PLAN',
-                description: 'Tailored to your goals and fitness level',
-                icon: '💪',
-                size: '',
-              },
-              {
-                title: 'NUTRITION GUIDELINES',
-                description: 'Basic meal planning and macro guidance',
-                icon: '🥗',
-                size: '',
-              },
-              {
-                title: 'WEEKLY CHECK-INS',
-                description: 'Progress tracking and plan adjustments',
-                icon: '📊',
-                size: 'md:col-span-2',
-              },
-              {
-                title: 'WHATSAPP SUPPORT',
-                description: 'Direct access to your coach during business hours',
-                icon: '💬',
-                size: 'md:col-span-3',
-              },
-            ].map((feature, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+            {fourWeekData.included.map((feature, idx) => (
               <div
                 key={idx}
-                className={`program-feature ${feature.size} bg-[#242424] border-2 border-gray-700 hover:border-[#ff4500] rounded-2xl p-8 transition-all group`}
+                className={`program-feature ${idx === 0 || idx === 4 ? 'md:col-span-2' : ''} bg-black/40 backdrop-blur-sm border-2 border-gray-700 hover:border-[#ff4500] rounded-xl md:rounded-2xl p-4 md:p-6 transition-all group relative overflow-hidden min-h-[160px] md:min-h-[200px]`}
               >
-                <div className="text-6xl mb-4">{feature.icon}</div>
-                <h3 className="text-3xl font-heading font-black text-white mb-4 uppercase">{feature.title}</h3>
-                <p className="text-lg text-gray-300 leading-relaxed">{feature.description}</p>
+                <div className="absolute top-4 right-4 text-6xl md:text-8xl font-heading font-black text-[#ff4500]/10 group-hover:text-[#ff4500]/20 transition-colors">
+                  {feature.num}
+                </div>
+                <div className="relative z-10 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="w-12 h-12 md:w-16 md:h-16 border-3 border-[#ff4500] flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                      <span className="text-xl md:text-2xl font-heading font-black text-[#ff4500]">{feature.num}</span>
+                    </div>
+                    <h3 className="text-base md:text-2xl lg:text-3xl font-heading font-black text-white mb-2 md:mb-3 break-words leading-tight">{feature.title}</h3>
+                    <p className="text-xs md:text-base text-gray-300 leading-relaxed break-words">{feature.description}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -134,30 +113,24 @@ const FourWeekTransformation = () => {
 
       {/* Training Schedule - Card Stack */}
       <section className="section-padding bg-[#0f0f0f] relative overflow-hidden">
-        <div className="container-custom">
-          <h2 className="text-6xl md:text-8xl font-heading font-black text-white mb-16 uppercase">
+        <div className="container-custom px-4">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-white mb-8 md:mb-12 text-center break-words">
             WEEKLY <span className="text-[#ff4500]">SCHEDULE</span>
           </h2>
 
-          <div className="space-y-6 max-w-4xl">
-            {[
-              { day: 'MONDAY', focus: 'Upper Body Strength', intensity: 'High' },
-              { day: 'WEDNESDAY', focus: 'Lower Body Power', intensity: 'High' },
-              { day: 'FRIDAY', focus: 'Full Body Conditioning', intensity: 'Medium' },
-              { day: 'SATURDAY', focus: 'Core & Mobility', intensity: 'Low-Medium' },
-            ].map((session, idx) => (
+          <div className="space-y-3 md:space-y-4 max-w-3xl mx-auto">
+            {fourWeekData.schedule.map((session, idx) => (
               <div
                 key={idx}
-                className="bg-[#1a1a1a] border-l-8 border-[#ff4500] p-8 hover:translate-x-4 transition-transform"
-                style={{ transform: `translateY(${idx * -10}px)` }}
+                className="bg-[#1a1a1a] border-l-4 md:border-l-6 border-[#ff4500] p-4 md:p-6 hover:translate-x-2 md:hover:translate-x-4 transition-transform"
               >
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <div>
-                    <div className="text-sm text-[#ff4500] font-bold mb-2">{session.day}</div>
-                    <h3 className="text-3xl font-heading font-black text-white uppercase">{session.focus}</h3>
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs text-[#ff4500] font-bold mb-1">{session.day}</div>
+                    <h3 className="text-lg md:text-2xl lg:text-3xl font-heading font-black text-white break-words leading-tight">{session.focus}</h3>
                   </div>
-                  <div className="px-6 py-3 bg-[#ff4500] border-4 border-black">
-                    <span className="font-heading font-black text-black uppercase text-sm">{session.intensity}</span>
+                  <div className="px-3 py-2 md:px-4 md:py-2 bg-[#ff4500] border-2 md:border-3 border-black self-start">
+                    <span className="font-heading font-black text-black text-xs md:text-sm">{session.intensity}</span>
                   </div>
                 </div>
               </div>
@@ -168,26 +141,21 @@ const FourWeekTransformation = () => {
 
       {/* Expected Results - Split Screen */}
       <section className="section-padding bg-[#1a1a1a]">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="container-custom px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center max-w-5xl mx-auto">
             <div>
-              <h2 className="text-6xl md:text-8xl font-heading font-black text-white mb-8 uppercase leading-tight">
+              <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-white mb-4 md:mb-8 leading-tight break-words">
                 EXPECTED <span className="text-[#ff4500]">RESULTS</span>
               </h2>
-              <div className="space-y-6">
-                {[
-                  { metric: '5-10 LBS', label: 'Fat Loss Potential' },
-                  { metric: '15-20%', label: 'Strength Increase' },
-                  { metric: '100%', label: 'Habit Formation' },
-                  { metric: 'UNLIMITED', label: 'Confidence Boost' },
-                ].map((result, idx) => (
-                  <div key={idx} className="flex items-center gap-6">
-                    <div className="w-24 h-24 bg-[#ff4500] flex items-center justify-center transform -rotate-3">
-                      <span className="text-3xl font-heading font-black text-white">{String(idx + 1).padStart(2, '0')}</span>
+              <div className="space-y-3 md:space-y-4">
+                {fourWeekData.expectedResults.map((result, idx) => (
+                  <div key={idx} className="flex items-center gap-3 md:gap-4">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-[#ff4500] flex items-center justify-center flex-shrink-0">
+                      <span className="text-lg md:text-2xl font-heading font-black text-white">{String(idx + 1).padStart(2, '0')}</span>
                     </div>
-                    <div>
-                      <div className="text-4xl font-heading font-black text-[#ff4500] mb-1">{result.metric}</div>
-                      <div className="text-lg text-gray-300 uppercase">{result.label}</div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xl md:text-3xl lg:text-4xl font-heading font-black text-[#ff4500] mb-0.5 md:mb-1 break-words leading-tight">{result.metric}</div>
+                      <div className="text-xs md:text-sm text-gray-300 break-words">{result.label}</div>
                     </div>
                   </div>
                 ))}
@@ -195,14 +163,14 @@ const FourWeekTransformation = () => {
             </div>
 
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-[#ff4500] to-[#ff8c00] rounded-3xl p-8 relative overflow-hidden">
+              <div className="aspect-square bg-gradient-to-br from-[#ff4500] to-[#ff8c00] rounded-xl md:rounded-2xl p-3 md:p-6 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800')] bg-cover bg-center opacity-30"></div>
                 <div className="relative z-10 h-full flex items-end">
-                  <div className="bg-black/70 backdrop-blur-xl p-8 rounded-2xl">
-                    <p className="text-2xl font-heading font-black text-white uppercase leading-tight">
-                      "Lost 8 lbs and gained serious strength in just 4 weeks!"
+                  <div className="bg-black/70 backdrop-blur-xl p-4 md:p-6 rounded-lg md:rounded-xl">
+                    <p className="text-sm md:text-lg lg:text-xl font-heading font-black text-white leading-tight break-words">
+                      "{fourWeekData.testimonial.quote}"
                     </p>
-                    <p className="text-gray-300 mt-4">— Raj M., Mumbai</p>
+                    <p className="text-xs md:text-sm text-gray-300 mt-2 md:mt-3 break-words">— {fourWeekData.testimonial.author}</p>
                   </div>
                 </div>
               </div>
@@ -221,18 +189,21 @@ const FourWeekTransformation = () => {
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-6xl md:text-8xl font-heading font-black text-white mb-8 uppercase leading-tight">
-              READY TO <span className="text-[#ff4500]">START?</span>
+              {fourWeekData.cta.heading.split(' ').slice(0, 2).join(' ')} <span className="text-[#ff4500]">{fourWeekData.cta.heading.split(' ').slice(2).join(' ')}</span>
             </h2>
             <p className="text-2xl text-gray-300 mb-12">
-              Book your free consultation now and let's build your transformation plan together.
+              {fourWeekData.cta.description}
             </p>
             <div className="flex flex-wrap gap-6 justify-center">
-              <Link to="/contact" className="btn-primary text-2xl px-16 py-8">
-                BOOK FREE CONSULTATION
-              </Link>
-              <Link to="/services" className="btn-secondary text-2xl px-16 py-8">
-                VIEW ALL PROGRAMS
-              </Link>
+              {fourWeekData.cta.buttons.map((button, idx) => (
+                <Link 
+                  key={idx}
+                  to={button.link} 
+                  className={button.primary ? 'btn-primary text-2xl px-16 py-8' : 'btn-secondary text-2xl px-16 py-8'}
+                >
+                  {button.text}
+                </Link>
+              ))}
             </div>
           </div>
         </div>

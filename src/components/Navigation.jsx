@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { logoData, navLinks, serviceLinks, ctaButton } from '../data/navigation';
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,19 +16,7 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'HOME', path: '/' },
-    { name: 'ABOUT', path: '/about' },
-    { name: 'TESTIMONIALS', path: '/testimonials' },
-    { name: 'FAQ', path: '/faq' },
-    { name: 'CONTACT', path: '/contact' },
-  ];
-
-  const serviceLinks = [
-    { name: '4-Week Transformation', path: '/services/4-week-transformation' },
-    { name: '8-Week Transformation', path: '/services/8-week-transformation' },
-    { name: 'Nutrition Coaching', path: '/services/nutrition-plan' },
-  ];
+  const logoPrefix = logoData.text.replace(logoData.highlight, '');
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -38,7 +27,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="relative group">
             <span className="text-2xl md:text-3xl font-heading font-black text-white uppercase tracking-tight hover:text-[#ff4500] transition-colors">
-              FIT<span className="text-[#ff4500]">CLUB</span>
+              {logoPrefix}<span className="text-[#ff4500]">{logoData.highlight}</span>
             </span>
           </Link>
 
@@ -84,30 +73,36 @@ const Navigation = () => {
                 )}
               </Link>
               
-              {/* Dropdown Menu */}
-              {servicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-[#1a1a1a] border-2 border-gray-700 shadow-xl">
-                  {serviceLinks.map((link) => (
-                    <Link
-                      key={link.path}
-                      to={link.path}
-                      className="block px-6 py-4 text-sm font-bold text-gray-300 hover:text-white hover:bg-[#242424] border-b border-gray-800 last:border-b-0 transition-all"
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
+              {/* Dropdown Menu - Stays open when hovering */}
+              <div 
+                className={`absolute top-full left-0 mt-2 w-64 bg-[#1a1a1a] border-2 border-gray-700 shadow-xl z-50 transition-all duration-200 ${
+                  servicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                }`}
+                onMouseEnter={() => setServicesOpen(true)}
+                onMouseLeave={() => setServicesOpen(false)}
+              >
+                {serviceLinks.map((link) => (
                   <Link
-                    to="/services"
-                    className="block px-6 py-4 text-sm font-bold text-[#ff4500] hover:bg-[#242424] transition-all"
+                    key={link.path}
+                    to={link.path}
+                    className="block px-6 py-4 text-sm font-bold text-gray-300 hover:text-white hover:bg-[#242424] border-b border-gray-800 last:border-b-0 transition-all"
+                    onClick={() => setServicesOpen(false)}
                   >
-                    View All Programs →
+                    {link.name}
                   </Link>
-                </div>
-              )}
+                ))}
+                <Link
+                  to="/services"
+                  className="block px-6 py-4 text-sm font-bold text-[#ff4500] hover:bg-[#242424] transition-all"
+                  onClick={() => setServicesOpen(false)}
+                >
+                  View All Programs →
+                </Link>
+              </div>
             </div>
             
-            <Link to="/contact" className="ml-4 btn-primary text-sm px-8 py-3">
-              START NOW
+            <Link to={ctaButton.path} className="ml-4 btn-primary text-sm px-8 py-3">
+              {ctaButton.text}
             </Link>
           </div>
 
@@ -171,11 +166,11 @@ const Navigation = () => {
               
               <div className="px-6 pt-4">
                 <Link
-                  to="/contact"
+                  to={ctaButton.path}
                   onClick={() => setMobileMenuOpen(false)}
                   className="btn-primary w-full text-center block text-sm"
                 >
-                  START NOW
+                  {ctaButton.text}
                 </Link>
               </div>
             </div>

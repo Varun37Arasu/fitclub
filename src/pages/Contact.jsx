@@ -1,5 +1,14 @@
 import { useState, useEffect } from 'react';
 import gsap from 'gsap';
+import {
+  heroData,
+  formSectionData,
+  formGoalsData,
+  contactInfoData,
+  mapData,
+  faqData,
+  ctaData,
+} from '../data/contact';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +21,7 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
+    const ctx = gsap.context(() => {
     gsap.from('.contact-hero-title', {
       y: 50,
       duration: 0.8,
@@ -24,6 +34,9 @@ const Contact = () => {
       duration: 0.6,
       delay: 0.2,
     });
+  })
+
+  return () => ctx.revert();
   }, []);
 
   const handleSubmit = (e) => {
@@ -44,7 +57,7 @@ const Contact = () => {
          {/* Full Viewport Background */}
          <div className="absolute inset-0">
            <img 
-             src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000" 
+             src={heroData.backgroundImage}
              alt="Gym background"
              className="w-full h-full object-cover"
            />
@@ -52,17 +65,17 @@ const Contact = () => {
            <div className="absolute inset-0 bg-gradient-to-tr from-[#ff4500]/20 via-transparent to-[#ff8c00]/20"></div>
          </div>
 
-        <div className="container-custom relative z-10">
-          <div className="contact-hero-title text-center">
-            <div className="inline-block px-6 py-2 bg-[#ff4500]/20 border border-[#ff4500] rounded mb-6">
-              <span className="text-[#ff4500] font-bold text-sm uppercase tracking-wider">Get In Touch</span>
+        <div className="container-custom relative z-10 px-4">
+          <div className="contact-hero-title text-center max-w-full">
+            <div className="inline-block px-4 py-2 md:px-6 md:py-2 bg-[#ff4500]/20 border border-[#ff4500] rounded mb-4 md:mb-6">
+              <span className="text-[#ff4500] font-bold text-xs md:text-sm tracking-wider break-words">{heroData.badge}</span>
             </div>
-             <h1 className="text-6xl md:text-8xl font-heading font-black leading-tight mb-6">
-               <span className="block text-white">Start Your</span>
-               <span className="block text-[#ff4500] neon-text">Journey</span>
+             <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-black leading-tight mb-4 md:mb-6 break-words px-2">
+               <span className="block text-white">{heroData.title.line1}</span>
+               <span className="block text-[#ff4500] neon-text">{heroData.title.line2}</span>
              </h1>
-             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-               Book your free consultation now. Let's discuss your goals and create your personalized transformation plan.
+             <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2">
+               {heroData.description}
              </p>
           </div>
         </div>
@@ -80,25 +93,25 @@ const Contact = () => {
                <div className="relative bg-black/60 backdrop-blur-xl border-2 border-gray-800 p-8">
                  <div className="mb-6">
                    <h2 className="text-3xl font-heading font-black text-white mb-2">
-                     Book Your Free<br />
-                     <span className="text-[#ff4500]">Consultation</span>
+                     {formSectionData.heading.line1}<br />
+                     <span className="text-[#ff4500]">{formSectionData.heading.line2}</span>
                    </h2>
                    <p className="text-base text-gray-300">
-                     Fill out the form below and we'll get back to you within 24 hours.
+                     {formSectionData.subheading}
                    </p>
                  </div>
 
               {submitted && (
                 <div className="mb-8 bg-[#ff4500] border-4 border-black p-6 transform -rotate-1 animate-bounce">
                   <p className="text-black font-heading font-black text-xl uppercase text-center">
-                    ✓ MESSAGE SENT! WE'LL CONTACT YOU SOON.
+                    {formSectionData.successMessage}
                   </p>
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-gray-300 font-bold mb-3 uppercase text-sm tracking-wider">
+                  <label className="block text-gray-300 font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
                     FULL NAME *
                   </label>
                   <input
@@ -114,7 +127,7 @@ const Contact = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-gray-300 font-bold mb-3 uppercase text-sm tracking-wider">
+                    <label className="block text-gray-300 font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
                       EMAIL *
                     </label>
                     <input
@@ -129,7 +142,7 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label className="block text-gray-300 font-bold mb-3 uppercase text-sm tracking-wider">
+                    <label className="block text-gray-300 font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
                       PHONE *
                     </label>
                     <input
@@ -145,7 +158,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 font-bold mb-3 uppercase text-sm tracking-wider">
+                  <label className="block text-gray-300 font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
                     FITNESS GOAL *
                   </label>
                   <select
@@ -155,18 +168,14 @@ const Contact = () => {
                     required
                       className="w-full bg-black/60 border-2 border-gray-800 focus:border-[#ff4500] px-6 py-4 text-white transition-all outline-none cursor-pointer"
                   >
-                    <option value="">Select your goal...</option>
-                    <option value="weight-loss">Weight Loss</option>
-                    <option value="muscle-gain">Muscle Gain</option>
-                    <option value="transformation">Complete Transformation</option>
-                    <option value="strength">Strength Training</option>
-                    <option value="nutrition">Nutrition Coaching Only</option>
-                    <option value="other">Other</option>
+                    {formGoalsData.map((goal, idx) => (
+                      <option key={idx} value={goal.value}>{goal.label}</option>
+                    ))}
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 font-bold mb-3 uppercase text-sm tracking-wider">
+                  <label className="block text-gray-300 font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
                     MESSAGE
                   </label>
                   <textarea
@@ -183,7 +192,7 @@ const Contact = () => {
                   type="submit"
                   className="btn-primary w-full text-xl py-6 uppercase tracking-wider"
                 >
-                  BOOK FREE CONSULTATION →
+                  {formSectionData.submitButtonText}
                 </button>
               </form>
                </div>
@@ -194,31 +203,10 @@ const Contact = () => {
                {/* Contact Cards */}
                <div className="contact-card space-y-4">
                  <h3 className="text-2xl font-heading font-black text-white mb-6">
-                   Contact <span className="text-[#ff4500]">Info</span>
+                   {contactInfoData.heading.split(' ')[0]} <span className="text-[#ff4500]">{contactInfoData.heading.split(' ')[1]}</span>
                  </h3>
 
-                {[
-                  {
-                    icon: '📍',
-                    title: 'LOCATION',
-                    info: ['FitClub Gym', 'Bandra West, Mumbai', 'Maharashtra 400050, India'],
-                  },
-                  {
-                    icon: '📧',
-                    title: 'EMAIL',
-                    info: ['contact@fitclub.com', 'transformations@fitclub.com'],
-                  },
-                  {
-                    icon: '📱',
-                    title: 'PHONE',
-                    info: ['+91 98765 43210', '+91 98765 43211'],
-                  },
-                  {
-                    icon: '⏰',
-                    title: 'HOURS',
-                    info: ['Mon-Sat: 6:00 AM - 10:00 PM', 'Sunday: 8:00 AM - 6:00 PM'],
-                  },
-                 ].map((item, idx) => (
+                {contactInfoData.cards.map((item, idx) => (
                    <div
                      key={idx}
                      className="bg-black/40 backdrop-blur-sm border border-gray-800 hover:border-[#ff4500] p-4 transition-all"
@@ -236,12 +224,12 @@ const Contact = () => {
                {/* Google Maps Embed */}
                <div className="contact-card">
                  <h3 className="text-xl font-heading font-black text-white mb-4">
-                   Visit <span className="text-[#ff4500]">Us</span>
+                   {mapData.heading.split(' ')[0]} <span className="text-[#ff4500]">{mapData.heading.split(' ')[1]}</span>
                  </h3>
                  <div className="relative h-[300px] bg-black/40 border-2 border-gray-800 overflow-hidden">
                   {/* Google Maps iframe */}
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30162.267647!2d72.8261!3d19.0596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c943c92b6e2b%3A0x5a6d1b8f9a77c4d0!2sBandra%20West%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1234567890"
+                    src={mapData.embedUrl}
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -254,12 +242,12 @@ const Contact = () => {
                   {/* Overlay on hover */}
                  </div>
                  <a
-                   href="https://maps.google.com/?q=Bandra+West+Mumbai"
+                   href={mapData.directionsLink}
                    target="_blank"
                    rel="noopener noreferrer"
                    className="mt-3 inline-block text-[#ff4500] hover:text-white text-sm font-bold transition-colors"
                  >
-                   Get Directions →
+                   {mapData.directionsText}
                  </a>
                </div>
             </div>
@@ -268,35 +256,14 @@ const Contact = () => {
       </section>
 
        {/* FAQ Section - Move to separate page or simplify */}
-       <section className="section-padding bg-[#1a1a1a]">
+       {/* <section className="section-padding bg-[#1a1a1a]">
          <div className="container-custom">
            <h2 className="text-4xl md:text-5xl font-heading font-black text-white mb-12 text-center">
-             Frequently Asked <span className="text-[#ff4500]">Questions</span>
+             {faqData.heading.split(' ').slice(0, 2).join(' ')} <span className="text-[#ff4500]">{faqData.heading.split(' ').slice(2).join(' ')}</span>
            </h2>
 
            <div className="max-w-4xl mx-auto space-y-4">
-            {[
-              {
-                q: 'What should I bring to my first consultation?',
-                a: 'Just bring yourself and any medical history or injury information. We\'ll discuss your goals, assess your current fitness level, and create a personalized plan.',
-              },
-              {
-                q: 'Do you offer trial sessions?',
-                a: 'Yes! Your first consultation is completely free. We\'ll walk you through our facility, introduce you to our trainers, and answer all your questions.',
-              },
-              {
-                q: 'What if I\'m a complete beginner?',
-                a: 'Perfect! Most of our clients start as beginners. We\'ll build a foundation-focused program that progresses at your pace with proper form and technique.',
-              },
-              {
-                q: 'Can I switch programs if needed?',
-                a: 'Absolutely. We can adjust your program at any time based on your progress, goals, or preferences. Your success is our priority.',
-              },
-              {
-                q: 'Do you provide nutrition guidance?',
-                a: 'Yes! All our training programs include nutrition guidelines. Our 8-week program includes detailed meal plans, and we also offer standalone nutrition coaching.',
-              },
-             ].map((faq, idx) => (
+            {faqData.faqs.map((faq, idx) => (
                <div
                  key={idx}
                  className="bg-black/40 backdrop-blur-sm border-l-4 border-[#ff4500] p-6 hover:bg-black/60 transition-colors"
@@ -309,7 +276,7 @@ const Contact = () => {
              ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
        {/* Final CTA */}
        <section className="section-padding bg-[#0f0f0f] relative overflow-hidden">
@@ -320,13 +287,13 @@ const Contact = () => {
          <div className="container-custom relative z-10">
            <div className="max-w-4xl mx-auto text-center">
              <h2 className="text-5xl md:text-6xl font-heading font-black text-white mb-6">
-               Ready to<br />Transform <span className="text-[#ff4500]">Your Life?</span>
+               {ctaData.heading.line1}<br />{ctaData.heading.line2.split(' ')[0]} <span className="text-[#ff4500]">{ctaData.heading.line2.split(' ').slice(1).join(' ')}</span>
              </h2>
              <p className="text-xl text-gray-300 mb-10">
-               Don't wait. Your transformation starts with a single step. Contact us today.
+               {ctaData.description}
              </p>
-             <a href="#" className="btn-primary text-lg px-12 py-4">
-               Start Now
+             <a href={ctaData.buttonLink} className="btn-primary text-lg px-12 py-4">
+               {ctaData.buttonText}
              </a>
            </div>
          </div>

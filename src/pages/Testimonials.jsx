@@ -1,6 +1,15 @@
 import { useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import {
+  heroData,
+  statsData,
+  filterCategories,
+  transformationsData,
+  videoTestimonialsData,
+  reviewsData,
+  ctaData,
+} from '../data/testimonials';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -8,110 +17,39 @@ const Testimonials = () => {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    gsap.from('.testimonials-hero-title', {
-      y: 50,
-      duration: 0.8,
-      ease: 'power4.out',
-    });
+    const ctx = gsap.context(() => {
 
-    gsap.from('.transformation-card', {
-      y: 30,
-      stagger: 0.12,
-      duration: 0.6,
-      scrollTrigger: {
-        trigger: '.transformations-grid',
-        start: 'top 80%',
-      },
-    });
+      gsap.from('.testimonials-hero-title', {
+        y: 100,
+        duration: 0.8,
+        ease: 'power4.out',
+      });
+  
+      gsap.from('.transformation-card', {
+        y: 30,
+        stagger: 0.12,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: '.transformations-grid',
+          start: 'top 80%',
+        },
+      });
+    })
+     return () => ctx.revert();
   }, []);
 
-  const transformations = [
-    {
-      name: 'Arjun Kumar',
-      age: 32,
-      category: 'weight-loss',
-      program: '8-Week Transform',
-      before: 'https://images.unsplash.com/photo-1583454155184-870a1f63f286?q=80&w=800',
-      after: 'https://images.unsplash.com/photo-1583454155187-f09283261e15?q=80&w=800',
-      lost: '15 kg',
-      gained: '8 kg muscle',
-      quote: 'I never thought I could look this good at 32. The transformation was incredible!',
-      results: ['Lost 15 kg fat', 'Gained 8 kg muscle', 'Increased strength 45%'],
-    },
-    {
-      name: 'Priya Sharma',
-      age: 28,
-      category: 'transformation',
-      program: '8-Week Transform',
-      before: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800',
-      after: 'https://images.unsplash.com/photo-1550259979-ed79b48d2a30?q=80&w=800',
-      lost: '12 kg',
-      gained: '5 kg muscle',
-      quote: 'Best decision of my life. I feel stronger, healthier, and more confident than ever.',
-      results: ['Lost 12 kg fat', 'Gained 5 kg muscle', 'Reduced body fat 18%'],
-    },
-    {
-      name: 'Rajesh Patel',
-      age: 40,
-      category: 'muscle-gain',
-      program: '8-Week Transform',
-      before: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800',
-      after: 'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=800',
-      lost: '8 kg',
-      gained: '12 kg muscle',
-      quote: 'At 40, I thought my best days were behind me. I was wrong. I\'m in the best shape of my life.',
-      results: ['Lost 8 kg fat', 'Gained 12 kg muscle', 'Increased strength 55%'],
-    },
-    {
-      name: 'Sneha Desai',
-      age: 25,
-      category: 'weight-loss',
-      program: '4-Week Kickstart',
-      before: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?q=80&w=800',
-      after: 'https://images.unsplash.com/photo-1583454155188-f09283261e16?q=80&w=800',
-      lost: '8 kg',
-      gained: '3 kg muscle',
-      quote: 'The 4-week program was perfect for me as a beginner. Now I\'m hooked!',
-      results: ['Lost 8 kg fat', 'Gained 3 kg muscle', 'Improved endurance 200%'],
-    },
-    {
-      name: 'Vikram Singh',
-      age: 35,
-      category: 'transformation',
-      program: '8-Week Transform',
-      before: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800',
-      after: 'https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?q=80&w=800',
-      lost: '18 kg',
-      gained: '10 kg muscle',
-      quote: 'Life-changing experience. I wish I had started years ago!',
-      results: ['Lost 18 kg fat', 'Gained 10 kg muscle', 'Reduced waist 6 inches'],
-    },
-    {
-      name: 'Ananya Reddy',
-      age: 29,
-      category: 'muscle-gain',
-      program: '8-Week Transform',
-      before: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=800',
-      after: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800',
-      lost: '6 kg',
-      gained: '7 kg muscle',
-      quote: 'I wanted to build strength and confidence. I got both and so much more.',
-      results: ['Lost 6 kg fat', 'Gained 7 kg muscle', 'Deadlift from 40kg to 100kg'],
-    },
-  ];
-
   const filteredTransformations = filter === 'all' 
-    ? transformations 
-    : transformations.filter(t => t.category === filter);
+    ? transformationsData 
+    : transformationsData.filter(t => t.category === filter);
 
   return (
     <div className="pt-20 bg-[#0f0f0f]">
       {/* Hero Section */}
-       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
          {/* Full Viewport Background */}
          <div className="absolute inset-0">
            <img 
-             src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2000" 
+             src={heroData.backgroundImage}
              alt="Gym background"
              className="w-full h-full object-cover"
            />
@@ -119,54 +57,44 @@ const Testimonials = () => {
            <div className="absolute inset-0 bg-gradient-to-tr from-[#ff4500]/20 via-transparent to-[#ff8c00]/20"></div>
          </div>
 
-        <div className="container-custom relative z-10">
-          <div className="testimonials-hero-title text-center">
-            <div className="inline-block px-6 py-2 bg-[#ff4500]/20 border border-[#ff4500] rounded mb-6">
-              <span className="text-[#ff4500] font-bold text-sm uppercase tracking-wider">Success Stories</span>
+        <div className="container-custom relative z-10 px-4">
+          <div className="testimonials-hero-title text-center max-w-full">
+            <div className="inline-block px-4 py-2 md:px-6 md:py-2 bg-[#ff4500]/20 border border-[#ff4500] rounded mb-4 md:mb-6">
+              <span className="text-[#ff4500] font-bold text-xs md:text-sm tracking-wider break-words">{heroData.badge}</span>
             </div>
-             <h1 className="text-6xl md:text-8xl font-heading font-black leading-tight mb-6">
-               <span className="block text-white">Real</span>
-               <span className="block text-[#ff4500] neon-text">Transformations</span>
+             <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-black leading-tight mb-4 md:mb-6 break-words px-2">
+               <span className="block text-white">{heroData.title.line1}</span>
+               <span className="block text-[#ff4500] neon-text">{heroData.title.line2}</span>
              </h1>
-             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-               500+ clients transformed. Real people. Real results. Real stories.
+             <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2">
+               {heroData.description}
              </p>
           </div>
 
           {/* Stats - Hard Shadow Style */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {[
-              { value: '500+', label: 'TRANSFORMATIONS' },
-              { value: '95%', label: 'SUCCESS RATE' },
-              { value: '2500+', label: 'TOTAL KG LOST' },
-              { value: '4.9★', label: 'AVG RATING' },
-            ].map((stat, idx) => (
-              <div key={idx} className="bg-[#242424] border-4 border-[#ff4500] p-6 text-center transform hover:scale-105 transition-transform">
-                <div className="text-5xl font-heading font-black text-[#ff4500] mb-2">{stat.value}</div>
-                <div className="text-xs text-gray-400 uppercase font-bold">{stat.label}</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 max-w-5xl mx-auto">
+            {statsData.map((stat, idx) => (
+              <div key={idx} className="bg-black/60 border-2 border-[#ff4500] p-3 md:p-6 text-center hover:scale-105 transition-transform">
+                <div className="text-3xl md:text-6xl font-heading font-black text-[#ff4500] mb-1 md:mb-2">{stat.value}</div>
+                <div className="text-xs md:text-sm text-gray-400 uppercase font-bold">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Filter Bar - Bento Navigation */}
-      <section className="py-12 bg-[#1a1a1a] sticky top-20 z-40 border-b-2 border-gray-800">
-        <div className="container-custom">
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              { id: 'all', label: 'ALL' },
-              { id: 'weight-loss', label: 'WEIGHT LOSS' },
-              { id: 'muscle-gain', label: 'MUSCLE GAIN' },
-              { id: 'transformation', label: 'COMPLETE TRANSFORMATION' },
-            ].map((tab) => (
+      {/* Filter Bar - NOT STICKY */}
+      <section className="py-8 md:py-12 bg-[#1a1a1a] border-b-2 border-gray-800">
+        <div className="container-custom px-4">
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+            {filterCategories.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setFilter(tab.id)}
-                className={`px-8 py-4 font-heading font-black uppercase text-sm transition-all ${
+                className={`px-4 py-2 md:px-6 md:py-3 font-heading font-black uppercase text-xs md:text-sm transition-all ${
                   filter === tab.id
-                    ? 'bg-[#ff4500] text-white border-4 border-black transform scale-105'
-                    : 'bg-[#242424] text-gray-400 border-2 border-gray-700 hover:border-[#ff4500] hover:text-white'
+                    ? 'bg-[#ff4500] text-white border-2 border-[#ff4500]'
+                    : 'bg-black/40 text-gray-400 border-2 border-gray-700 hover:border-[#ff4500] hover:text-white'
                 }`}
               >
                 {tab.label}
@@ -254,15 +182,15 @@ const Testimonials = () => {
       {/* Video Testimonials Section */}
       <section className="section-padding bg-[#1a1a1a]">
         <div className="container-custom">
-          <h2 className="text-6xl md:text-8xl font-heading font-black text-white mb-16 uppercase text-center">
-            VIDEO <span className="text-[#ff4500]">TESTIMONIALS</span>
+          <h2 className="text-5xl md:text-7xl font-heading font-black text-white mb-16 uppercase text-center">
+            {videoTestimonialsData.heading.split(' ')[0]} <span className="text-[#ff4500]">{videoTestimonialsData.heading.split(' ')[1]}</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {[1, 2, 3, 4].map((video, idx) => (
-              <div key={idx} className="relative aspect-video bg-[#242424] border-4 border-gray-700 hover:border-[#ff4500] transition-all group overflow-hidden">
+            {videoTestimonialsData.videos.map((video, idx) => (
+              <div key={video.id} className="relative aspect-video bg-[#242424] border-4 border-gray-700 hover:border-[#ff4500] transition-all group overflow-hidden">
                 <img
-                  src={`https://images.unsplash.com/photo-${1571019613454 + idx * 1000}-1cb2f99b2d8b?q=80&w=800`}
+                  src={video.thumbnail}
                   alt="Video thumbnail"
                   className="w-full h-full object-cover"
                 />
@@ -275,7 +203,7 @@ const Testimonials = () => {
                 </div>
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="bg-black/80 backdrop-blur-sm p-4 border-l-4 border-[#ff4500]">
-                    <p className="text-white font-heading font-black text-lg uppercase">CLIENT TESTIMONIAL #{idx + 1}</p>
+                    <p className="text-white font-heading font-black text-lg uppercase">{video.title}</p>
                   </div>
                 </div>
               </div>
@@ -287,19 +215,12 @@ const Testimonials = () => {
       {/* Reviews Grid */}
       <section className="section-padding bg-[#0f0f0f]">
         <div className="container-custom">
-          <h2 className="text-6xl md:text-8xl font-heading font-black text-white mb-16 uppercase text-center">
-            CLIENT <span className="text-[#ff4500]">REVIEWS</span>
+          <h2 className="text-6xl md:text-7xl font-heading font-black text-white mb-16 uppercase text-center">
+            {reviewsData.heading.split(' ')[0]} <span className="text-[#ff4500]">{reviewsData.heading.split(' ')[1]}</span>
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { name: 'Rohan Mehta', rating: 5, text: 'Absolutely phenomenal experience! The trainers really care about your progress and push you to be your best.' },
-              { name: 'Kavya Nair', rating: 5, text: 'Best gym in Mumbai. The personalized attention and expert guidance make all the difference.' },
-              { name: 'Amit Gupta', rating: 5, text: 'Lost 20 kg and gained so much confidence. Life-changing transformation!' },
-              { name: 'Pooja Deshmukh', rating: 5, text: 'Professional, motivating, and result-oriented. Couldn\'t ask for more.' },
-              { name: 'Karan Bhatia', rating: 5, text: 'The 8-week program exceeded all my expectations. Highly recommend!' },
-              { name: 'Neha Kapoor', rating: 5, text: 'From day one, I felt supported and motivated. The results speak for themselves.' },
-            ].map((review, idx) => (
+            {reviewsData.reviews.map((review, idx) => (
               <div key={idx} className="bg-[#1a1a1a] border-2 border-gray-700 hover:border-[#ff4500] p-8 transition-all">
                 <div className="flex gap-1 mb-4">
                   {[...Array(review.rating)].map((_, i) => (
@@ -326,20 +247,23 @@ const Testimonials = () => {
 
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-6xl md:text-9xl font-heading font-black text-white mb-8 uppercase leading-none">
-              YOUR STORY<br />
-              <span className="text-[#ff4500]">STARTS HERE</span>
+            <h2 className="text-4xl md:text-7xl font-heading font-black text-white mb-8 uppercase leading-none">
+              {ctaData.heading.line1}<br />
+              <span className="text-[#ff4500]">{ctaData.heading.line2}</span>
             </h2>
             <p className="text-2xl md:text-3xl text-gray-300 mb-12 leading-relaxed">
-              Join 500+ successful transformations. Book your free consultation today.
+              {ctaData.description}
             </p>
             <div className="flex flex-wrap gap-6 justify-center">
-              <a href="/contact" className="btn-primary text-2xl px-16 py-8">
-                BOOK CONSULTATION
-              </a>
-              <a href="/services" className="btn-secondary text-2xl px-16 py-8">
-                VIEW PROGRAMS
-              </a>
+              {ctaData.buttons.map((button, idx) => (
+                <a 
+                  key={idx}
+                  href={button.link} 
+                  className={button.primary ? 'btn-primary text-2xl px-16 py-8' : 'btn-secondary text-2xl px-16 py-8'}
+                >
+                  {button.text}
+                </a>
+              ))}
             </div>
           </div>
         </div>

@@ -1,41 +1,58 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import gsap from 'gsap';
+import { nutritionData } from '../../data/programs';
 
 const NutritionPlan = () => {
   useEffect(() => {
+    const ctx = gsap.context(() => {
     gsap.from('.program-hero-title', {
-      y: 50,
+      y: 150,
       duration: 0.8,
       ease: 'power4.out',
     });
+  })
+  return () => ctx.revert();
   }, []);
 
   return (
-    <div className="pt-20 bg-[#0f0f0f]">
+    <div className="pt-0 bg-[#0f0f0f]">
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#ff4500] opacity-20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#ff8c00] opacity-15 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2000')] bg-cover bg-center">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-[#0f0f0f]"></div>
         </div>
 
-        <div className="container-custom relative z-10">
-          <div className="program-hero-title text-center">
-            <div className="inline-block px-8 py-3 bg-[#ff4500] mb-8">
-              <span className="text-white font-heading font-black text-lg uppercase tracking-widest">MONTHLY</span>
+        <div className="container-custom relative z-10 flex items-center justify-center">
+          <div className="program-hero-title text-center px-4 w-full max-w-full overflow-hidden">
+            <div className="inline-block px-4 py-2 md:px-6 md:py-2 bg-[#ff4500] mb-6 md:mb-8">
+              <span className="text-white font-heading font-black text-xs md:text-sm lg:text-base uppercase tracking-widest break-words">{nutritionData.hero.badge}</span>
             </div>
-            <h1 className="text-[clamp(4rem,12vw,10rem)] font-heading font-black leading-[0.9] tracking-tighter mb-8">
-              <span className="block text-white">NUTRITION</span>
-              <span className="block text-[#ff4500] neon-text">COACHING</span>
+            <h1 className="text-[clamp(2.5rem,8vw,8rem)] font-heading font-black leading-[0.9] tracking-tighter mb-6 md:mb-8 break-words hyphens-auto">
+              <span className="block text-white">{nutritionData.hero.title.split(' ')[0]}</span>
+              <span className="block text-[#ff4500] neon-text">{nutritionData.hero.title.split(' ')[1]}</span>
             </h1>
-            <p className="text-2xl md:text-3xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Personalized meal plans and nutrition guidance to fuel your fitness goals and build sustainable habits.
+            <p className="text-base md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2 break-words">
+              {nutritionData.hero.description}
             </p>
-            <div className="flex flex-wrap gap-6 justify-center">
-              <Link to="/contact" className="btn-primary text-xl px-12 py-6">
-                START NOW → ₹6,999/mo
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
+              <Link to="/contact" className="btn-primary text-sm md:text-lg px-8 md:px-12 py-4 md:py-6 w-full sm:w-auto">
+                START NOW → {nutritionData.hero.price}
               </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="w-full px-4 mt-8 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 relative z-10">
+          <div className="container-custom">
+            <div className="grid grid-cols-3 gap-3 md:gap-6 max-w-3xl mx-auto">
+              {nutritionData.stats.map((stat, idx) => (
+                <div key={idx} className="bg-black/60 border border-gray-700 md:border-2 p-3 md:p-6 text-center">
+                  <div className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-[#ff4500] mb-1 md:mb-2">{stat.value}</div>
+                  <div className="text-xs md:text-sm text-gray-300 break-words leading-tight">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -43,27 +60,27 @@ const NutritionPlan = () => {
 
       {/* What's Included */}
       <section className="section-padding bg-[#1a1a1a]">
-        <div className="container-custom">
-          <h2 className="text-6xl md:text-8xl font-heading font-black text-white mb-16 uppercase">
+        <div className="container-custom px-4">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-white mb-8 md:mb-12 text-center break-words">
             WHAT YOU <span className="text-[#ff4500]">GET</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { title: 'PERSONALIZED MEAL PLANS', desc: 'Custom plans based on your goals, preferences, and lifestyle', icon: '🍽️' },
-              { title: 'MACRO CALCULATIONS', desc: 'Precise protein, carbs, and fat targets optimized for results', icon: '🧮' },
-              { title: 'RECIPE DATABASE', desc: 'Access to 200+ healthy, delicious recipes', icon: '📚' },
-              { title: 'MONTHLY CALLS', desc: 'One-on-one video consultations with nutritionist', icon: '📞' },
-              { title: 'EMAIL SUPPORT', desc: 'Unlimited email support throughout the month', icon: '📧' },
-              { title: 'PROGRESS TRACKING', desc: 'Weekly check-ins and plan adjustments', icon: '📊' },
-            ].map((feature, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            {nutritionData.included.map((feature, idx) => (
               <div
                 key={idx}
-                className="bg-[#242424] border-2 border-gray-700 hover:border-[#ff4500] rounded-2xl p-8 transition-all group"
+                className="bg-black/40 backdrop-blur-sm border-2 border-gray-700 hover:border-[#ff4500] rounded-xl md:rounded-2xl p-4 md:p-6 transition-all group relative overflow-hidden"
               >
-                <div className="text-6xl mb-6">{feature.icon}</div>
-                <h3 className="text-3xl font-heading font-black text-white mb-4 uppercase">{feature.title}</h3>
-                <p className="text-lg text-gray-300 leading-relaxed">{feature.desc}</p>
+                <div className="absolute top-4 right-4 text-6xl md:text-7xl font-heading font-black text-[#ff4500]/10 group-hover:text-[#ff4500]/20 transition-colors">
+                  {feature.num}
+                </div>
+                <div className="relative z-10">
+                  <div className="w-12 h-12 md:w-16 md:h-16 border-3 border-[#ff4500] flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <span className="text-xl md:text-2xl font-heading font-black text-[#ff4500]">{feature.num}</span>
+                  </div>
+                  <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-white mb-2 md:mb-3 break-words leading-tight">{feature.title}</h3>
+                  <p className="text-xs md:text-sm text-gray-300 leading-relaxed break-words">{feature.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -73,18 +90,12 @@ const NutritionPlan = () => {
       {/* Sample Meal Plan */}
       <section className="section-padding bg-[#0f0f0f]">
         <div className="container-custom">
-          <h2 className="text-6xl md:text-8xl font-heading font-black text-white mb-16 uppercase">
+          <h2 className="text-5xl md:text-7xl font-heading font-black text-white mb-16 uppercase">
             SAMPLE <span className="text-[#ff4500]">DAY</span>
           </h2>
 
           <div className="max-w-4xl space-y-6">
-            {[
-              { meal: 'BREAKFAST', time: '7:00 AM', food: 'Scrambled eggs, oatmeal, berries', macros: 'P: 30g | C: 45g | F: 15g' },
-              { meal: 'SNACK', time: '10:00 AM', food: 'Greek yogurt with almonds', macros: 'P: 20g | C: 15g | F: 10g' },
-              { meal: 'LUNCH', time: '1:00 PM', food: 'Grilled chicken, rice, vegetables', macros: 'P: 40g | C: 50g | F: 12g' },
-              { meal: 'SNACK', time: '4:00 PM', food: 'Protein shake, banana', macros: 'P: 25g | C: 30g | F: 5g' },
-              { meal: 'DINNER', time: '7:00 PM', food: 'Salmon, sweet potato, broccoli', macros: 'P: 35g | C: 40g | F: 18g' },
-            ].map((meal, idx) => (
+            {nutritionData.sampleDay.map((meal, idx) => (
               <div key={idx} className="bg-[#1a1a1a] border-l-4 border-[#ff4500] p-6 hover:translate-x-2 transition-transform">
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div className="flex-1">
@@ -106,14 +117,14 @@ const NutritionPlan = () => {
       <section className="section-padding bg-[#1a1a1a]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-6xl md:text-8xl font-heading font-black text-white mb-8 uppercase leading-tight">
-              FUEL YOUR <span className="text-[#ff4500]">SUCCESS</span>
+            <h2 className="text-5xl md:text-7xl font-heading font-black text-white mb-8 uppercase leading-tight">
+              {nutritionData.cta.heading.split(' ').slice(0, 2).join(' ')} <span className="text-[#ff4500]">{nutritionData.cta.heading.split(' ').slice(2).join(' ')}</span>
             </h2>
             <p className="text-2xl text-gray-300 mb-12">
-              Start your nutrition coaching today and transform your relationship with food.
+              {nutritionData.cta.description}
             </p>
-            <Link to="/contact" className="btn-primary text-2xl px-16 py-8">
-              BOOK CONSULTATION
+            <Link to={nutritionData.cta.buttonLink} className="btn-primary text-2xl px-16 py-8">
+              {nutritionData.cta.buttonText}
             </Link>
           </div>
         </div>

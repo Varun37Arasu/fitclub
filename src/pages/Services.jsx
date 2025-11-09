@@ -2,11 +2,20 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import {
+  heroData,
+  quickStatsData,
+  programsData,
+  comparisonData,
+  whyUsData,
+  ctaData,
+} from '../data/services';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
   useEffect(() => {
+    const ctx = gsap.context(() => {
     // Hero animations
     gsap.from('.services-hero-title', {
       y: 50,
@@ -15,15 +24,20 @@ const Services = () => {
     });
 
     // Staggered card animations
-    gsap.from('.program-card', {
-      y: 30,
-      stagger: 0.15,
-      duration: 0.6,
+gsap.from('.program-card', {
+      opacity: 0,
+      y: 60,
+      duration: 0.8,
+      ease: 'power3.out',
+      stagger: 0.18,
       scrollTrigger: {
         trigger: '.programs-section',
-        start: 'top 80%',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse',
+        markers: false, // set to true to debug
       },
     });
+
 
     // Comparison table animation
     gsap.from('.comparison-row', {
@@ -35,83 +49,9 @@ const Services = () => {
         start: 'top 80%',
       },
     });
+  })
+    return () => ctx.revert();
   }, []);
-
-  const programs = [
-    {
-      id: '4-week',
-      title: '4-WEEK KICKSTART',
-      tagline: 'BUILD MOMENTUM',
-      price: '₹24,999',
-      duration: '4 WEEKS',
-      sessions: '16',
-      description: 'Perfect for beginners or those returning to fitness. Build solid foundations and create lasting habits.',
-      features: [
-        '16 Personal Training Sessions',
-        'Custom Workout Plans',
-        'Nutrition Guidelines',
-        'Weekly Progress Check-ins',
-        'WhatsApp Support (Business Hours)',
-        'Form Correction & Technique',
-      ],
-      highlights: [
-        { metric: '5-10 lbs', label: 'Average Fat Loss' },
-        { metric: '15-20%', label: 'Strength Increase' },
-      ],
-      link: '/services/4-week-transformation',
-      color: '#ff4500',
-    },
-    {
-      id: '8-week',
-      title: '8-WEEK TRANSFORM',
-      tagline: 'COMPLETE TRANSFORMATION',
-      price: '₹44,999',
-      duration: '8 WEEKS',
-      sessions: '32',
-      popular: true,
-      description: 'Our flagship program for serious transformations. Build muscle, burn fat, and completely reshape your physique.',
-      features: [
-        '32 Personal Training Sessions',
-        'Advanced Training Protocols',
-        'Detailed Weekly Meal Plans',
-        'Bi-weekly Body Assessments',
-        '24/7 Coach Access (WhatsApp)',
-        'Supplement Recommendations',
-        'Workout Video Library',
-        'Recipe Database Access',
-      ],
-      highlights: [
-        { metric: '10-15 lbs', label: 'Average Fat Loss' },
-        { metric: '8-12 lbs', label: 'Muscle Gain Potential' },
-        { metric: '35-40%', label: 'Strength Increase' },
-      ],
-      link: '/services/8-week-transformation',
-      color: '#ff6b00',
-    },
-    {
-      id: 'nutrition',
-      title: 'NUTRITION COACHING',
-      tagline: 'FUEL YOUR SUCCESS',
-      price: '₹6,999/mo',
-      duration: 'MONTHLY',
-      sessions: 'Ongoing',
-      description: 'Personalized nutrition guidance without the training. Perfect for those who workout independently.',
-      features: [
-        'Personalized Meal Plans',
-        'Macro Calculations',
-        '200+ Recipe Database',
-        'Monthly Video Consultations',
-        'Unlimited Email Support',
-        'Weekly Check-ins',
-      ],
-      highlights: [
-        { metric: '100%', label: 'Custom Plans' },
-        { metric: '∞', label: 'Recipe Access' },
-      ],
-      link: '/services/nutrition-plan',
-      color: '#ff8c00',
-    },
-  ];
 
   return (
     <div className="pt-20 bg-[#0f0f0f]">
@@ -124,26 +64,20 @@ const Services = () => {
         <div className="container-custom relative z-10">
            <div className="services-hero-title text-center">
              <div className="inline-block px-6 py-2 bg-[#ff4500]/20 border border-[#ff4500] rounded mb-6">
-               <span className="text-[#ff4500] font-bold text-sm uppercase tracking-wider">Our Programs</span>
+               <span className="text-[#ff4500] font-bold text-sm uppercase tracking-wider">{heroData.badge}</span>
              </div>
-             <h1 className="text-6xl md:text-7xl font-heading font-black leading-tight mb-6">
-               <span className="block text-white">Choose Your</span>
-               <span className="block text-[#ff4500] neon-text">Training Program</span>
+             <h1 className="text-6xl md:text-7xl font-heading font-black leading-tight mb-6 px-4 w-full max-w-full overflow-hidden">
+               <span className="block text-white break-words hyphens-auto">{heroData.title.split(' ').slice(0, 2).join(' ')}</span>
+               <span className="block text-[#ff4500] neon-text break-words hyphens-auto">{heroData.title.split(' ').slice(2).join(' ')}</span>
              </h1>
              <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-               Elite training programs designed for serious results. From kickstart to complete transformation.
+               {heroData.description}
              </p>
            </div>
 
            {/* Quick Stats */}
            <div className="grid grid-cols-3 md:grid-cols-5 gap-3 max-w-4xl mx-auto">
-             {[
-               { value: '500+', label: 'Clients' },
-               { value: '95%', label: 'Success' },
-               { value: '3', label: 'Programs' },
-               { value: '10Y', label: 'Experience' },
-               { value: '4.9★', label: 'Rating' },
-             ].map((stat, idx) => (
+             {quickStatsData.map((stat, idx) => (
                <div key={idx} className="bg-[#1a1a1a] border-2 border-[#ff4500] p-4 text-center">
                  <div className="text-3xl font-heading font-black text-[#ff4500] mb-1">{stat.value}</div>
                  <div className="text-xs text-gray-400 uppercase font-bold">{stat.label}</div>
@@ -170,11 +104,11 @@ const Services = () => {
 
           {/* Program Cards with Overlapping Layout */}
           <div className="space-y-12">
-            {programs.map((program, idx) => (
+            {programsData.map((program, idx) => (
               <div
                 key={program.id}
                 className="program-card relative"
-                style={{ transform: `translateX(${idx * 20}px)` }}
+                // style={{ transform: `translateX(${idx * 20}px)` }}
               >
                  {/* Popular Badge */}
                  {program.popular && (
@@ -273,124 +207,69 @@ const Services = () => {
       {/* Comparison Table - Modern Grid */}
       <section className="comparison-section section-padding bg-[#0f0f0f]">
         <div className="container-custom">
-          <h2 className="text-6xl md:text-8xl font-heading font-black text-white mb-16 uppercase text-center">
-            COMPARE <span className="text-[#ff4500]">PROGRAMS</span>
+          <h2 className="text-5xl md:text-6xl font-heading font-black text-white mb-16 uppercase text-center">
+            {comparisonData.heading.split(' ')[0]} <span className="text-[#ff4500]">{comparisonData.heading.split(' ')[1]}</span>
           </h2>
 
           <div className="overflow-x-auto">
             <table className="w-full min-w-[800px] border-collapse">
               <thead>
                 <tr className="border-b-4 border-[#ff4500]">
-                  <th className="text-left p-8 text-2xl font-heading font-black text-white uppercase bg-[#1a1a1a]">FEATURES</th>
-                  <th className="text-center p-8 text-2xl font-heading font-black text-white uppercase bg-[#1a1a1a]">4-WEEK</th>
-                  <th className="text-center p-8 text-2xl font-heading font-black text-white uppercase bg-black/60 border-x-4 border-[#ff4500]">8-WEEK</th>
-                  <th className="text-center p-8 text-2xl font-heading font-black text-white uppercase bg-[#1a1a1a]">NUTRITION</th>
+                  {comparisonData.headers.map((header, idx) => (
+                    <th 
+                      key={idx}
+                      className={`text-${idx === 0 ? 'left' : 'center'} p-8 text-2xl font-heading font-black text-white uppercase ${idx === 2 ? 'bg-black/60 border-x-4 border-[#ff4500]' : 'bg-[#1a1a1a]'}`}
+                    >
+                      {header}
+                    </th>
+                  ))}
                 </tr>
               </thead>
               <tbody className="bg-[#1a1a1a]">
-                <tr className="comparison-row border-b-2 border-gray-700 hover:bg-[#242424] transition-colors">
-                  <td className="p-8 font-bold text-white text-lg">Personal Training</td>
-                  <td className="p-8 text-center text-gray-200 text-lg">16 Sessions</td>
-                  <td className="p-8 text-center text-[#ff4500] font-bold text-lg bg-[#242424]">32 Sessions</td>
-                  <td className="p-8 text-center text-gray-200 text-lg">—</td>
-                </tr>
-                <tr className="comparison-row border-b-2 border-gray-700 hover:bg-[#242424] transition-colors">
-                  <td className="p-8 font-bold text-white text-lg">Meal Plans</td>
-                  <td className="p-8 text-center text-gray-200 text-lg">Guidelines</td>
-                  <td className="p-8 text-center text-[#ff4500] font-bold text-lg bg-[#242424]">Detailed Weekly</td>
-                  <td className="p-8 text-center text-gray-200 text-lg">Fully Custom</td>
-                </tr>
-                <tr className="comparison-row border-b-2 border-gray-700 hover:bg-[#242424] transition-colors">
-                  <td className="p-8 font-bold text-white text-lg">Coach Access</td>
-                  <td className="p-8 text-center text-gray-200 text-lg">Business Hours</td>
-                  <td className="p-8 text-center text-[#ff4500] font-bold text-lg bg-[#242424]">24/7 WhatsApp</td>
-                  <td className="p-8 text-center text-gray-200 text-lg">Email</td>
-                </tr>
-                <tr className="comparison-row border-b-2 border-gray-700 hover:bg-[#242424] transition-colors">
-                  <td className="p-8 font-bold text-white text-lg">Progress Tracking</td>
-                  <td className="p-8 text-center text-gray-200 text-lg">Weekly</td>
-                  <td className="p-8 text-center text-[#ff4500] font-bold text-lg bg-[#242424]">Bi-weekly</td>
-                  <td className="p-8 text-center text-gray-200 text-lg">Weekly</td>
-                </tr>
-                <tr className="comparison-row border-b-2 border-gray-700 hover:bg-[#242424] transition-colors">
-                  <td className="p-8 font-bold text-white text-lg">Recipe Database</td>
-                  <td className="p-8 text-center text-gray-200 text-lg">—</td>
-                  <td className="p-8 text-center text-[#ff4500] font-bold text-2xl bg-[#242424]">✓</td>
-                  <td className="p-8 text-center text-gray-200 text-2xl">✓</td>
-                </tr>
-                <tr className="comparison-row border-b-2 border-gray-700 hover:bg-[#242424] transition-colors">
-                  <td className="p-8 font-bold text-white text-lg">Supplement Guide</td>
-                  <td className="p-8 text-center text-gray-200 text-lg">—</td>
-                  <td className="p-8 text-center text-[#ff4500] font-bold text-2xl bg-[#242424]">✓</td>
-                  <td className="p-8 text-center text-gray-200 text-lg">—</td>
-                </tr>
-                <tr className="comparison-row hover:bg-[#242424] transition-colors">
-                  <td className="p-8 font-bold text-white text-lg">Video Library</td>
-                  <td className="p-8 text-center text-gray-200 text-lg">—</td>
-                  <td className="p-8 text-center text-[#ff4500] font-bold text-2xl bg-[#242424]">✓</td>
-                  <td className="p-8 text-center text-gray-200 text-lg">—</td>
-                </tr>
+                {comparisonData.rows.map((row, idx) => (
+                  <tr 
+                    key={idx}
+                    className={`comparison-row ${idx < comparisonData.rows.length - 1 ? 'border-b-2 border-gray-700' : ''} hover:bg-[#242424] transition-colors`}
+                  >
+                    <td className="p-8 font-bold text-white text-lg">{row.feature}</td>
+                    <td className="p-8 text-center text-gray-200 text-lg">{row.fourWeek}</td>
+                    <td className={`p-8 text-center text-[#ff4500] font-bold ${row.eightWeek === '✓' ? 'text-2xl' : 'text-lg'} bg-[#242424]`}>{row.eightWeek}</td>
+                    <td className={`p-8 text-center text-gray-200 ${row.nutrition === '✓' ? 'text-2xl' : 'text-lg'}`}>{row.nutrition}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us - Bento Grid */}
+      {/* Why Choose Us - Redesigned */}
       <section className="section-padding bg-[#1a1a1a]">
-        <div className="container-custom">
-          <h2 className="text-6xl md:text-8xl font-heading font-black text-white mb-16 uppercase">
+        <div className="container-custom px-4">
+          <h2 className="text-5xl lg:text-6xl font-heading font-black text-white mb-8 md:mb-12 text-center break-words">
             WHY <span className="text-[#ff4500]">US?</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[200px]">
-            <div className="md:col-span-2 md:row-span-2 bg-[#242424] border-2 border-gray-700 hover:border-[#ff4500] rounded-2xl p-8 flex flex-col justify-between transition-all">
-              <div>
-                <div className="w-16 h-16 border-4 border-[#ff4500] flex items-center justify-center mb-6">
-                  <span className="text-3xl">🏆</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+            {whyUsData.map((reason, idx) => (
+              <div
+                key={idx}
+                className="bg-black/40 backdrop-blur-sm border-2 border-gray-700 hover:border-[#ff4500] rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 transition-all group relative overflow-hidden min-h-[180px] md:min-h-[220px]"
+              >
+                <div className="absolute top-4 right-4 text-6xl md:text-7xl lg:text-8xl font-heading font-black text-[#ff4500]/10 group-hover:text-[#ff4500]/20 transition-colors">
+                  {reason.num}
                 </div>
-                <h3 className="text-4xl font-heading font-black text-white mb-4 uppercase">CERTIFIED EXPERTS</h3>
-                <p className="text-xl text-gray-300 leading-relaxed">
-                  All our trainers are certified professionals with 10+ years of experience in transformation training.
-                </p>
+                <div className="relative z-10 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 border-3 border-[#ff4500] flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                      <span className="text-xl md:text-2xl font-heading font-black text-[#ff4500]">{reason.num}</span>
+                    </div>
+                    <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-white mb-2 md:mb-3 break-words leading-tight">{reason.title}</h3>
+                    <p className="text-xs md:text-sm text-gray-300 leading-relaxed break-words">{reason.description}</p>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <div className="md:col-span-2 bg-[#242424] border-2 border-gray-700 hover:border-[#ff4500] rounded-2xl p-8 flex items-center justify-center text-center transition-all">
-              <div>
-                <div className="text-7xl font-heading font-black text-[#ff4500] mb-3">500+</div>
-                <div className="text-lg text-gray-300 uppercase font-bold">Success Stories</div>
-              </div>
-            </div>
-
-            <div className="bg-[#242424] border-2 border-gray-700 hover:border-[#ff4500] rounded-2xl p-8 flex items-center justify-center text-center transition-all">
-              <div>
-                <div className="text-5xl font-heading font-black text-[#ff4500] mb-2">95%</div>
-                <div className="text-sm text-gray-300 uppercase">Success Rate</div>
-              </div>
-            </div>
-
-            <div className="bg-[#242424] border-2 border-gray-700 hover:border-[#ff4500] rounded-2xl p-8 flex items-center justify-center text-center transition-all">
-              <div>
-                <div className="text-5xl font-heading font-black text-[#ff4500] mb-2">4.9★</div>
-                <div className="text-sm text-gray-300 uppercase">Rating</div>
-              </div>
-            </div>
-
-            <div className="md:col-span-3 bg-[#242424] border-2 border-gray-700 hover:border-[#ff4500] rounded-2xl p-8 transition-all">
-              <div className="w-16 h-16 border-4 border-[#ff4500] flex items-center justify-center mb-4">
-                <span className="text-3xl">💪</span>
-              </div>
-              <h3 className="text-3xl font-heading font-black text-white mb-3 uppercase">PROVEN METHODOLOGY</h3>
-              <p className="text-lg text-gray-300">Science-backed training protocols combined with personalized nutrition for maximum results.</p>
-            </div>
-
-            <div className="bg-[#242424] border-2 border-gray-700 hover:border-[#ff4500] rounded-2xl p-8 flex items-center justify-center text-center transition-all">
-              <div>
-                <div className="text-5xl mb-3">⚡</div>
-                <div className="text-xl font-heading font-black text-white uppercase">Fast Results</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -404,20 +283,23 @@ const Services = () => {
 
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-6xl md:text-9xl font-heading font-black text-white mb-8 uppercase leading-none">
-              NOT SURE<br />
-              <span className="text-[#ff4500]">WHICH ONE?</span>
+            <h2 className="text-5xl md:text-6xl font-heading font-black text-white mb-8 uppercase leading-none">
+              {ctaData.heading.line1}<br />
+              <span className="text-[#ff4500]">{ctaData.heading.line2}</span>
             </h2>
             <p className="text-2xl md:text-3xl text-gray-300 mb-12 leading-relaxed">
-              Book a free consultation and we'll help you choose the perfect program for your goals.
+              {ctaData.description}
             </p>
             <div className="flex flex-wrap gap-6 justify-center">
-              <Link to="/contact" className="btn-primary text-2xl px-16 py-8">
-                BOOK FREE CALL
-              </Link>
-              <Link to="/testimonials" className="btn-secondary text-2xl px-16 py-8">
-                VIEW TRANSFORMATIONS
-              </Link>
+              {ctaData.buttons.map((button, idx) => (
+                <Link 
+                  key={idx}
+                  to={button.link} 
+                  className={button.primary ? 'btn-primary text-2xl px-16 py-8' : 'btn-secondary text-2xl px-16 py-8'}
+                >
+                  {button.text}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
