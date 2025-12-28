@@ -19,25 +19,24 @@ const Navigation = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#1a1a1a]/95 backdrop-blur-xl border-b-2 border-gray-700 shadow-lg' : 'bg-transparent'
       }`}>
-      <div className="container-custom flex items-center justify-between" style={{ maxWidth: "100%" }}>
-
-        <Link to="/" className="relative group flex items-center gap-3 flex-shrink-0">
-          {logoData.image && (<>
-            <img
-              src={logoData.image}
-              alt="URS Kings Nutrition"
-              className="h-16 md:h-50 lg:h-24 w-auto transition-transform duration-300 group-hover:scale-105"
-            />
-            <span className="text-2xl md:text-3xl font-heading font-black text-white uppercase tracking-tight hover:text-[#ff4500] transition-colors">
-              {logoPrefix}
-              <br />
-              <span className="text-[#ff4500]">{logoData.highlight}</span>
-            </span>
-          </>
-          )}
-        </Link>
-        <div className="flex items-center justify-between h-24">
+      <div className="container-custom px-4 md:px-6">
+        <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
+          <Link to="/" className="relative group flex items-center gap-2 md:gap-3 flex-shrink-0">
+            {logoData.image && (<>
+              <img
+                src={logoData.image}
+                alt="URS Kings Nutrition"
+                className="h-12 md:h-16 lg:h-20 xl:h-24 w-auto transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="hidden sm:block text-lg md:text-2xl lg:text-3xl font-heading font-black text-white uppercase tracking-tight hover:text-[#ff4500] transition-colors leading-tight">
+                {logoPrefix}
+                <br />
+                <span className="text-[#ff4500]">{logoData.highlight}</span>
+              </span>
+            </>
+            )}
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1 xl:gap-2">
@@ -133,14 +132,15 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden w-12 h-12 flex items-center justify-center text-white hover:text-[#ff4500] transition-colors flex-shrink-0"
+            className="lg:hidden w-10 h-10 flex items-center justify-center text-white hover:text-[#ff4500] transition-colors flex-shrink-0 bg-[#242424] border border-gray-700 rounded"
+            aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -149,14 +149,14 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#1a1a1a] border-t border-gray-700">
-            <div className="py-6 space-y-2">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-[#1a1a1a] border-t border-gray-700 shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto">
+            <div className="py-4 space-y-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-6 py-4 text-sm font-bold uppercase tracking-wider ${location.pathname === link.path
+                  className={`block px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all ${location.pathname === link.path
                       ? 'text-[#ff4500] bg-[#242424]'
                       : 'text-gray-300 hover:text-white hover:bg-[#242424]'
                     }`}
@@ -167,25 +167,33 @@ const Navigation = () => {
 
               {/* Mobile Services Section */}
               <div className="border-t border-gray-700 mt-2 pt-2">
-                <div className="px-6 py-3 text-xs text-gray-500 font-bold uppercase">Nutrition Plans</div>
+                <div className="px-6 py-2 text-xs text-gray-500 font-bold uppercase tracking-wider">Nutrition Plans</div>
                 {serviceLinks.filter(link => link.category === 'Nutrition').map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block px-6 py-3 text-sm font-bold text-gray-300 hover:text-white hover:bg-[#242424]"
+                    className={`block px-6 py-3 text-sm font-medium transition-all ${
+                      location.pathname === link.path 
+                        ? 'text-[#ff4500] bg-[#242424]' 
+                        : 'text-gray-300 hover:text-white hover:bg-[#242424]'
+                    }`}
                   >
                     {link.name}
                   </Link>
                 ))}
 
-                <div className="px-6 py-3 text-xs text-gray-500 font-bold uppercase mt-2">Transformation Programs</div>
+                <div className="px-6 py-2 text-xs text-gray-500 font-bold uppercase tracking-wider mt-3">Transformation Programs</div>
                 {serviceLinks.filter(link => link.category === 'Transformation').map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block px-6 py-3 text-sm font-bold text-gray-300 hover:text-white hover:bg-[#242424]"
+                    className={`block px-6 py-3 text-sm font-medium transition-all ${
+                      location.pathname === link.path 
+                        ? 'text-[#ff4500] bg-[#242424]' 
+                        : 'text-gray-300 hover:text-white hover:bg-[#242424]'
+                    }`}
                   >
                     {link.name}
                   </Link>
@@ -193,17 +201,17 @@ const Navigation = () => {
                 <Link
                   to="/services"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-6 py-3 text-sm font-bold text-[#ff4500] hover:bg-[#242424]"
+                  className="block px-6 py-3 text-sm font-bold text-[#ff4500] hover:bg-[#242424] transition-all border-t border-gray-700 mt-2"
                 >
                   View All Programs →
                 </Link>
               </div>
 
-              <div className="px-6 pt-4">
+              <div className="px-6 pt-4 pb-6 border-t border-gray-700 mt-2">
                 <Link
                   to={ctaButton.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="btn-primary w-full text-center block text-sm"
+                  className="btn-primary w-full text-center block text-sm py-3"
                 >
                   {ctaButton.text}
                 </Link>
