@@ -157,7 +157,7 @@ gsap.from('.program-card', {
                     </div>
                   )}
                   {program.moneyBack && (
-                    <MoneyBackBadge className="h-20 w-20" />
+                    <MoneyBackBadge className="h-20 w-20 relative top-7 left-5" />
                   )}
                 </div>
 

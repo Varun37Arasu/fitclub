@@ -52,7 +52,7 @@ const NonVegPlan = () => {
               {vegPlanData.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center w-full sm:w-auto px-4">
-              <Link to="/contact" className="btn-primary text-sm md:text-lg lg:text-xl px-8 md:px-12 py-3 md:py-6 text-center w-full sm:w-auto">
+              <Link to="/payment?plan=non-veg" className="btn-primary text-sm md:text-lg lg:text-xl px-8 md:px-12 py-3 md:py-6 text-center w-full sm:w-auto">
                 START NOW → {vegPlanData.hero.price}
               </Link>
             </div>

@@ -8,6 +8,7 @@ import Services from './pages/Services';
 import About from './pages/About';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
+import Payment from './pages/Payment';
 import FAQ from './pages/FAQ';
 import EightWeekTransformation from './pages/programs/EightWeekTransformation';
 import TwelveWeekTransformation from './pages/programs/TwelveWeekTransformation';
@@ -40,6 +41,7 @@ function App() {
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/payment" element={<Payment />} />
           </Routes>
         </main>
         <Footer />

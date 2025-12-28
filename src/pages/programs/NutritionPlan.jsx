@@ -36,7 +36,7 @@ const NutritionPlan = () => {
               {nutritionData.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
-              <Link to="/contact" className="btn-primary text-sm md:text-lg px-8 md:px-12 py-4 md:py-6 w-full sm:w-auto">
+              <Link to="/payment?plan=nutrition" className="btn-primary text-sm md:text-lg px-8 md:px-12 py-4 md:py-6 w-full sm:w-auto">
                 START NOW → {nutritionData.hero.price}
               </Link>
             </div>
