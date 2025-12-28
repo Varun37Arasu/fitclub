@@ -11,6 +11,7 @@ import {
   clientReviewsData, 
   finalCtaData 
 } from '../data/home';
+import MoneyBackBadge from '../components/MoneyBackBadge';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -299,11 +300,16 @@ const Home = () => {
           <div className="space-y-12 max-w-6xl mx-auto">
             {programsData.programs.map((program, idx) => (
               <div key={idx} className="stack-card relative">
-                 {program.popular && (
-                   <div className="absolute -top-4 right-6 z-20 px-4 py-2 bg-[#ff4500] text-white text-xs font-bold uppercase">
-                     Most Popular
-                   </div>
-                 )}
+                 <div className="absolute -top-8 right-6 z-20 flex items-center gap-4">
+                   {program.popular && (
+                     <div className={`px-4 py-2 bg-[#ff4500] ${program.moneyBack ? 'relative -top-6' : ''} text-white text-xs font-bold uppercase`}>
+                       Most Popular
+                     </div>
+                   )}
+                   {program.moneyBack && (
+                     <MoneyBackBadge className="h-28 w-28 relative left-20" />
+                   )}
+                 </div>
 
                  <div className={`bg-[#1a1a1a] border-2 ${program.popular ? 'border-[#ff4500]' : 'border-gray-700'} p-8 md:p-12 hover:border-[#ff4500] transition-all`}>
                    <div className="grid md:grid-cols-3 gap-8 items-center">

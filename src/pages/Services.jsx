@@ -10,6 +10,7 @@ import {
   whyUsData,
   ctaData,
 } from '../data/services';
+import MoneyBackBadge from '../components/MoneyBackBadge';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,6 +88,38 @@ gsap.from('.program-card', {
         </div>
       </section>
 
+
+      {/* Why Choose Us */}
+      <section className="section-padding bg-[#1a1a1a]">
+        <div className="container-custom px-4">
+          <h2 className="text-5xl lg:text-6xl font-heading font-black text-white mb-8 md:mb-12 text-center break-words">
+            WHY <span className="text-[#ff4500]">US?</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+            {whyUsData.map((reason, idx) => (
+              <div
+                key={idx}
+                className="bg-black/40 backdrop-blur-sm border-2 border-gray-700 hover:border-[#ff4500] rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 transition-all group relative overflow-hidden min-h-[180px] md:min-h-[220px]"
+              >
+                <div className="absolute top-4 right-4 text-6xl md:text-7xl lg:text-8xl font-heading font-black text-[#ff4500]/10 group-hover:text-[#ff4500]/20 transition-colors">
+                  {reason.num}
+                </div>
+                <div className="relative z-10 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 border-3 border-[#ff4500] flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                      <span className="text-xl md:text-2xl font-heading font-black text-[#ff4500]">{reason.num}</span>
+                    </div>
+                    <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-white mb-2 md:mb-3 break-words leading-tight">{reason.title}</h3>
+                    <p className="text-xs md:text-sm text-gray-300 leading-relaxed break-words">{reason.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Programs Section - Card Stack Layout */}
       <section className="programs-section section-padding bg-[#1a1a1a] relative overflow-hidden">
         {/* Noise Texture Overlay */}
@@ -110,12 +143,23 @@ gsap.from('.program-card', {
                 className="program-card relative"
                 // style={{ transform: `translateX(${idx * 20}px)` }}
               >
-                 {/* Popular Badge */}
-                 {program.popular && (
-                   <div className="absolute -top-4 right-6 z-20 px-4 py-2 bg-[#ff4500] text-white text-xs font-bold uppercase">
-                     Most Popular
-                   </div>
-                 )}
+                 {/* Badges */}
+                 <div className="absolute -top-8 right-6 z-20 flex items-center gap-4">
+                 <div >
+                   {program.popular && (
+                     <div className={`px-4 py-2 bg-[#ff4500] ${program.moneyBack ? 'relative -top-6' : ''} text-white text-xs font-bold uppercase`}>
+                       Most Popular
+                     </div>
+                   )}
+                   
+                 </div>
+                 <div>
+                 {program.moneyBack && (
+                     <MoneyBackBadge className="h-28 w-28 relative left-20" />
+                   )}
+                 </div>
+                 </div>
+            
 
                  <div className={`relative bg-black/40 backdrop-blur-sm border-2 ${program.popular ? 'border-[#ff4500]' : 'border-gray-800'} p-8 md:p-12 hover:border-[#ff4500] transition-all`}>
                   {/* Gradient Border Effect */}
@@ -243,36 +287,6 @@ gsap.from('.program-card', {
         </div>
       </section>
 
-      {/* Why Choose Us - Redesigned */}
-      <section className="section-padding bg-[#1a1a1a]">
-        <div className="container-custom px-4">
-          <h2 className="text-5xl lg:text-6xl font-heading font-black text-white mb-8 md:mb-12 text-center break-words">
-            WHY <span className="text-[#ff4500]">US?</span>
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
-            {whyUsData.map((reason, idx) => (
-              <div
-                key={idx}
-                className="bg-black/40 backdrop-blur-sm border-2 border-gray-700 hover:border-[#ff4500] rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 transition-all group relative overflow-hidden min-h-[180px] md:min-h-[220px]"
-              >
-                <div className="absolute top-4 right-4 text-6xl md:text-7xl lg:text-8xl font-heading font-black text-[#ff4500]/10 group-hover:text-[#ff4500]/20 transition-colors">
-                  {reason.num}
-                </div>
-                <div className="relative z-10 h-full flex flex-col justify-between">
-                  <div>
-                    <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 border-3 border-[#ff4500] flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
-                      <span className="text-xl md:text-2xl font-heading font-black text-[#ff4500]">{reason.num}</span>
-                    </div>
-                    <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-white mb-2 md:mb-3 break-words leading-tight">{reason.title}</h3>
-                    <p className="text-xs md:text-sm text-gray-300 leading-relaxed break-words">{reason.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Final CTA - Gradient Borders + Glow */}
       <section className="section-padding bg-[#0f0f0f] relative overflow-hidden">

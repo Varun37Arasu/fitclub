@@ -11,7 +11,7 @@ export const heroData = {
     primary: { text: 'Explore Nutrition Plans', link: '/nutrition/veg-plan' },
     secondary: { text: 'Book Consultation', link: '/contact' },
   },
-  backgroundImage: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000',
+  backgroundImage: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2000', // Nutrition-focused: healthy food
 };
 
 export const heroStatsData = [
@@ -75,6 +75,7 @@ export const programsData = {
       features: ['16 Sessions', 'Nutrition Guide', 'Weekly Check-ins'],
       link: '/services/4-week-transformation',
       popular: false,
+      moneyBack: false,
     },
     {
       title: '8-WEEK TRANSFORM',
@@ -83,6 +84,7 @@ export const programsData = {
       features: ['32 Sessions', 'Meal Plans', '24/7 Access'],
       link: '/services/8-week-transformation',
       popular: true,
+      moneyBack: true,
     },
     {
       title: 'NUTRITION COACHING',
@@ -91,6 +93,7 @@ export const programsData = {
       features: ['Custom Plans', 'Recipe Access', 'Monthly Calls'],
       link: '/services/nutrition-plan',
       popular: false,
+      moneyBack: true,
     },
   ],
   viewAllButton: {
