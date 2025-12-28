@@ -1,7 +1,7 @@
 // Footer Data
 
 export const logoData = {
-  image: '/src/assets/logo8.png',
+  image: '/src/assets/logo10.png',
   text: 'URS KINGS',
   highlight: 'NUTRITION',
   fallbackText: 'URS KINGS NUTRITION',

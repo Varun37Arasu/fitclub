@@ -20,7 +20,7 @@ const VegPlan = () => {
   }, []);
 
   return (
-    <div className="bg-[#0f0f0f]">
+    <div className="pt-24 bg-[#0f0f0f]">
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-start justify-center overflow-hidden pb-8 pt-24">
         {/* Background Image */}
