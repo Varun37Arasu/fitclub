@@ -6,6 +6,7 @@ import {
   heroData,
   quickStatsData,
   programsData,
+  nutritionPlansData,
   comparisonData,
   whyUsData,
   ctaData,
@@ -120,126 +121,183 @@ gsap.from('.program-card', {
         </div>
       </section>
 
-      {/* Programs Section - Card Stack Layout */}
+      {/* Transformation Programs Section */}
       <section className="programs-section section-padding bg-[#1a1a1a] relative overflow-hidden">
-        {/* Noise Texture Overlay */}
         <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiLz48L3N2Zz4=')]"></div>
 
         <div className="container-custom relative z-10">
-           <div className="mb-16 text-center">
+           <div className="mb-12 text-center">
              <h2 className="text-5xl md:text-6xl font-heading font-black text-white mb-4">
-               Our <span className="text-[#ff4500]">Programs</span>
+               Transformation <span className="text-[#ff4500]">Programs</span>
              </h2>
              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-               Each program is designed to deliver maximum results based on your goals and commitment level.
+               Intensive training programs designed for complete body transformation.
              </p>
            </div>
 
-          {/* Program Cards with Overlapping Layout */}
-          <div className="space-y-12">
+          {/* Transformation Program Cards - Grid Layout */}
+          <div className="grid md:grid-cols-2 gap-6">
             {programsData.map((program, idx) => (
-              <div
-                key={program.id}
-                className="program-card relative"
-                // style={{ transform: `translateX(${idx * 20}px)` }}
-              >
-                 {/* Badges */}
-                 <div className="absolute -top-8 right-6 z-20 flex items-center gap-4">
-                 <div >
-                   {program.popular && (
-                     <div className={`px-4 py-2 bg-[#ff4500] ${program.moneyBack ? 'relative -top-6' : ''} text-white text-xs font-bold uppercase`}>
-                       Most Popular
-                     </div>
-                   )}
-                   
-                 </div>
-                 <div>
-                 {program.moneyBack && (
-                     <MoneyBackBadge className="h-28 w-28 relative left-20" />
-                   )}
-                 </div>
-                 </div>
-            
+              <div key={program.id} className="program-card relative group">
+                {/* Background Image */}
+                {/* <div className="absolute inset-0 overflow-hidden rounded-lg">
+                  <img 
+                    src={program.image} 
+                    alt={program.title}
+                    className="w-full h-full object-cover opacity-40 group-hover:opacity-50 group-hover:scale-110 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30"></div>
+                </div> */}
 
-                 <div className={`relative bg-black/40 backdrop-blur-sm border-2 ${program.popular ? 'border-[#ff4500]' : 'border-gray-800'} p-8 md:p-12 hover:border-[#ff4500] transition-all`}>
-                  {/* Gradient Border Effect */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-[#ff4500] via-[#ff8c00] to-[#ff4500] opacity-0 group-hover:opacity-20 blur-xl transition-opacity"></div>
-
-                  <div className="relative z-10">
-                    <div className="grid md:grid-cols-3 gap-12">
-                       {/* Left: Title & Description */}
-                       <div className="md:col-span-2">
-                         <div className="mb-6">
-                           <div className="text-sm text-[#ff4500] font-bold mb-2 uppercase">{program.tagline}</div>
-                           <h3 className="text-3xl md:text-4xl font-heading font-black text-white mb-3">
-                             {program.title}
-                           </h3>
-                           <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                             {program.description}
-                           </p>
-                         </div>
-
-                         {/* Features List */}
-                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-                           {program.features.map((feature, i) => (
-                             <div key={i} className="flex items-start gap-2">
-                               <div className="w-5 h-5 bg-[#ff4500] flex items-center justify-center flex-shrink-0 mt-0.5">
-                                 <span className="text-white text-xs font-bold">✓</span>
-                               </div>
-                               <span className="text-gray-300 text-sm">{feature}</span>
-                             </div>
-                           ))}
-                         </div>
-
-                        {/* Highlights */}
-                        <div className="flex flex-wrap gap-3 mb-6">
-                          {program.highlights.map((highlight, i) => (
-                            <div key={i} className="border-2 border-[#ff4500] px-4 py-2">
-                              <div className="text-2xl font-heading font-black text-[#ff4500] mb-1">{highlight.metric}</div>
-                              <div className="text-xs text-gray-400">{highlight.label}</div>
-                            </div>
-                          ))}
-                        </div>
-
-                        <Link
-                          to={program.link}
-                          className="inline-block btn-primary text-base px-8 py-3"
-                        >
-                          View Details
-                        </Link>
-                      </div>
-
-                       {/* Right: Pricing & Stats */}
-                      <div className="space-y-4">
-                        {/* Price Card */}
-                        <div className="bg-black/60 border-2 border-[#ff4500] p-6 text-center">
-                          <div className="text-4xl font-heading font-black text-[#ff4500] mb-1">
-                            {program.price}
-                          </div>
-                          <div className="text-gray-400 text-sm">{program.duration}</div>
-                        </div>
-
-                        {/* Quick Stats */}
-                        <div className="space-y-2">
-                          <div className="bg-[#1a1a1a] border border-gray-700 p-3 flex justify-between items-center">
-                            <span className="text-gray-400 text-xs font-bold">Sessions</span>
-                            <span className="text-xl font-heading font-black text-[#ff4500]">{program.sessions}</span>
-                          </div>
-                          <div className="bg-[#1a1a1a] border border-gray-700 p-3 flex justify-between items-center">
-                            <span className="text-gray-400 text-xs font-bold">Duration</span>
-                            <span className="text-xl font-heading font-black text-[#ff4500]">{program.duration}</span>
-                          </div>
-                        </div>
-
-                        {/* CTA */}
-                        <Link
-                          to="/contact"
-                          className="block text-center btn-secondary text-sm py-3"
-                        >
-                          Book Consultation
-                        </Link>
-                      </div>
+                {/* Badges */}
+                <div className="absolute -top-6 right-4 z-20 flex items-center gap-2">
+                  {program.popular && (
+                    <div className="px-3 py-1 bg-[#ff4500] text-white text-xs font-bold uppercase">
+                      Most Popular
                     </div>
+                  )}
+                  {program.moneyBack && (
+                    <MoneyBackBadge className="h-20 w-20" />
+                  )}
+                </div>
+
+                <div className={`relative bg-black/40 backdrop-blur-sm border-2 ${program.popular ? 'border-[#ff4500]' : 'border-gray-800'} p-6 hover:border-[#ff4500] transition-all h-full flex flex-col rounded-lg`}>
+                  <div className="relative z-10 flex-1 flex flex-col">
+                    {/* Header */}
+                    <div className="mb-4">
+                      <div className="text-xs text-[#ff4500] font-bold mb-1 uppercase tracking-wider">{program.tagline}</div>
+                      <h3 className="text-2xl font-heading font-black text-white mb-2">
+                        {program.title}
+                      </h3>
+                      <p className="text-sm text-gray-300 leading-relaxed mb-4">
+                        {program.description}
+                      </p>
+                    </div>
+
+                    {/* Price */}
+                    <div className="bg-black/80 border-2 border-[#ff4500] p-4 text-center mb-4">
+                      <div className="text-3xl font-heading font-black text-[#ff4500] mb-1">
+                        {program.price}
+                      </div>
+                      <div className="text-gray-400 text-xs uppercase tracking-wider">{program.duration}</div>
+                    </div>
+
+                    {/* Highlights */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {program.highlights.map((highlight, i) => (
+                        <div key={i} className="px-3 py-1 bg-[#ff4500]/20 border border-[#ff4500]/50 text-xs text-[#ff4500] font-bold">
+                          {highlight}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Features */}
+                    <div className="space-y-2 mb-4 flex-1">
+                      {program.features.map((feature, i) => (
+                        <div key={i} className="flex items-start gap-2">
+                          <div className="w-4 h-4 bg-[#ff4500] flex items-center justify-center flex-shrink-0 mt-0.5 rounded-sm">
+                            <span className="text-white text-xs font-bold">✓</span>
+                          </div>
+                          <span className="text-gray-300 text-xs leading-relaxed">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* CTA */}
+                    <Link
+                      to={program.link}
+                      className="btn-primary text-sm px-6 py-3 text-center block rounded"
+                    >
+                      View Details
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Nutrition Plans Section */}
+          <div className="mb-12 text-center mt-20">
+            <h2 className="text-5xl md:text-6xl font-heading font-black text-white mb-4">
+              Nutrition <span className="text-orange-500">Plans</span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Personalized meal plans designed to fuel your transformation and optimize your results.
+            </p>
+          </div>
+
+          {/* Nutrition Plan Cards - Grid Layout */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {nutritionPlansData.map((plan, idx) => (
+              <div key={plan.id} className="program-card relative group">
+                {/* Background Image */}
+                {/* <div className="absolute inset-0 overflow-hidden rounded-lg">
+                  <img 
+                    src={plan.image} 
+                    alt={plan.title}
+                    className="w-full h-full object-cover opacity-40 group-hover:opacity-50 group-hover:scale-110 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30"></div>
+                </div> */}
+
+                {/* Badges */}
+                <div className="absolute -top-6 right-4 z-20 flex items-center gap-2">
+                  {plan.popular && (
+                    <div className="px-3 py-1 bg-orange-500 text-white text-xs font-bold uppercase">
+                      Most Popular
+                    </div>
+                  )}
+                </div>
+
+                <div className={`relative bg-black/40 backdrop-blur-sm border-2 ${plan.popular ? 'border-orange-500' : 'border-gray-800'} p-6 hover:border-orange-500 transition-all h-full flex flex-col rounded-lg`}>
+                  <div className="relative z-10 flex-1 flex flex-col">
+                    {/* Header */}
+                    <div className="mb-4">
+                      <div className="text-xs text-orange-500 font-bold mb-1 uppercase tracking-wider">{plan.tagline}</div>
+                      <h3 className="text-2xl font-heading font-black text-white mb-2">
+                        {plan.title}
+                      </h3>
+                      <p className="text-sm text-gray-300 leading-relaxed mb-4">
+                        {plan.description}
+                      </p>
+                    </div>
+
+                    {/* Price */}
+                    <div className="bg-black/80 border-2 border-orange-500 p-4 text-center mb-4">
+                      <div className="text-3xl font-heading font-black text-orange-500 mb-1">
+                        {plan.price}
+                      </div>
+                      <div className="text-gray-400 text-xs uppercase tracking-wider">{plan.duration}</div>
+                    </div>
+
+                    {/* Highlights */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {plan.highlights.map((highlight, i) => (
+                        <div key={i} className="px-3 py-1 bg-orange-500/20 border border-orange-500/50 text-xs text-orange-400 font-bold">
+                          {highlight}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Features */}
+                    <div className="space-y-2 mb-4 flex-1">
+                      {plan.features.map((feature, i) => (
+                        <div key={i} className="flex items-start gap-2">
+                          <div className="w-4 h-4 bg-orange-500 flex items-center justify-center flex-shrink-0 mt-0.5 rounded-sm">
+                            <span className="text-white text-xs font-bold">✓</span>
+                          </div>
+                          <span className="text-gray-300 text-xs leading-relaxed">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* CTA */}
+                    <Link
+                      to={plan.link}
+                      className="bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-bold text-sm px-6 py-3 text-center block transition-all rounded"
+                    >
+                      View Details
+                    </Link>
                   </div>
                 </div>
               </div>

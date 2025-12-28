@@ -5,7 +5,8 @@ export const vegPlanData = {
     title: "PLANT-POWERED TRANSFORMATION",
     description: "Complete vegetarian nutrition plan designed for optimal muscle growth, fat loss, and peak performance. 100% plant-based, 100% results.",
     price: "₹4,999/month",
-    moneyBackGuarantee: false
+    moneyBackGuarantee: false,
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1920&q=80"
   },
   stats: [
     { value: "100%", label: "Plant Based" },
@@ -131,7 +132,8 @@ export const nonVegPlanData = {
     title: "COMPLETE NUTRITION MASTERY",
     description: "Comprehensive nutrition plan with lean meats, fish, and complete protein sources for maximum muscle growth and fat loss.",
     price: "₹5,999/month",
-    moneyBackGuarantee: false
+    moneyBackGuarantee: false,
+    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=80"
   },
   stats: [
     { value: "200g+", label: "Protein/Day" },
@@ -257,7 +259,8 @@ export const ketoPlanData = {
     title: "KETOGENIC FAT LOSS",
     description: "High-fat, low-carb ketogenic nutrition plan for rapid fat loss while preserving muscle mass. Enter ketosis and transform your metabolism.",
     price: "₹6,499/month",
-    moneyBackGuarantee: false
+    moneyBackGuarantee: false,
+    image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1920&q=80"
   },
   stats: [
     { value: "<20g", label: "Net Carbs/Day" },

@@ -21,12 +21,17 @@ const KetoPlan = () => {
   }, []);
 
   return (
-    <div className="pt-20 bg-[#0f0f0f]">
+    <div className="bg-[#0f0f0f]">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pb-16">
+      <section className="relative min-h-screen flex flex-col items-start justify-center overflow-hidden pb-8 pt-24">
+        {/* Background Image */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 right-10 w-[700px] h-[700px] bg-orange-600 opacity-20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 left-10 w-[600px] h-[600px] bg-amber-700 opacity-15 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1.5s'}}></div>
+          <img 
+            src={vegPlanData.hero.image} 
+            alt="Keto Nutrition"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80"></div>
         </div>
 
         <div className="container-custom relative z-10 px-4 flex-1 flex items-center justify-center">
@@ -55,11 +60,11 @@ const KetoPlan = () => {
         </div>
 
         {/* Stats */}
-        <div className="w-full px-4 mt-8 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 relative z-10">
+        <div className="w-full px-4 mt-12 relative z-10">
           <div className="container-custom">
             <div className="grid grid-cols-3 gap-3 md:gap-6 max-w-4xl mx-auto">
               {vegPlanData.stats.map((stat, idx) => (
-                <div key={idx} className="bg-black/60 border border-gray-700 md:border-2 p-3 md:p-6 text-center">
+                <div key={idx} className="bg-black/70 backdrop-blur-sm border border-gray-700 md:border-2 p-3 md:p-6 text-center">
                   <div className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-orange-500 mb-1 md:mb-2">{stat.value}</div>
                   <div className="text-xs md:text-sm text-gray-300 break-words leading-tight">{stat.label}</div>
                 </div>
@@ -110,25 +115,45 @@ const KetoPlan = () => {
         </div>
       </section>
 
-      {/* Food Categories */}
+      {/* Nutrition Sources - Completely Redesigned */}
       <section className="section-padding bg-[#1a1a1a]">
         <div className="container-custom px-4">
           <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-white mb-8 md:mb-12 text-center">
-            FOOD <span className="text-orange-500">CATEGORIES</span>
+            NUTRITION <span className="text-orange-500">SOURCES</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          {/* Simple Clean Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {vegPlanData.foodCategories.map((category, idx) => (
-              <div key={idx} className="bg-black/40 backdrop-blur-sm border-2 border-gray-700 hover:border-orange-500 p-6 rounded-xl transition-all">
-                <div className="text-4xl mb-4">{category.icon}</div>
-                <h3 className="text-xl font-heading font-black text-white mb-4">{category.name}</h3>
-                <ul className="space-y-2">
-                  {category.items.map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-gray-300">
-                      <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
-                      <span className="text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div 
+                key={idx} 
+                className="group relative bg-black/60 border-2 border-gray-800 hover:border-orange-500 p-6 transition-all duration-300 overflow-hidden"
+              >
+                {/* Subtle gradient on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:to-transparent transition-all duration-300"></div>
+                
+                <div className="relative z-10">
+                  {/* Category Title */}
+                  <h3 className="text-xl md:text-2xl font-heading font-black text-white uppercase mb-4 group-hover:text-orange-500 transition-colors">
+                    {category.name}
+                  </h3>
+
+                  {/* Items List - Simple & Clean */}
+                  <div className="space-y-2">
+                    {category.items.map((item, i) => (
+                      <div 
+                        key={i} 
+                        className="flex items-center gap-3 text-gray-300 group-hover:text-white transition-colors"
+                      >
+                        <div className="w-1.5 h-1.5 bg-orange-500 rounded-full flex-shrink-0"></div>
+                        <span className="text-sm font-medium">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Simple accent line */}
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-500"></div>
               </div>
             ))}
           </div>

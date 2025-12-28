@@ -17,26 +17,25 @@ const Navigation = () => {
   }, []);
   const logoPrefix = logoData.text.replace(logoData.highlight, '');
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-[#1a1a1a]/95 backdrop-blur-xl border-b-2 border-gray-700 shadow-lg' : 'bg-transparent'
-    }`}>
-      <div className="container-custom flex items-center justify-around" style={{maxWidth: "100%"}}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#1a1a1a]/95 backdrop-blur-xl border-b-2 border-gray-700 shadow-lg' : 'bg-transparent'
+      }`}>
+      <div className="container-custom flex items-center justify-between" style={{ maxWidth: "100%" }}>
 
-      <Link to="/" className="relative group flex items-center gap-3 flex-shrink-0">
-            {logoData.image && (<>
-              <img 
-                src={logoData.image} 
-                alt="URS Kings Nutrition" 
-                className="h-16 md:h-50 lg:h-24 w-auto transition-transform duration-300 group-hover:scale-105"
-              /> 
-               <span className="text-2xl md:text-3xl font-heading font-black text-white uppercase tracking-tight hover:text-[#ff4500] transition-colors">
+        <Link to="/" className="relative group flex items-center gap-3 flex-shrink-0">
+          {logoData.image && (<>
+            <img
+              src={logoData.image}
+              alt="URS Kings Nutrition"
+              className="h-16 md:h-50 lg:h-24 w-auto transition-transform duration-300 group-hover:scale-105"
+            />
+            <span className="text-2xl md:text-3xl font-heading font-black text-white uppercase tracking-tight hover:text-[#ff4500] transition-colors">
               {logoPrefix}
               <br />
               <span className="text-[#ff4500]">{logoData.highlight}</span>
             </span>
-            </>
-            )}
-          </Link>
+          </>
+          )}
+        </Link>
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
 
@@ -46,11 +45,10 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative px-3 xl:px-5 py-3 text-xs xl:text-sm font-bold uppercase tracking-wider transition-all ${
-                  location.pathname === link.path
+                className={`relative px-3 xl:px-5 py-3 text-xs xl:text-sm font-bold uppercase tracking-wider transition-all ${location.pathname === link.path
                     ? 'text-[#ff4500]'
                     : 'text-gray-300 hover:text-white'
-                }`}
+                  }`}
               >
                 {link.name}
                 {location.pathname === link.path && (
@@ -58,20 +56,19 @@ const Navigation = () => {
                 )}
               </Link>
             ))}
-            
+
             {/* Services Dropdown */}
-            <div 
+            <div
               className="relative group"
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
             >
               <Link
                 to="/services"
-                className={`relative px-3 xl:px-5 py-3 text-xs xl:text-sm font-bold uppercase tracking-wider transition-all inline-flex items-center gap-1 xl:gap-2 ${
-                  location.pathname.startsWith('/services') || location.pathname.startsWith('/nutrition')
+                className={`relative px-3 xl:px-5 py-3 text-xs xl:text-sm font-bold uppercase tracking-wider transition-all inline-flex items-center gap-1 xl:gap-2 ${location.pathname.startsWith('/services') || location.pathname.startsWith('/nutrition')
                     ? 'text-[#ff4500]'
                     : 'text-gray-300 hover:text-white'
-                }`}
+                  }`}
               >
                 SERVICES
                 <svg className="w-3 xl:w-4 h-3 xl:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -81,11 +78,10 @@ const Navigation = () => {
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 bg-[#ff4500]"></div>
                 )}
               </Link>
-              
-              <div 
-                className={`absolute top-full left-0 mt-2 w-80 bg-[#1a1a1a] border-2 border-gray-700 shadow-xl z-50 transition-all duration-200 ${
-                  servicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-                }`}
+
+              <div
+                className={`absolute top-full left-0 mt-2 w-80 bg-[#1a1a1a] border-2 border-gray-700 shadow-xl z-50 transition-all duration-200 ${servicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                  }`}
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(false)}
               >
@@ -103,7 +99,7 @@ const Navigation = () => {
                     {link.name}
                   </Link>
                 ))}
-                
+
                 {/* Transformation Programs Section */}
                 <div className="px-4 py-2 bg-[#242424] border-b border-gray-700 mt-2">
                   <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Transformation Programs</span>
@@ -118,7 +114,7 @@ const Navigation = () => {
                     {link.name}
                   </Link>
                 ))}
-                
+
                 <Link
                   to="/services"
                   className="block px-6 py-4 text-sm font-bold text-[#ff4500] hover:bg-[#242424] transition-all text-center"
@@ -128,7 +124,7 @@ const Navigation = () => {
                 </Link>
               </div>
             </div>
-            
+
             <Link to={ctaButton.path} className="ml-2 xl:ml-4 btn-primary text-xs xl:text-sm px-4 xl:px-8 py-2 xl:py-3">
               {ctaButton.text}
             </Link>
@@ -160,16 +156,15 @@ const Navigation = () => {
                   key={link.path}
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-6 py-4 text-sm font-bold uppercase tracking-wider ${
-                    location.pathname === link.path
+                  className={`block px-6 py-4 text-sm font-bold uppercase tracking-wider ${location.pathname === link.path
                       ? 'text-[#ff4500] bg-[#242424]'
                       : 'text-gray-300 hover:text-white hover:bg-[#242424]'
-                  }`}
+                    }`}
                 >
                   {link.name}
                 </Link>
               ))}
-              
+
               {/* Mobile Services Section */}
               <div className="border-t border-gray-700 mt-2 pt-2">
                 <div className="px-6 py-3 text-xs text-gray-500 font-bold uppercase">Nutrition Plans</div>
@@ -183,7 +178,7 @@ const Navigation = () => {
                     {link.name}
                   </Link>
                 ))}
-                
+
                 <div className="px-6 py-3 text-xs text-gray-500 font-bold uppercase mt-2">Transformation Programs</div>
                 {serviceLinks.filter(link => link.category === 'Transformation').map((link) => (
                   <Link
@@ -203,7 +198,7 @@ const Navigation = () => {
                   View All Programs →
                 </Link>
               </div>
-              
+
               <div className="px-6 pt-4">
                 <Link
                   to={ctaButton.path}
