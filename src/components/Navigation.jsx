@@ -19,8 +19,8 @@ const Navigation = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#1a1a1a]/95 backdrop-blur-xl border-b-2 border-gray-700 shadow-lg' : 'bg-transparent'
       }`}>
-      <div className="container-custom px-4 md:px-6">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+      <div className="container-custom px-4 md:px-6 md:max-w-full">
+        <div className="flex items-center justify-between md:justify-evenly h-20 lg:h-24 md:gap-40">
           {/* Logo */}
           <Link to="/" className="relative group flex items-center gap-2 md:gap-3 flex-shrink-0">
             {logoData.image && (<>

@@ -25,7 +25,7 @@ const NonVegPlan = () => {
     <div className="bg-[#0f0f0f]">
       {/* Hero Section - KEEP AS IS */}
       <section className="relative min-h-screen flex flex-col items-start justify-center overflow-hidden pb-8 pt-24">
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 pt-20 md:pt-24">
           <img 
             src={vegPlanData.hero.image} 
             alt="Non-Vegetarian Nutrition"
