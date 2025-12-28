@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { twelveWeekData } from '../../data/programs';
+import MoneyBackBadge from '../../components/MoneyBackBadge';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,11 +35,7 @@ const TwelveWeekTransformation = () => {
                 <span className="text-white font-heading font-black text-sm md:text-2xl tracking-wider break-words">{twelveWeekData.hero.badge}</span>
               </div>
               {twelveWeekData.hero.moneyBackGuarantee && (
-                <img 
-                  src="/src/assets/money-back-2.png" 
-                  alt="100% Money Back Guarantee" 
-                  className="money-back-badge h-20 md:h-28 w-auto"
-                />
+                <MoneyBackBadge className="h-20 md:h-28 w-20 md:w-28" />
               )}
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-black leading-[0.95] tracking-tighter mb-6 md:mb-8 break-words px-2 max-w-full">

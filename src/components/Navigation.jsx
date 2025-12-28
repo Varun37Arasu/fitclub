@@ -15,31 +15,38 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
+  const logoPrefix = logoData.text.replace(logoData.highlight, '');
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled ? 'bg-[#1a1a1a]/95 backdrop-blur-xl border-b-2 border-gray-700 shadow-lg' : 'bg-transparent'
     }`}>
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-24">
-          {/* Logo */}
-          <Link to="/" className="relative group flex items-center gap-3">
-            {logoData.image && (
+      <div className="container-custom flex items-center justify-around" style={{maxWidth: "100%"}}>
+
+      <Link to="/" className="relative group flex items-center gap-3 flex-shrink-0">
+            {logoData.image && (<>
               <img 
                 src={logoData.image} 
                 alt="URS Kings Nutrition" 
-                className="h-14 md:h-16 lg:h-18 w-auto"
-              />
+                className="h-16 md:h-50 lg:h-24 w-auto transition-transform duration-300 group-hover:scale-105"
+              /> 
+               <span className="text-2xl md:text-3xl font-heading font-black text-white uppercase tracking-tight hover:text-[#ff4500] transition-colors">
+              {logoPrefix}
+              <br />
+              <span className="text-[#ff4500]">{logoData.highlight}</span>
+            </span>
+            </>
             )}
           </Link>
+        <div className="flex items-center justify-between h-24">
+          {/* Logo */}
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all ${
+                className={`relative px-3 xl:px-5 py-3 text-xs xl:text-sm font-bold uppercase tracking-wider transition-all ${
                   location.pathname === link.path
                     ? 'text-[#ff4500]'
                     : 'text-gray-300 hover:text-white'
@@ -60,14 +67,14 @@ const Navigation = () => {
             >
               <Link
                 to="/services"
-                className={`relative px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all inline-flex items-center gap-2 ${
+                className={`relative px-3 xl:px-5 py-3 text-xs xl:text-sm font-bold uppercase tracking-wider transition-all inline-flex items-center gap-1 xl:gap-2 ${
                   location.pathname.startsWith('/services') || location.pathname.startsWith('/nutrition')
                     ? 'text-[#ff4500]'
                     : 'text-gray-300 hover:text-white'
                 }`}
               >
                 SERVICES
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3 xl:w-4 h-3 xl:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
                 {(location.pathname.startsWith('/services') || location.pathname.startsWith('/nutrition')) && (
@@ -122,7 +129,7 @@ const Navigation = () => {
               </div>
             </div>
             
-            <Link to={ctaButton.path} className="ml-4 btn-primary text-sm px-8 py-3">
+            <Link to={ctaButton.path} className="ml-2 xl:ml-4 btn-primary text-xs xl:text-sm px-4 xl:px-8 py-2 xl:py-3">
               {ctaButton.text}
             </Link>
           </div>
@@ -130,7 +137,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden w-12 h-12 flex items-center justify-center text-white hover:text-[#ff4500] transition-colors"
+            className="lg:hidden w-12 h-12 flex items-center justify-center text-white hover:text-[#ff4500] transition-colors flex-shrink-0"
           >
             {mobileMenuOpen ? (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

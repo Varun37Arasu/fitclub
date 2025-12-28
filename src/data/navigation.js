@@ -1,7 +1,7 @@
 // Navigation Data
 
 export const logoData = {
-  image: '/src/assets/logo1.png',
+  image: '/src/assets/logo8.png',
   text: 'URS KINGS',
   highlight: 'NUTRITION',
   fallbackText: 'URS KINGS NUTRITION',
