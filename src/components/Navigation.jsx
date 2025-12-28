@@ -16,8 +16,6 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const logoPrefix = logoData.text.replace(logoData.highlight, '');
-
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled ? 'bg-[#1a1a1a]/95 backdrop-blur-xl border-b-2 border-gray-700 shadow-lg' : 'bg-transparent'
@@ -25,10 +23,14 @@ const Navigation = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
-          <Link to="/" className="relative group">
-            <span className="text-2xl md:text-3xl font-heading font-black text-white uppercase tracking-tight hover:text-[#ff4500] transition-colors">
-              {logoPrefix}<span className="text-[#ff4500]">{logoData.highlight}</span>
-            </span>
+          <Link to="/" className="relative group flex items-center gap-3">
+            {logoData.image && (
+              <img 
+                src={logoData.image} 
+                alt="URS Kings Nutrition" 
+                className="h-14 md:h-16 lg:h-18 w-auto"
+              />
+            )}
           </Link>
 
           {/* Desktop Navigation */}
@@ -59,7 +61,7 @@ const Navigation = () => {
               <Link
                 to="/services"
                 className={`relative px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all inline-flex items-center gap-2 ${
-                  location.pathname.startsWith('/services')
+                  location.pathname.startsWith('/services') || location.pathname.startsWith('/nutrition')
                     ? 'text-[#ff4500]'
                     : 'text-gray-300 hover:text-white'
                 }`}
@@ -68,35 +70,54 @@ const Navigation = () => {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
-                {location.pathname.startsWith('/services') && (
+                {(location.pathname.startsWith('/services') || location.pathname.startsWith('/nutrition')) && (
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 bg-[#ff4500]"></div>
                 )}
               </Link>
               
-              {/* Dropdown Menu - Stays open when hovering */}
               <div 
-                className={`absolute top-full left-0 mt-2 w-64 bg-[#1a1a1a] border-2 border-gray-700 shadow-xl z-50 transition-all duration-200 ${
+                className={`absolute top-full left-0 mt-2 w-80 bg-[#1a1a1a] border-2 border-gray-700 shadow-xl z-50 transition-all duration-200 ${
                   servicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                 }`}
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(false)}
               >
-                {serviceLinks.map((link) => (
+                {/* Nutrition Plans Section */}
+                <div className="px-4 py-2 bg-[#242424] border-b border-gray-700">
+                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Nutrition Plans</span>
+                </div>
+                {serviceLinks.filter(link => link.category === 'Nutrition').map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className="block px-6 py-4 text-sm font-bold text-gray-300 hover:text-white hover:bg-[#242424] border-b border-gray-800 last:border-b-0 transition-all"
+                    className="block px-6 py-3 text-sm font-bold text-gray-300 hover:text-white hover:bg-[#242424] border-b border-gray-800 transition-all"
                     onClick={() => setServicesOpen(false)}
                   >
                     {link.name}
                   </Link>
                 ))}
+                
+                {/* Transformation Programs Section */}
+                <div className="px-4 py-2 bg-[#242424] border-b border-gray-700 mt-2">
+                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Transformation Programs</span>
+                </div>
+                {serviceLinks.filter(link => link.category === 'Transformation').map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className="block px-6 py-3 text-sm font-bold text-gray-300 hover:text-white hover:bg-[#242424] border-b border-gray-800 transition-all"
+                    onClick={() => setServicesOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+                
                 <Link
                   to="/services"
-                  className="block px-6 py-4 text-sm font-bold text-[#ff4500] hover:bg-[#242424] transition-all"
+                  className="block px-6 py-4 text-sm font-bold text-[#ff4500] hover:bg-[#242424] transition-all text-center"
                   onClick={() => setServicesOpen(false)}
                 >
-                  View All Programs →
+                  VIEW ALL PROGRAMS →
                 </Link>
               </div>
             </div>
@@ -144,8 +165,20 @@ const Navigation = () => {
               
               {/* Mobile Services Section */}
               <div className="border-t border-gray-700 mt-2 pt-2">
-                <div className="px-6 py-3 text-xs text-gray-500 font-bold uppercase">Services</div>
-                {serviceLinks.map((link) => (
+                <div className="px-6 py-3 text-xs text-gray-500 font-bold uppercase">Nutrition Plans</div>
+                {serviceLinks.filter(link => link.category === 'Nutrition').map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block px-6 py-3 text-sm font-bold text-gray-300 hover:text-white hover:bg-[#242424]"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+                
+                <div className="px-6 py-3 text-xs text-gray-500 font-bold uppercase mt-2">Transformation Programs</div>
+                {serviceLinks.filter(link => link.category === 'Transformation').map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}

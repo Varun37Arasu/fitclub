@@ -29,10 +29,16 @@ const TwelveWeekTransformation = () => {
 
         <div className="container-custom relative z-10 px-4 flex-1 flex items-center justify-center">
           <div className="program-hero-title text-center max-w-full w-full">
-            <div className="inline-flex flex-col sm:flex-row items-center gap-3 md:gap-4 px-4 py-2 md:px-8 md:py-4 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 mb-6 md:mb-8 border-2 md:border-4 border-black animate-pulse">
-              <span className="text-white font-heading font-black text-sm md:text-2xl tracking-wider break-words">{twelveWeekData.hero.badge}</span>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-6 md:mb-8">
+              <div className="px-4 py-2 md:px-8 md:py-4 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 border-2 md:border-4 border-black">
+                <span className="text-white font-heading font-black text-sm md:text-2xl tracking-wider break-words">{twelveWeekData.hero.badge}</span>
+              </div>
               {twelveWeekData.hero.moneyBackGuarantee && (
-                <span className="px-3 py-1 md:px-4 md:py-2 bg-black text-yellow-400 font-bold text-xs md:text-sm">100% MONEY BACK</span>
+                <img 
+                  src="/src/assets/money-back-2.png" 
+                  alt="100% Money Back Guarantee" 
+                  className="money-back-badge h-20 md:h-28 w-auto"
+                />
               )}
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-black leading-[0.95] tracking-tighter mb-6 md:mb-8 break-words px-2 max-w-full">

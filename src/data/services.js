@@ -8,7 +8,7 @@ export const heroData = {
 
 export const quickStatsData = [
   { value: '500+', label: 'Clients' },
-  { value: '95%', label: 'Success' },
+  { value: '100%', label: 'Success' },
   { value: '5', label: 'Programs' },
   { value: '10Y', label: 'Experience' },
   { value: '4.9★', label: 'Rating' },
@@ -193,7 +193,7 @@ export const whyUsData = [
     num: '02',
   },
   {
-    title: '95% SUCCESS',
+    title: '100% SUCCESS',
     description: 'Industry-leading client success rate',
     num: '03',
   },

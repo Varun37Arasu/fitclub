@@ -14,6 +14,9 @@ import TwelveWeekTransformation from './pages/programs/TwelveWeekTransformation'
 import TwentyFourWeekTransformation from './pages/programs/TwentyFourWeekTransformation';
 import AnnualTransformation from './pages/programs/AnnualTransformation';
 import NutritionPlan from './pages/programs/NutritionPlan';
+import VegPlan from './pages/nutrition/VegPlan';
+import NonVegPlan from './pages/nutrition/NonVegPlan';
+import KetoPlan from './pages/nutrition/KetoPlan';
 
 function App() {
   return (
@@ -30,6 +33,9 @@ function App() {
             <Route path="/services/24-week-transformation" element={<TwentyFourWeekTransformation />} />
             <Route path="/services/annual-transformation" element={<AnnualTransformation />} />
             <Route path="/services/nutrition-diet-plans" element={<NutritionPlan />} />
+            <Route path="/nutrition/veg-plan" element={<VegPlan />} />
+            <Route path="/nutrition/non-veg-plan" element={<NonVegPlan />} />
+            <Route path="/nutrition/keto-plan" element={<KetoPlan />} />
             <Route path="/about" element={<About />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/faq" element={<FAQ />} />

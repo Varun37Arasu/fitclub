@@ -7,13 +7,13 @@ export const eightWeekData = {
     title: '8-WEEK ELITE TRANSFORMATION',
     description: 'Complete body transformation with proven results',
     price: '₹49,999',
-    moneyBackGuarantee: true,
+    moneyBackGuarantee: false,
   },
   stats: [
     { value: '32', label: 'Sessions' },
     { value: '8', label: 'Weeks' },
     { value: '15-20 LBS', label: 'Fat Loss' },
-    { value: '95%', label: 'Success Rate' },
+    { value: '100%', label: 'Success Rate' },
   ],
   premiumPackage: [
     { title: 'PERSONAL TRAINING', desc: '32 one-on-one sessions', num: '01' },
@@ -176,7 +176,7 @@ export const nutritionData = {
   stats: [
     { value: '200+', label: 'Recipes' },
     { value: '24/7', label: 'Support' },
-    { value: '95%', label: 'Success Rate' },
+    { value: '100%', label: 'Success Rate' },
   ],
   included: [
     { title: 'CUSTOM MEAL PLANS', desc: 'Based on your goals & preferences', num: '01' },

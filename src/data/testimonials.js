@@ -12,7 +12,7 @@ export const heroData = {
 
 export const statsData = [
   { value: '500+', label: 'TRANSFORMATIONS' },
-  { value: '95%', label: 'SUCCESS RATE' },
+  { value: '100%', label: 'SUCCESS RATE' },
   { value: '2500+', label: 'TOTAL KG LOST' },
   { value: '4.9★', label: 'AVG RATING' },
 ];

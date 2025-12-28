@@ -29,11 +29,8 @@ const EightWeekTransformation = () => {
 
         <div className="container-custom relative z-10 px-4 flex-1 flex items-center justify-center">
           <div className="program-hero-title text-center max-w-full w-full">
-            <div className="inline-flex flex-col sm:flex-row items-center gap-3 md:gap-4 px-4 py-2 md:px-8 md:py-4 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 mb-6 md:mb-8 border-2 md:border-4 border-black animate-pulse">
+            <div className="px-4 py-2 md:px-8 md:py-4 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 mb-6 md:mb-8 border-2 md:border-4 border-black inline-block">
               <span className="text-white font-heading font-black text-sm md:text-2xl tracking-wider break-words">{eightWeekData.hero.badge}</span>
-              {eightWeekData.hero.moneyBackGuarantee && (
-                <span className="px-3 py-1 md:px-4 md:py-2 bg-black text-yellow-400 font-bold text-xs md:text-sm">100% MONEY BACK</span>
-              )}
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-black leading-[0.95] tracking-tighter mb-6 md:mb-8 break-words px-2 max-w-full">
               <span className="block text-white">{eightWeekData.hero.title.split(' ')[0]}</span>
@@ -54,14 +51,16 @@ const EightWeekTransformation = () => {
         </div>
 
         {/* Stats at bottom */}
-        <div className="w-full px-4 mt-8 bottom-24 absolute  md:left-1/2 md:-translate-x-1/2 max-w-5xl">
-          <div className="grid grid-cols-3 gap-2 md:gap-4">
-            {eightWeekData.stats.map((stat, idx) => (
-              <div key={idx} className="bg-[#242424] border border-[#ff4500] md:border-2 lg:border-4 p-2 md:p-4 text-center hover:scale-105 transition-transform">
-                <div className="text-xl md:text-3xl lg:text-4xl font-heading font-black text-[#ff4500] mb-1">{stat.value}</div>
-                <div className="text-xs text-gray-400 font-bold break-words leading-tight">{stat.label}</div>
-              </div>
-            ))}
+        <div className="w-full px-4 mt-8 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 relative z-10">
+          <div className="container-custom">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 max-w-5xl mx-auto">
+              {eightWeekData.stats.map((stat, idx) => (
+                <div key={idx} className="bg-black/60 border border-gray-700 md:border-2 lg:border-4 p-3 md:p-6 text-center">
+                  <div className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-[#ff4500] mb-1 md:mb-2">{stat.value}</div>
+                  <div className="text-xs md:text-sm text-gray-300 break-words leading-tight">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

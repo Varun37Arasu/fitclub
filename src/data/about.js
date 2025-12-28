@@ -14,7 +14,7 @@ export const statsData = [
   { value: '10+', label: 'YEARS' },
   { value: '500+', label: 'CLIENTS' },
   { value: '15', label: 'TRAINERS' },
-  { value: '95%', label: 'SUCCESS' },
+  { value: '100%', label: 'SUCCESS' },
   { value: '4.9★', label: 'RATING' },
 ];
 
@@ -63,7 +63,7 @@ export const journeyData = [
   {
     year: '2024',
     title: 'LEADING',
-    description: '15 expert trainers, 5000 sq ft facility, 95% success rate.',
+    description: '15 expert trainers, 5000 sq ft facility, 100% success rate.',
   },
 ];
 
@@ -137,7 +137,7 @@ export const headCoach = {
     'Online coaching community of 10,000+',
     'Regional Bodybuilding Champion 2015',
     'Certified Nutrition Coach',
-    '95% client success rate',
+    '100% client success rate',
   ],
   
   philosophy: 'I believe transformation is 20% training, 30% nutrition, and 50% mindset. My approach focuses on building sustainable habits that last a lifetime, not just quick fixes. Every client receives a personalized program tailored to their unique goals, lifestyle, and physical capabilities.',
@@ -145,7 +145,7 @@ export const headCoach = {
   stats: [
     { value: '500+', label: 'Clients Transformed' },
     { value: '15', label: 'Years Experience' },
-    { value: '95%', label: 'Success Rate' },
+    { value: '100%', label: 'Success Rate' },
     { value: '10K+', label: 'Online Community' },
   ],
 };

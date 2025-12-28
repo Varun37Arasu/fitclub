@@ -1,36 +1,36 @@
 // Home Page Data - Complete extraction from Home.jsx
 
 export const heroData = {
-  badge: 'Elite Personal Training',
+  badge: 'Elite Nutrition & Fitness Coaching',
   title: {
-    line1: 'Transform Your Body',
-    line2: 'Transform Your Life',
+    line1: 'Fuel Your Transformation',
+    line2: 'Achieve Your Goals',
   },
-  description: 'Expert coaching, personalized nutrition, and proven results. Join 500+ successful transformations.',
+  description: 'Expert nutrition coaching, custom meal plans, and proven results. Transform your body from the inside out with 500+ successful transformations.',
   buttons: {
-    primary: { text: 'View Programs', link: '/services' },
+    primary: { text: 'Explore Nutrition Plans', link: '/nutrition/veg-plan' },
     secondary: { text: 'Book Consultation', link: '/contact' },
   },
   backgroundImage: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000',
 };
 
 export const heroStatsData = [
-  { value: 500, label: 'Clients Trained', suffix: '+', key: 'clients' },
-  { value: 95, label: 'Success Rate', suffix: '%', key: 'success' },
-  { value: 10, label: 'Years Experience', suffix: '+', key: 'years' },
+  { value: 500, label: 'Nutrition Clients', suffix: '+', key: 'clients' },
+  { value: 100, label: 'Success Rate', suffix: '%', key: 'success' },
+  { value: 1000, label: 'Custom Meal Plans', suffix: '+', key: 'meals' },
 ];
 
 export const whyChooseUsData = {
-  heading: 'Why Choose FitClub',
+  heading: 'Why Choose URS Kings Nutrition',
   subheading: 'Everything you need for a successful transformation',
   mainFeature: {
-    badge: 'Personalized Approach',
-    title: 'One-on-One Expert Coaching',
-    description: 'Every session is tailored to your unique goals, fitness level, and progress. Our certified trainers provide hands-on guidance, form correction, and motivation to help you achieve maximum results safely and effectively.',
+    badge: 'Nutrition-First Approach',
+    title: 'One-on-One Expert Nutrition Coaching',
+    description: 'Every meal plan is tailored to your unique goals, dietary preferences, and lifestyle. Our certified nutrition coaches provide personalized guidance, macro tracking, and ongoing support to help you achieve maximum results sustainably and effectively.',
     stats: [
       { value: '500+', label: 'Clients' },
-      { value: '95%', label: 'Success' },
-      { value: '10Y', label: 'Experience' },
+      { value: '100%', label: 'Success' },
+      { value: '15Y', label: 'Experience' },
     ],
   },
   progressTracking: {
@@ -112,7 +112,7 @@ export const transformationShowcaseData = {
   },
   stats: [
     { value: '500+', label: 'Successful Transformations' },
-    { value: '95%', label: 'Client Success Rate' },
+    { value: '100%', label: 'Client Success Rate' },
     { value: '2500+', label: 'Total Kilograms Lost' },
   ],
   button: {

@@ -3,8 +3,6 @@ import { FaInstagram, FaFacebook, FaYoutube, FaTwitter } from 'react-icons/fa';
 import { logoData, companyInfo, quickLinks, contactInfo, socialLinks, legalLinks, copyrightText } from '../data/footer';
 
 const Footer = () => {
-  const logoPrefix = logoData.text.replace(logoData.highlight, '');
-
   const getSocialIcon = (iconName) => {
     const icons = {
       instagram: FaInstagram,
@@ -26,9 +24,13 @@ const Footer = () => {
           {/* Logo & About */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-4 md:mb-6">
-              <span className="text-2xl md:text-3xl font-heading font-black text-white uppercase tracking-tight">
-                {logoPrefix}<span className="text-[#ff4500]">{logoData.highlight}</span>
-              </span>
+              {logoData.image && (
+                <img 
+                  src={logoData.image} 
+                  alt="URS Kings Nutrition" 
+                  className="h-14 md:h-16 lg:h-18 w-auto"
+                />
+              )}
             </Link>
             <p className="text-gray-400 text-sm md:text-lg leading-relaxed max-w-md mb-6 md:mb-8">
               {companyInfo.description}

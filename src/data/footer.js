@@ -1,8 +1,10 @@
 // Footer Data
 
 export const logoData = {
-  text: 'FITCLUB',
-  highlight: 'CLUB', // The part that should be highlighted in orange
+  image: '/src/assets/logo1.png',
+  text: 'URS KINGS',
+  highlight: 'NUTRITION',
+  fallbackText: 'URS KINGS NUTRITION',
 };
 
 export const companyInfo = {
