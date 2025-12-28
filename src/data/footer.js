@@ -24,10 +24,10 @@ export const contactInfo = {
 };
 
 export const socialLinks = [
-  { name: 'Instagram', icon: 'IG', url: '#' },
-  { name: 'Facebook', icon: 'FB', url: '#' },
-  { name: 'YouTube', icon: 'YT', url: '#' },
-  { name: 'Twitter', icon: 'TW', url: '#' },
+  { name: 'Instagram', icon: 'instagram', url: 'https://instagram.com/fitclub' },
+  { name: 'Facebook', icon: 'facebook', url: 'https://facebook.com/fitclub' },
+  { name: 'YouTube', icon: 'youtube', url: 'https://youtube.com/fitclub' },
+  { name: 'Twitter', icon: 'twitter', url: 'https://twitter.com/fitclub' },
 ];
 
 export const legalLinks = [

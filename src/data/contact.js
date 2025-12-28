@@ -26,7 +26,7 @@ export const formGoalsData = [
   { value: 'muscle-gain', label: 'Muscle Gain' },
   { value: 'transformation', label: 'Complete Transformation' },
   { value: 'strength', label: 'Strength Training' },
-  { value: 'nutrition', label: 'Nutrition Coaching Only' },
+  { value: 'nutrition', label: 'Nutrition ( Diet Plans )' },
   { value: 'other', label: 'Other' },
 ];
 
@@ -36,29 +36,29 @@ export const contactInfoData = {
     {
       icon: '📍',
       title: 'LOCATION',
-      info: ['FitClub Gym', 'Bandra West, Mumbai', 'Maharashtra 400050, India'],
+      info: ['Sai balaji complex, 50/12, 1st Main Rd, Huchappa Layout, S.V.G. Nagar, Mudalapalya, Vijayanagar, Bengaluru, Karnataka 560040'],
     },
     {
       icon: '📧',
       title: 'EMAIL',
-      info: ['contact@fitclub.com', 'transformations@fitclub.com'],
+      info: ['info@urs-kingsnutrition.com'],
     },
     {
       icon: '📱',
       title: 'PHONE',
-      info: ['+91 98765 43210', '+91 98765 43211'],
+      info: ['+91 7090000877'],
     },
     {
       icon: '⏰',
       title: 'HOURS',
-      info: ['Mon-Sat: 6:00 AM - 10:00 PM', 'Sunday: 8:00 AM - 6:00 PM'],
+      info: ['Mon-Sat: 10:00 AM - 10:00 PM'],
     },
   ],
 };
 
 export const mapData = {
   heading: 'Visit Us',
-  embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30162.267647!2d72.8261!3d19.0596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c943c92b6e2b%3A0x5a6d1b8f9a77c4d0!2sBandra%20West%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1234567890',
+  embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9999629809063!2d77.52266897595995!3d12.971853887343542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d6c568ad96b%3A0xe79f2fc63a34af3a!2sFRY-DAY%20%26%20(0%25%20NUTRITION)!5e0!3m2!1sen!2sin!4v1766915850911!5m2!1sen!2sin"',
   directionsLink: 'https://maps.google.com/?q=Bandra+West+Mumbai',
   directionsText: 'Get Directions →',
 };

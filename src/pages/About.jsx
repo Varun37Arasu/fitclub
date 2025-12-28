@@ -8,7 +8,7 @@ import {
   journeyData,
   valuesData,
   teamSectionData,
-  teamData,
+  headCoach,
   facilitySectionData,
   facilityData,
   ctaData,
@@ -187,48 +187,111 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Head Coach Section */}
       <section className="team-section section-padding bg-[#0f0f0f]">
-        <div className="container-custom">
-          <h2 className="text-6xl md:text-8xl font-heading font-black text-white mb-8 uppercase text-center">
-            {teamSectionData.heading.split(' ').slice(0, 2).join(' ')} <span className="text-[#ff4500]">{teamSectionData.heading.split(' ').slice(2).join(' ')}</span>
+        <div className="container-custom px-4">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-white mb-4 md:mb-8 text-center break-words">
+            {teamSectionData.heading.split(' ').slice(0, 1).join(' ')} <span className="text-[#ff4500]">{teamSectionData.heading.split(' ').slice(1).join(' ')}</span>
           </h2>
-          <p className="text-2xl text-gray-300 text-center max-w-3xl mx-auto mb-16">
+          <p className="text-base md:text-xl lg:text-2xl text-gray-300 text-center max-w-3xl mx-auto mb-8 md:mb-16">
             {teamSectionData.subheading}
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {teamData.map((member, idx) => (
-               <div key={idx} className="team-card relative group">
-                 <div className="bg-black/40 backdrop-blur-sm border-2 border-gray-800 group-hover:border-[#ff4500] overflow-hidden transition-all">
-                  <div className="aspect-[3/4] relative overflow-hidden">
-                    <img
-                      src={member.img}
-                      alt={member.name}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                  </div>
-                   <div className="p-6 bg-black/60">
-                     <h3 className="text-2xl font-heading font-black text-white mb-2">{member.name}</h3>
-                     <div className="mb-3">
-                       <div className="text-xs text-[#ff4500] font-bold uppercase mb-1">{member.role}</div>
-                       <div className="text-xs text-gray-400">{member.cert}</div>
-                     </div>
-                     <div className="space-y-1 text-gray-300 text-sm">
-                       <div className="flex justify-between">
-                         <span className="font-bold">Experience:</span>
-                         <span>{member.exp}</span>
-                       </div>
-                       <div className="flex justify-between">
-                         <span className="font-bold">Speciality:</span>
-                         <span className="text-right text-xs">{member.speciality}</span>
-                       </div>
-                     </div>
-                   </div>
+          {/* Coach Profile */}
+          <div className="max-w-6xl mx-auto">
+            {/* Main Info */}
+            <div className="grid md:grid-cols-2 gap-6 md:gap-12 mb-8 md:mb-16">
+              {/* Image */}
+              <div className="team-card relative group order-2 md:order-1">
+                <div className="aspect-[3/4] md:aspect-[4/5] relative overflow-hidden border-4 border-gray-700 group-hover:border-[#ff4500] transition-all">
+                  <img
+                    src={headCoach.img}
+                    alt={headCoach.name}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                 </div>
               </div>
-            ))}
+
+              {/* Info */}
+              <div className="order-1 md:order-2 space-y-4 md:space-y-6">
+                <div>
+                  <h3 className="text-3xl md:text-4xl lg:text-6xl font-heading font-black text-white mb-2 break-words">{headCoach.name}</h3>
+                  <div className="text-base md:text-xl text-[#ff4500] font-bold uppercase">{headCoach.role}</div>
+                  <p className="text-sm md:text-lg text-gray-400 italic mt-2">{headCoach.tagline}</p>
+                </div>
+
+                {/* Stats */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                  {headCoach.stats.map((stat, idx) => (
+                    <div key={idx} className="bg-black/60 border border-[#ff4500] p-2 md:p-4 text-center">
+                      <div className="text-lg md:text-2xl lg:text-3xl font-heading font-black text-[#ff4500]">{stat.value}</div>
+                      <div className="text-xs md:text-sm text-gray-400 break-words">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bio */}
+                <div className="bg-black/40 backdrop-blur-sm border border-gray-700 p-4 md:p-6">
+                  <p className="text-sm md:text-base text-gray-300 leading-relaxed">{headCoach.bio}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Certifications & Specializations */}
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-16">
+              {/* Certifications */}
+              <div className="bg-black/40 backdrop-blur-sm border-2 border-gray-700 p-4 md:p-6 lg:p-8">
+                <h4 className="text-xl md:text-2xl lg:text-3xl font-heading font-black text-white mb-4 md:mb-6">CERTIFICATIONS</h4>
+                <div className="space-y-3 md:space-y-4">
+                  {headCoach.certifications.map((cert, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <div className="w-8 h-8 md:w-10 md:h-10 border-2 border-[#ff4500] flex items-center justify-center flex-shrink-0">
+                        <span className="text-sm md:text-base font-heading font-black text-[#ff4500]">{String(idx + 1).padStart(2, '0')}</span>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-sm md:text-base font-bold text-white break-words">{cert.name}</div>
+                        <div className="text-xs md:text-sm text-gray-400 break-words">{cert.org}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Specializations */}
+              <div className="bg-black/40 backdrop-blur-sm border-2 border-gray-700 p-4 md:p-6 lg:p-8">
+                <h4 className="text-xl md:text-2xl lg:text-3xl font-heading font-black text-white mb-4 md:mb-6">SPECIALIZATIONS</h4>
+                <div className="space-y-3">
+                  {headCoach.specializations.map((spec, idx) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <div className="w-2 h-2 bg-[#ff4500] flex-shrink-0"></div>
+                      <span className="text-sm md:text-base text-gray-300 break-words">{spec}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Achievements */}
+            <div className="bg-[#1a1a1a] border-2 border-gray-700 p-4 md:p-6 lg:p-8 mb-8 md:mb-16">
+              <h4 className="text-xl md:text-2xl lg:text-3xl font-heading font-black text-white mb-4 md:mb-6 text-center">KEY ACHIEVEMENTS</h4>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+                {headCoach.achievements.map((achievement, idx) => (
+                  <div key={idx} className="bg-black/60 border border-gray-700 hover:border-[#ff4500] p-3 md:p-4 transition-all flex items-center gap-3">
+                    <div className="w-6 h-6 md:w-8 md:h-8 border-2 border-[#ff4500] flex items-center justify-center flex-shrink-0">
+                      <span className="text-xs md:text-sm font-heading font-black text-[#ff4500]">✓</span>
+                    </div>
+                    <span className="text-xs md:text-sm text-gray-300 break-words">{achievement}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Philosophy */}
+            <div className="bg-gradient-to-br from-[#ff4500]/20 to-transparent border-2 border-[#ff4500] p-6 md:p-8 lg:p-12">
+              <h4 className="text-xl md:text-2xl lg:text-3xl font-heading font-black text-white mb-4 md:mb-6">TRAINING PHILOSOPHY</h4>
+              <p className="text-sm md:text-base lg:text-lg text-gray-200 leading-relaxed italic">&ldquo;{headCoach.philosophy}&rdquo;</p>
+            </div>
           </div>
         </div>
       </section>

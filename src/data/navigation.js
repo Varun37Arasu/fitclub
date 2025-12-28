@@ -14,9 +14,11 @@ export const navLinks = [
 ];
 
 export const serviceLinks = [
-  { name: '4-Week Transformation', path: '/services/4-week-transformation' },
   { name: '8-Week Transformation', path: '/services/8-week-transformation' },
-  { name: 'Nutrition Coaching', path: '/services/nutrition-plan' },
+  { name: '12-Week Transformation', path: '/services/12-week-transformation' },
+  { name: '24-Week Transformation', path: '/services/24-week-transformation' },
+  { name: 'Annual Transformation', path: '/services/annual-transformation' },
+  { name: 'Nutrition Diet Plans', path: '/services/nutrition-diet-plans' },
 ];
 
 export const ctaButton = {

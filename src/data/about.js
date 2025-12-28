@@ -101,60 +101,54 @@ export const valuesData = [
 ];
 
 export const teamSectionData = {
-  heading: 'MEET OUR EXPERTS',
-  subheading: 'Our team of certified professionals brings decades of combined experience to your transformation journey.',
+  heading: 'MEET YOUR COACH',
+  subheading: 'Elite personal training and transformation coaching from an industry-leading expert.',
 };
 
-export const teamData = [
-  {
-    name: 'Ravi Sharma',
-    role: 'HEAD TRAINER',
-    cert: 'NASM-CPT, CSCS',
-    exp: '12 Years',
-    speciality: 'Strength & Conditioning',
-    img: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=800',
-  },
-  {
-    name: 'Priya Verma',
-    role: 'SENIOR COACH',
-    cert: 'ACE-CPT, Precision Nutrition L1',
-    exp: '8 Years',
-    speciality: 'Weight Loss & Nutrition',
-    img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800',
-  },
-  {
-    name: 'Vikram Patel',
-    role: 'TRANSFORMATION SPECIALIST',
-    cert: 'ISSA-CPT, TRX Certified',
-    exp: '10 Years',
-    speciality: 'Body Recomposition',
-    img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800',
-  },
-  {
-    name: 'Ananya Reddy',
-    role: 'STRENGTH COACH',
-    cert: 'NSCA-CPT, Olympic Lifting',
-    exp: '7 Years',
-    speciality: 'Powerlifting & Strength',
-    img: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=800',
-  },
-  {
-    name: 'Arjun Singh',
-    role: 'SPORTS NUTRITIONIST',
-    cert: 'RD, CSSD',
-    exp: '9 Years',
-    speciality: 'Performance Nutrition',
-    img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800',
-  },
-  {
-    name: 'Kavya Nair',
-    role: 'MOBILITY SPECIALIST',
-    cert: 'FMS, Yoga RYT-200',
-    exp: '6 Years',
-    speciality: 'Recovery & Mobility',
-    img: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?q=80&w=800',
-  },
-];
+export const headCoach = {
+  name: 'Ravi Sharma',
+  role: 'FOUNDER & HEAD TRAINER',
+  tagline: 'Transforming Lives Through Science-Based Training',
+  experience: '15+ Years',
+  clientsTransformed: '500+',
+  img: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=800',
+  bio: 'Ravi Sharma is a certified elite personal trainer with over 15 years of experience transforming lives. Starting his journey as an athlete, he discovered his passion for helping others achieve their fitness goals. His evidence-based approach combines cutting-edge training methodologies with sustainable nutrition strategies.',
+  
+  certifications: [
+    { name: 'NASM-CPT', org: 'National Academy of Sports Medicine' },
+    { name: 'CSCS', org: 'Certified Strength & Conditioning Specialist' },
+    { name: 'Precision Nutrition L2', org: 'Precision Nutrition Coaching' },
+    { name: 'FMS Level 2', org: 'Functional Movement Systems' },
+    { name: 'USAW L1', org: 'USA Weightlifting' },
+  ],
+  
+  specializations: [
+    'Body Transformation & Recomposition',
+    'Strength & Conditioning',
+    'Sports Nutrition',
+    'Habit Formation & Mindset Coaching',
+    'Injury Prevention & Rehabilitation',
+    'Athletic Performance',
+  ],
+  
+  achievements: [
+    '500+ successful transformations',
+    'Featured in Fitness Magazine India',
+    'Online coaching community of 10,000+',
+    'Regional Bodybuilding Champion 2015',
+    'Certified Nutrition Coach',
+    '95% client success rate',
+  ],
+  
+  philosophy: 'I believe transformation is 20% training, 30% nutrition, and 50% mindset. My approach focuses on building sustainable habits that last a lifetime, not just quick fixes. Every client receives a personalized program tailored to their unique goals, lifestyle, and physical capabilities.',
+  
+  stats: [
+    { value: '500+', label: 'Clients Transformed' },
+    { value: '15', label: 'Years Experience' },
+    { value: '95%', label: 'Success Rate' },
+    { value: '10K+', label: 'Online Community' },
+  ],
+};
 
 export const facilitySectionData = {
   heading: 'OUR FACILITY',

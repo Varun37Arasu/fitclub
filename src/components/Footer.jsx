@@ -1,8 +1,20 @@
 import { Link } from 'react-router-dom';
+import { FaInstagram, FaFacebook, FaYoutube, FaTwitter } from 'react-icons/fa';
 import { logoData, companyInfo, quickLinks, contactInfo, socialLinks, legalLinks, copyrightText } from '../data/footer';
 
 const Footer = () => {
   const logoPrefix = logoData.text.replace(logoData.highlight, '');
+
+  const getSocialIcon = (iconName) => {
+    const icons = {
+      instagram: FaInstagram,
+      facebook: FaFacebook,
+      youtube: FaYoutube,
+      twitter: FaTwitter,
+    };
+    const Icon = icons[iconName.toLowerCase()];
+    return Icon ? <Icon className="text-xl md:text-2xl" /> : null;
+  };
 
   return (
     <footer className="bg-[#141414] border-t border-gray-700 relative overflow-hidden">
@@ -26,9 +38,12 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href={social.url}
-                  className="w-10 h-10 md:w-12 md:h-12 bg-[#242424] border border-gray-700 flex items-center justify-center text-gray-400 font-bold text-xs hover:text-[#ff4500] hover:border-[#ff4500] transition-all"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 md:w-12 md:h-12 bg-[#242424] border border-gray-700 flex items-center justify-center text-gray-400 hover:text-[#ff4500] hover:border-[#ff4500] transition-all hover:scale-110"
+                  aria-label={social.name}
                 >
-                  {social.icon}
+                  {getSocialIcon(social.icon)}
                 </a>
               ))}
             </div>

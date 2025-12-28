@@ -29,9 +29,11 @@ const EightWeekTransformation = () => {
 
         <div className="container-custom relative z-10 px-4 flex-1 flex items-center justify-center">
           <div className="program-hero-title text-center max-w-full w-full">
-            <div className="inline-flex flex-col sm:flex-row items-center gap-3 md:gap-4 px-4 py-2 md:px-8 md:py-4 bg-[#ff4500] mb-6 md:mb-8 border-2 md:border-4 border-black">
-              <span className="text-white font-heading font-black text-sm md:text-2xl tracking-wider break-words">{eightWeekData.hero.badge.split(' - ')[0]}</span>
-              <span className="px-3 py-1 md:px-4 md:py-2 bg-black text-[#ff4500] font-bold text-xs md:text-sm">{eightWeekData.hero.badge.split(' - ')[1]}</span>
+            <div className="inline-flex flex-col sm:flex-row items-center gap-3 md:gap-4 px-4 py-2 md:px-8 md:py-4 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 mb-6 md:mb-8 border-2 md:border-4 border-black animate-pulse">
+              <span className="text-white font-heading font-black text-sm md:text-2xl tracking-wider break-words">{eightWeekData.hero.badge}</span>
+              {eightWeekData.hero.moneyBackGuarantee && (
+                <span className="px-3 py-1 md:px-4 md:py-2 bg-black text-yellow-400 font-bold text-xs md:text-sm">100% MONEY BACK</span>
+              )}
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-black leading-[0.95] tracking-tighter mb-6 md:mb-8 break-words px-2 max-w-full">
               <span className="block text-white">{eightWeekData.hero.title.split(' ')[0]}</span>
@@ -71,23 +73,21 @@ const EightWeekTransformation = () => {
             PREMIUM <span className="text-[#ff4500]">PACKAGE</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
-            {eightWeekData.included.map((feature, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {eightWeekData.premiumPackage.map((feature, idx) => (
               <div
                 key={idx}
-                className={`${idx === 0 || idx === 4  ? 'md:col-span-2' : ''} bg-black/40 backdrop-blur-sm border-2 border-gray-700 hover:border-[#ff4500] rounded-xl md:rounded-2xl p-4 md:p-6 transition-all group relative overflow-hidden min-h-[160px] md:min-h-[200px]`}
+                className="bg-black/40 backdrop-blur-sm border-2 border-gray-700 hover:border-[#ff4500] rounded-xl md:rounded-2xl p-4 md:p-6 transition-all group relative overflow-hidden"
               >
-                <div className="absolute top-4 right-4 text-6xl md:text-8xl font-heading font-black text-[#ff4500]/10 group-hover:text-[#ff4500]/20 transition-colors">
+                <div className="absolute top-4 right-4 text-6xl md:text-7xl font-heading font-black text-[#ff4500]/10 group-hover:text-[#ff4500]/20 transition-colors">
                   {feature.num}
                 </div>
-                <div className="relative z-10 h-full flex flex-col justify-between">
-                  <div>
-                    <div className="w-12 h-12 md:w-16 md:h-16 border-3 border-[#ff4500] flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
-                      <span className="text-xl md:text-2xl font-heading font-black text-[#ff4500]">{feature.num}</span>
-                    </div>
-                    <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-white mb-2 break-words leading-tight">{feature.title}</h3>
-                    <p className="text-xs md:text-sm text-gray-300 leading-relaxed break-words">{feature.desc}</p>
+                <div className="relative z-10">
+                  <div className="w-12 h-12 md:w-16 md:h-16 border-2 border-[#ff4500] flex items-center justify-center mb-3 md:mb-4">
+                    <span className="text-lg md:text-2xl font-heading font-black text-[#ff4500]">{feature.num}</span>
                   </div>
+                  <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-white mb-2 break-words">{feature.title}</h3>
+                  <p className="text-xs md:text-sm lg:text-base text-gray-400 leading-relaxed break-words">{feature.desc}</p>
                 </div>
               </div>
             ))}
