@@ -2,12 +2,12 @@
  * Theme CSS Generator
  * 
  * This script generates CSS custom properties from themes.config.js
- * Run this after changing ACTIVE_THEME in themes.config.js
+ * Run this after changing ACTIVE_THEME or DARK_MODE in themes.config.js
  * 
  * Usage: node generate-theme-css.js
  */
 
-import { getActiveTheme } from './themes.config.js';
+import { getActiveTheme, DARK_MODE } from './themes.config.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -15,9 +15,36 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Get the active theme
+// Get the active theme and dark mode setting
 const activeTheme = getActiveTheme();
 const colors = activeTheme.colors;
+const shades = activeTheme.shades || null;
+const darkMode = DARK_MODE;
+
+// Define background and text colors based on dark mode
+const backgroundColors = darkMode ? {
+  primary: '#0f0f0f',    // Nearly black
+  secondary: '#1a1a1a',  // Dark gray
+  tertiary: '#141414',   // Darker gray
+  accent: '#242424',     // Card background
+  text: {
+    primary: '#ffffff',    // White
+    secondary: '#e5e5e5',  // Light gray
+    tertiary: '#d1d5db',   // Gray-300
+    muted: '#9ca3af',      // Gray-400
+  }
+} : {
+  primary: '#f9fafb',    // Very subtle off-white background
+  secondary: '#ffffff',  // Pure white for cards (makes them pop!)
+  tertiary: '#f3f4f6',   // Subtle gray for alternate sections
+  accent: '#ffffff',     // Pure white for special cards
+  text: {
+    primary: '#111827',    // Very dark gray (almost black)
+    secondary: '#4b5563',  // Gray-600
+    tertiary: '#6b7280',   // Gray-500
+    muted: '#9ca3af',      // Gray-400
+  }
+};
 
 // Helper function to convert hex to rgba for shadows/glows
 function hexToRgba(hex, alpha = 1) {
@@ -53,16 +80,45 @@ const generateThemeCss = () => {
  * 
  * Active Theme: ${activeTheme.name}
  * Theme Identity: ${activeTheme.identity}
+ * Background Mode: ${darkMode ? 'Dark' : 'Light'}
  * 
- * To change themes:
- * 1. Update ACTIVE_THEME in themes.config.js
+ * To change themes or background mode:
+ * 1. Update ACTIVE_THEME or DARK_MODE in themes.config.js
  * 2. Run: npm run generate-theme
  * 3. Restart dev server
  */
 
 :root {
   /* ========================================
-     PRIMARY COLORS (RGB format for Tailwind opacity)
+     BACKGROUND & TEXT COLORS (${darkMode ? 'DARK MODE' : 'LIGHT MODE'})
+     ======================================== */
+  --bg-primary: ${backgroundColors.primary};
+  --bg-primary-rgb: ${hexToRgb(backgroundColors.primary)};
+  
+  --bg-secondary: ${backgroundColors.secondary};
+  --bg-secondary-rgb: ${hexToRgb(backgroundColors.secondary)};
+  
+  --bg-tertiary: ${backgroundColors.tertiary};
+  --bg-tertiary-rgb: ${hexToRgb(backgroundColors.tertiary)};
+  
+  --bg-accent: ${backgroundColors.accent};
+  --bg-accent-rgb: ${hexToRgb(backgroundColors.accent)};
+  
+  --text-primary: ${backgroundColors.text.primary};
+  --text-primary-rgb: ${hexToRgb(backgroundColors.text.primary)};
+  
+  --text-secondary: ${backgroundColors.text.secondary};
+  --text-secondary-rgb: ${hexToRgb(backgroundColors.text.secondary)};
+  
+  --text-tertiary: ${backgroundColors.text.tertiary};
+  --text-tertiary-rgb: ${hexToRgb(backgroundColors.text.tertiary)};
+  
+  --text-muted: ${backgroundColors.text.muted};
+  --text-muted-rgb: ${hexToRgb(backgroundColors.text.muted)};
+  
+  /* ========================================
+     THEME COLORS (RGB format for Tailwind opacity)
+     Theme colors work in both dark and light modes
      ======================================== */
   --color-primary: ${colors.primary};
   --color-primary-rgb: ${hexToRgb(colors.primary)};
@@ -93,10 +149,25 @@ const generateThemeCss = () => {
      SEMANTIC COLORS
      ======================================== */
   --color-success: ${colors.success};
+  --color-success-rgb: ${hexToRgb(colors.success)};
   --color-warning: ${colors.warning};
+  --color-warning-rgb: ${hexToRgb(colors.warning)};
   --color-danger: ${colors.danger};
+  --color-danger-rgb: ${hexToRgb(colors.danger)};
   --color-info: ${colors.info};
-  
+  --color-info-rgb: ${hexToRgb(colors.info)};
+  ${shades ? `
+  /* ========================================
+     ADVANCED SHADE SYSTEM (Full color scales)
+     Available for: ${Object.keys(shades).join(', ')}
+     ======================================== */
+${Object.entries(shades).map(([shadeName, shadeValues]) => {
+  return Object.entries(shadeValues).map(([shadeNumber, hexValue]) => {
+    return `  --color-${shadeName}-${shadeNumber}: ${hexValue};
+  --color-${shadeName}-${shadeNumber}-rgb: ${hexToRgb(hexValue)};`;
+  }).join('\n');
+}).join('\n')}
+` : ''}
   /* ========================================
      SHADOW & GLOW EFFECTS
      ======================================== */
@@ -155,6 +226,7 @@ try {
   console.log(`📄 File: ${outputPath}`);
   console.log(`🎨 Active Theme: ${activeTheme.name}`);
   console.log(`🎯 Theme Identity: ${activeTheme.identity}`);
+  console.log(`${darkMode ? '🌙' : '☀️'}  Background Mode: ${darkMode ? 'Dark' : 'Light'}`);
   console.log('');
   console.log('💡 Restart your dev server to see the changes!');
 } catch (error) {

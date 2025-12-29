@@ -20,7 +20,7 @@ const TwentyFourWeekTransformation = () => {
   }, []);
 
   return (
-    <div className="pt-20 bg-[#0f0f0f]">
+    <div className="pt-20 bg-bg-primary">
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pb-16">
         <div className="absolute inset-0">
@@ -32,17 +32,17 @@ const TwentyFourWeekTransformation = () => {
           <div className="program-hero-title text-center max-w-full w-full">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 mb-6 md:mb-8">
               <div className="px-4 py-2 md:px-8 md:py-4 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 border-2 md:border-4 border-black">
-                <span className="text-white font-heading font-black text-sm md:text-2xl tracking-wider break-words">{twentyFourWeekData.hero.badge}</span>
+                <span className="text-txt-primary font-heading font-black text-sm md:text-2xl tracking-wider break-words">{twentyFourWeekData.hero.badge}</span>
               </div>
               {twentyFourWeekData.hero.moneyBackGuarantee && (
                 <MoneyBackBadge className="h-20 md:h-28 w-20 md:w-28" />
               )}
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-black leading-[0.95] tracking-tighter mb-6 md:mb-8 break-words px-2 max-w-full">
-              <span className="block text-white">{twentyFourWeekData.hero.title.split(' ')[0]}</span>
+              <span className="block text-txt-primary">{twentyFourWeekData.hero.title.split(' ')[0]}</span>
               <span className="block text-primary neon-text">{twentyFourWeekData.hero.title.split(' ').slice(1).join(' ')}</span>
             </h1>
-            <p className="text-base md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2">
+            <p className="text-base md:text-xl lg:text-2xl text-txt-secondary max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2">
               {twentyFourWeekData.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center w-full sm:w-auto px-4">
@@ -58,9 +58,9 @@ const TwentyFourWeekTransformation = () => {
           <div className="container-custom">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 max-w-5xl mx-auto">
               {twentyFourWeekData.stats.map((stat, idx) => (
-                <div key={idx} className="bg-black/60 border border-gray-700 md:border-2 lg:border-4 p-3 md:p-6 text-center">
+                <div key={idx} className="bg-bg-secondary border border-gray-300 md:border-2 lg:border-4 p-3 md:p-6 text-center">
                   <div className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-primary mb-1 md:mb-2">{stat.value}</div>
-                  <div className="text-xs md:text-sm text-gray-300 break-words leading-tight">{stat.label}</div>
+                  <div className="text-xs md:text-sm text-txt-secondary break-words leading-tight">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -69,9 +69,9 @@ const TwentyFourWeekTransformation = () => {
       </section>
 
       {/* Premium Package */}
-      <section id="details" className="section-padding bg-[#0f0f0f]">
+      <section id="details" className="section-padding bg-bg-primary">
         <div className="container-custom px-4">
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-white mb-8 md:mb-12 text-center break-words">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-txt-primary mb-8 md:mb-12 text-center break-words">
             WHAT'S <span className="text-primary">INCLUDED</span>
           </h2>
 
@@ -79,7 +79,7 @@ const TwentyFourWeekTransformation = () => {
             {twentyFourWeekData.premiumPackage.map((feature, idx) => (
               <div
                 key={idx}
-                className="bg-black/40 backdrop-blur-sm border-2 border-gray-700 hover:border-primary rounded-xl md:rounded-2xl p-4 md:p-6 transition-all group relative overflow-hidden"
+                className="bg-bg-secondary backdrop-blur-sm border-2 border-gray-300 hover:border-primary rounded-xl md:rounded-2xl p-4 md:p-6 transition-all group relative overflow-hidden"
               >
                 <div className="absolute top-4 right-4 text-6xl md:text-7xl font-heading font-black text-primary/10 group-hover:text-primary/20 transition-colors">
                   {feature.num}
@@ -88,8 +88,8 @@ const TwentyFourWeekTransformation = () => {
                   <div className="w-12 h-12 md:w-16 md:h-16 border-2 border-primary flex items-center justify-center mb-3 md:mb-4">
                     <span className="text-lg md:text-2xl font-heading font-black text-primary">{feature.num}</span>
                   </div>
-                  <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-white mb-2 break-words">{feature.title}</h3>
-                  <p className="text-xs md:text-sm lg:text-base text-gray-400 leading-relaxed break-words">{feature.desc}</p>
+                  <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-txt-primary mb-2 break-words">{feature.title}</h3>
+                  <p className="text-xs md:text-sm lg:text-base text-txt-muted leading-relaxed break-words">{feature.desc}</p>
                 </div>
               </div>
             ))}
@@ -98,9 +98,9 @@ const TwentyFourWeekTransformation = () => {
       </section>
 
       {/* Training Phases */}
-      <section className="section-padding bg-[#1a1a1a]">
+      <section className="section-padding bg-bg-secondary">
         <div className="container-custom px-4">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-white mb-8 md:mb-16 text-center">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-txt-primary mb-8 md:mb-16 text-center">
             TRAINING <span className="text-primary">PHASES</span>
           </h2>
 
@@ -119,7 +119,7 @@ const TwentyFourWeekTransformation = () => {
               const colors = getColorClass(phase.color);
               
               return (
-              <div key={idx} className="bg-black/40 backdrop-blur-sm border md:border-2 border-gray-700 hover:border-primary p-3 md:p-6 transition-all">
+              <div key={idx} className="bg-bg-secondary backdrop-blur-sm border md:border-2 border-gray-300 hover:border-primary p-3 md:p-6 transition-all">
                 <div className="flex items-start gap-3 md:gap-6">
                   <div
                     className={`w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-2 md:border-4 flex-shrink-0 ${colors.border}`}
@@ -130,8 +130,8 @@ const TwentyFourWeekTransformation = () => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-xs md:text-sm text-gray-500 font-bold mb-1 break-words">{phase.phase}</div>
-                    <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-white mb-1 md:mb-2 break-words">{phase.title}</h3>
-                    <p className="text-xs md:text-sm text-gray-400 break-words">{phase.focus}</p>
+                    <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-txt-primary mb-1 md:mb-2 break-words">{phase.title}</h3>
+                    <p className="text-xs md:text-sm text-txt-muted break-words">{phase.focus}</p>
                   </div>
                 </div>
               </div>
@@ -142,35 +142,35 @@ const TwentyFourWeekTransformation = () => {
       </section>
 
       {/* Before/After */}
-      <section className="section-padding bg-[#0f0f0f]">
+      <section className="section-padding bg-bg-primary">
         <div className="container-custom px-4">
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-white mb-8 md:mb-16 text-center">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-txt-primary mb-8 md:mb-16 text-center">
             PROVEN <span className="text-primary">RESULTS</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             {twentyFourWeekData.beforeAfter.map((client, idx) => (
-              <div key={idx} className="bg-[#1a1a1a] border-2 border-gray-700 hover:border-primary p-4 md:p-6 transition-all group">
-                <div className="aspect-square bg-black/40 mb-4 overflow-hidden border border-gray-700">
+              <div key={idx} className="bg-bg-secondary border-2 border-gray-300 hover:border-primary p-4 md:p-6 transition-all group">
+                <div className="aspect-square bg-bg-secondary mb-4 overflow-hidden border border-gray-300">
                   <img 
                     src={client.image} 
                     alt={client.name}
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
                 </div>
-                <h3 className="text-xl md:text-2xl font-heading font-black text-white mb-3">{client.name}</h3>
+                <h3 className="text-xl md:text-2xl font-heading font-black text-txt-primary mb-3">{client.name}</h3>
                 <div className="grid grid-cols-3 gap-2 text-center">
-                  <div className="bg-black/60 p-2 md:p-3 border border-primary">
+                  <div className="bg-bg-secondary p-2 md:p-3 border border-primary">
                     <div className="text-base md:text-xl font-bold text-primary">{client.lost}</div>
-                    <div className="text-xs text-gray-400">Fat Lost</div>
+                    <div className="text-xs text-txt-muted">Fat Lost</div>
                   </div>
-                  <div className="bg-black/60 p-2 md:p-3 border border-primary">
+                  <div className="bg-bg-secondary p-2 md:p-3 border border-primary">
                     <div className="text-base md:text-xl font-bold text-primary">{client.gained}</div>
-                    <div className="text-xs text-gray-400">Muscle Gain</div>
+                    <div className="text-xs text-txt-muted">Muscle Gain</div>
                   </div>
-                  <div className="bg-black/60 p-2 md:p-3 border border-primary">
+                  <div className="bg-bg-secondary p-2 md:p-3 border border-primary">
                     <div className="text-base md:text-xl font-bold text-primary">{client.weeks}W</div>
-                    <div className="text-xs text-gray-400">Duration</div>
+                    <div className="text-xs text-txt-muted">Duration</div>
                   </div>
                 </div>
               </div>
@@ -180,13 +180,13 @@ const TwentyFourWeekTransformation = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-[#1a1a1a]">
+      <section className="section-padding bg-bg-secondary">
         <div className="container-custom px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-white mb-4 md:mb-6 leading-tight break-words px-2">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-txt-primary mb-4 md:mb-6 leading-tight break-words px-2">
               {twentyFourWeekData.cta.heading.split(' ').slice(0, 2).join(' ')} <span className="text-primary">{twentyFourWeekData.cta.heading.split(' ').slice(2).join(' ')}</span>
             </h2>
-            <p className="text-base md:text-xl text-gray-300 mb-8 md:mb-12 px-2">
+            <p className="text-base md:text-xl text-txt-secondary mb-8 md:mb-12 px-2">
               {twentyFourWeekData.cta.description}
             </p>
             <Link to={twentyFourWeekData.cta.buttonLink} className="btn-primary text-sm md:text-lg px-8 md:px-12 py-4 md:py-6 inline-block">

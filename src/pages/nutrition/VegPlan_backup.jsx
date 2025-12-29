@@ -30,7 +30,7 @@ const VegPlan = () => {
             alt="Vegetarian Nutrition"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/70/60 via-bg-primary/30/50 to-bg-primary/80"></div>
         </div>
 
         <div className="container-custom relative z-10 px-4 flex-1 flex items-center justify-center">
@@ -63,7 +63,7 @@ const VegPlan = () => {
           <div className="container-custom">
             <div className="grid grid-cols-3 gap-3 md:gap-6 max-w-4xl mx-auto">
               {vegPlanData.stats.map((stat, idx) => (
-                <div key={idx} className="bg-black/70 backdrop-blur-sm border border-gray-700 md:border-2 p-3 md:p-6 text-center">
+                <div key={idx} className="bg-bg-secondary/70 backdrop-blur-sm border border-gray-700 md:border-2 p-3 md:p-6 text-center">
                   <div className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-primary mb-1 md:mb-2">{stat.value}</div>
                   <div className="text-xs md:text-sm text-gray-300 break-words leading-tight">{stat.label}</div>
                 </div>
@@ -92,7 +92,7 @@ const VegPlan = () => {
                 {/* Number bar */}
                 <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-primary to-secondary"></div>
                 
-                <div className="bg-gradient-to-br from-black to-[#0f0f0f] border-l-4 border-primary p-8 hover:border-secondary transition-all">
+                <div className="bg-gradient-to-br from-bg-primary/70 to-[#0f0f0f] border-l-4 border-primary p-8 hover:border-secondary transition-all">
                   <div className="flex items-start gap-6">
                     {/* Large number */}
                     <div className="flex-shrink-0">
@@ -129,7 +129,7 @@ const VegPlan = () => {
               {/* Large quote mark */}
               <div className="absolute -top-8 -left-4 text-9xl font-serif text-primary/20 leading-none">"</div>
               
-              <div className="relative bg-black/60 border-l-8 border-primary p-12 md:p-16">
+              <div className="relative bg-bg-secondary border-l-8 border-primary p-12 md:p-16">
                 <h2 className="text-2xl md:text-3xl font-heading font-black text-primary mb-6 uppercase tracking-wide">
                   Our Philosophy
                 </h2>
@@ -157,7 +157,7 @@ const VegPlan = () => {
             {vegPlanData.foodCategories.map((category, idx) => (
               <div 
                 key={idx} 
-                className="group relative bg-black/60 border-2 border-gray-800 hover:border-primary p-6 transition-all duration-300 overflow-hidden"
+                className="group relative bg-bg-secondary border-2 border-gray-200 hover:border-primary p-6 transition-all duration-300 overflow-hidden"
               >
                 {/* Subtle gradient on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/10 group-hover:to-transparent transition-all duration-300"></div>
@@ -199,7 +199,7 @@ const VegPlan = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8">
               {vegPlanData.macroBreakdown.goals.map((goal, idx) => (
-                <div key={idx} className="bg-black border-2 border-gray-800 hover:border-primary p-8 transition-all group">
+                <div key={idx} className="bg-black border-2 border-gray-200 hover:border-primary p-8 transition-all group">
                   <h3 className="text-2xl font-heading font-black text-primary mb-8 text-center uppercase tracking-wider">{goal.goal}</h3>
                   
                   <div className="space-y-6">
@@ -259,7 +259,7 @@ const VegPlan = () => {
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {vegPlanData.successStories.map((story, idx) => (
-              <div key={idx} className="group relative overflow-hidden bg-black border-2 border-gray-800 hover:border-primary transition-all">
+              <div key={idx} className="group relative overflow-hidden bg-black border-2 border-gray-200 hover:border-primary transition-all">
                 {/* Image */}
                 <div className="aspect-[4/5] overflow-hidden">
                   <img 
@@ -268,7 +268,7 @@ const VegPlan = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-primary/70 via-bg-primary/30 to-transparent"></div>
                 </div>
                 
                 {/* Content overlay */}

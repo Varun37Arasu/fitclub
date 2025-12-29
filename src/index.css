@@ -11,7 +11,9 @@
   }
 
   body {
-    @apply bg-[#0f0f0f] text-white antialiased overflow-x-hidden;
+    @apply antialiased overflow-x-hidden;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 }
@@ -187,4 +189,18 @@
   .money-back-badge:hover {
     transform: rotate(-8deg) scale(0.8);
   }
+}
+
+/* Theme toggle animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
 }

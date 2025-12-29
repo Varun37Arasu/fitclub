@@ -20,7 +20,7 @@ const NutritionPlan = () => {
       {/* Hero */}
       <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2000')] bg-cover bg-center">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-[#0f0f0f]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/80 via-bg-primary/70 to-[#0f0f0f]"></div>
         </div>
 
         <div className="container-custom relative z-10 flex items-center justify-center">
@@ -48,7 +48,7 @@ const NutritionPlan = () => {
           <div className="container-custom">
             <div className="grid grid-cols-3 gap-3 md:gap-6 max-w-3xl mx-auto">
               {nutritionData.stats.map((stat, idx) => (
-                <div key={idx} className="bg-black/60 border border-gray-700 md:border-2 p-3 md:p-6 text-center">
+                <div key={idx} className="bg-bg-secondary border border-gray-700 md:border-2 p-3 md:p-6 text-center">
                   <div className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-primary mb-1 md:mb-2">{stat.value}</div>
                   <div className="text-xs md:text-sm text-gray-300 break-words leading-tight">{stat.label}</div>
                 </div>
@@ -69,7 +69,7 @@ const NutritionPlan = () => {
             {nutritionData.included.map((feature, idx) => (
               <div
                 key={idx}
-                className="bg-black/40 backdrop-blur-sm border-2 border-gray-700 hover:border-primary rounded-xl md:rounded-2xl p-4 md:p-6 transition-all group relative overflow-hidden"
+                className="bg-bg-secondary backdrop-blur-sm border-2 border-gray-700 hover:border-primary rounded-xl md:rounded-2xl p-4 md:p-6 transition-all group relative overflow-hidden"
               >
                 <div className="absolute top-4 right-4 text-6xl md:text-7xl font-heading font-black text-primary/10 group-hover:text-primary/20 transition-colors">
                   {feature.num}

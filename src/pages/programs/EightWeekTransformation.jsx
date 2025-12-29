@@ -19,7 +19,7 @@ const EightWeekTransformation = () => {
   }, []);
 
   return (
-    <div className="pt-20 bg-[#0f0f0f]">
+    <div className="pt-20 bg-bg-primary">
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pb-16">
         <div className="absolute inset-0">
@@ -30,13 +30,13 @@ const EightWeekTransformation = () => {
         <div className="container-custom relative z-10 px-4 flex-1 flex items-center justify-center">
           <div className="program-hero-title text-center max-w-full w-full">
             <div className="px-4 py-2 md:px-8 md:py-4 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 mb-6 md:mb-8 border-2 md:border-4 border-black inline-block">
-              <span className="text-white font-heading font-black text-sm md:text-2xl tracking-wider break-words">{eightWeekData.hero.badge}</span>
+              <span className="text-txt-primary font-heading font-black text-sm md:text-2xl tracking-wider break-words">{eightWeekData.hero.badge}</span>
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-black leading-[0.95] tracking-tighter mb-6 md:mb-8 break-words px-2 max-w-full">
-              <span className="block text-white">{eightWeekData.hero.title.split(' ')[0]}</span>
+              <span className="block text-txt-primary">{eightWeekData.hero.title.split(' ')[0]}</span>
               <span className="block text-primary neon-text">{eightWeekData.hero.title.split(' ').slice(1).join(' ')}</span>
             </h1>
-            <p className="text-base md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2">
+            <p className="text-base md:text-xl lg:text-2xl text-txt-secondary max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2">
               {eightWeekData.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center w-full sm:w-auto px-4">
@@ -55,9 +55,9 @@ const EightWeekTransformation = () => {
           <div className="container-custom">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 max-w-5xl mx-auto">
               {eightWeekData.stats.map((stat, idx) => (
-                <div key={idx} className="bg-black/60 border border-gray-700 md:border-2 lg:border-4 p-3 md:p-6 text-center">
+                <div key={idx} className="bg-bg-secondary border border-gray-300 md:border-2 lg:border-4 p-3 md:p-6 text-center">
                   <div className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-primary mb-1 md:mb-2">{stat.value}</div>
-                  <div className="text-xs md:text-sm text-gray-300 break-words leading-tight">{stat.label}</div>
+                  <div className="text-xs md:text-sm text-txt-secondary break-words leading-tight">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -66,9 +66,9 @@ const EightWeekTransformation = () => {
       </section>
 
       {/* What's Included */}
-      <section id="details" className="section-padding bg-[#1a1a1a]">
+      <section id="details" className="section-padding bg-bg-secondary">
         <div className="container-custom px-4">
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-white mb-8 md:mb-12 text-center break-words">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-txt-primary mb-8 md:mb-12 text-center break-words">
             PREMIUM <span className="text-primary">PACKAGE</span>
           </h2>
 
@@ -76,7 +76,7 @@ const EightWeekTransformation = () => {
             {eightWeekData.premiumPackage.map((feature, idx) => (
               <div
                 key={idx}
-                className="bg-black/40 backdrop-blur-sm border-2 border-gray-700 hover:border-primary rounded-xl md:rounded-2xl p-4 md:p-6 transition-all group relative overflow-hidden"
+                className="bg-bg-secondary backdrop-blur-sm border-2 border-gray-300 hover:border-primary rounded-xl md:rounded-2xl p-4 md:p-6 transition-all group relative overflow-hidden"
               >
                 <div className="absolute top-4 right-4 text-6xl md:text-7xl font-heading font-black text-primary/10 group-hover:text-primary/20 transition-colors">
                   {feature.num}
@@ -85,8 +85,8 @@ const EightWeekTransformation = () => {
                   <div className="w-12 h-12 md:w-16 md:h-16 border-2 border-primary flex items-center justify-center mb-3 md:mb-4">
                     <span className="text-lg md:text-2xl font-heading font-black text-primary">{feature.num}</span>
                   </div>
-                  <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-white mb-2 break-words">{feature.title}</h3>
-                  <p className="text-xs md:text-sm lg:text-base text-gray-400 leading-relaxed break-words">{feature.desc}</p>
+                  <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-txt-primary mb-2 break-words">{feature.title}</h3>
+                  <p className="text-xs md:text-sm lg:text-base text-txt-muted leading-relaxed break-words">{feature.desc}</p>
                 </div>
               </div>
             ))}
@@ -95,9 +95,9 @@ const EightWeekTransformation = () => {
       </section>
 
       {/* Training Phases */}
-      <section className="section-padding bg-[#0f0f0f]">
+      <section className="section-padding bg-bg-primary">
         <div className="container-custom px-4">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-white mb-6 md:mb-12 text-center break-words">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-txt-primary mb-6 md:mb-12 text-center break-words">
             TRAINING <span className="text-primary">PHASES</span>
           </h2>
 
@@ -115,15 +115,15 @@ const EightWeekTransformation = () => {
               };
               
               return (
-              <div key={idx} className="bg-[#1a1a1a] border border-gray-700 md:border-2 hover:border-primary p-3 md:p-6 transition-all">
+              <div key={idx} className="bg-bg-secondary border border-gray-300 md:border-2 hover:border-primary p-3 md:p-6 transition-all">
                 <div className="flex items-center gap-3 md:gap-4">
                   <div className={`flex-shrink-0 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center ${getColorClass(phase.color)}`}>
-                    <span className="text-lg md:text-2xl font-heading font-black text-white">{String(idx + 1).padStart(2, '0')}</span>
+                    <span className="text-lg md:text-2xl font-heading font-black text-txt-primary">{String(idx + 1).padStart(2, '0')}</span>
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-xs text-primary font-bold mb-1 break-words">{phase.phase}</div>
-                    <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-white mb-1 break-words leading-tight">{phase.title}</h3>
-                    <p className="text-xs md:text-sm text-gray-300 break-words leading-tight">{phase.focus}</p>
+                    <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-txt-primary mb-1 break-words leading-tight">{phase.title}</h3>
+                    <p className="text-xs md:text-sm text-txt-secondary break-words leading-tight">{phase.focus}</p>
                   </div>
                 </div>
               </div>
@@ -134,9 +134,9 @@ const EightWeekTransformation = () => {
       </section>
 
       {/* Before/After Showcase */}
-      <section className="section-padding bg-[#1a1a1a]">
+      <section className="section-padding bg-bg-secondary">
         <div className="container-custom px-4">
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-white mb-8 md:mb-12 text-center break-words">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-txt-primary mb-8 md:mb-12 text-center break-words">
             REAL <span className="text-primary">RESULTS</span>
           </h2>
 
@@ -146,12 +146,12 @@ const EightWeekTransformation = () => {
                 <div className="aspect-[4/5] bg-gradient-to-br from-primary to-secondary rounded-xl md:rounded-2xl p-2 md:p-3 hover:scale-105 transition-transform">
                 <div className={`h-full bg-cover bg-center rounded-lg md:rounded-xl relative overflow-hidden`} 
                   style={{ backgroundImage: `url(${result.image})` }}>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-bg-primary/70 via-transparent to-transparent"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                      <h3 className="text-xl md:text-2xl font-heading font-black text-white mb-2 md:mb-3">{result.name}</h3>
+                      <h3 className="text-xl md:text-2xl font-heading font-black text-txt-primary mb-2 md:mb-3">{result.name}</h3>
                       <div className="flex gap-2 md:gap-3 text-xs md:text-sm font-bold flex-wrap">
-                        <span className="px-3 py-1 md:px-4 md:py-2 bg-primary text-white rounded-full">-{result.lost} FAT</span>
-                        <span className="px-3 py-1 md:px-4 md:py-2 bg-primary text-white rounded-full">+{result.gained}</span>
+                        <span className="px-3 py-1 md:px-4 md:py-2 bg-primary text-txt-primary rounded-full">-{result.lost} FAT</span>
+                        <span className="px-3 py-1 md:px-4 md:py-2 bg-primary text-txt-primary rounded-full">+{result.gained}</span>
                       </div>
                     </div>
                     <div className="absolute top-3 right-3 md:top-4 md:right-4 w-12 h-12 md:w-16 md:h-16 bg-white text-black rounded-full flex items-center justify-center">
@@ -166,13 +166,13 @@ const EightWeekTransformation = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-[#0f0f0f]">
+      <section className="section-padding bg-bg-primary">
         <div className="container-custom px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-white mb-4 md:mb-6 leading-tight break-words px-2">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-txt-primary mb-4 md:mb-6 leading-tight break-words px-2">
               {eightWeekData.cta.heading.split(' ').slice(0, 2).join(' ')} <span className="text-primary">{eightWeekData.cta.heading.split(' ').slice(2).join(' ')}</span>
             </h2>
-            <p className="text-base md:text-xl text-gray-300 mb-8 md:mb-12 px-2">
+            <p className="text-base md:text-xl text-txt-secondary mb-8 md:mb-12 px-2">
               {eightWeekData.cta.description}
             </p>
             <Link to={eightWeekData.cta.buttonLink} className="btn-primary text-sm md:text-lg px-8 md:px-12 py-4 md:py-6 inline-block">

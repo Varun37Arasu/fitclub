@@ -12,7 +12,13 @@
 // CHOOSE YOUR ACTIVE THEME HERE - CHANGE THIS ONE LINE TO SWITCH THEMES
 // ============================================================================
 
-export const ACTIVE_THEME = 'sports'; // Options: 'nutrition', 'fitness', 'gym', 'sports', 'wellness'
+export const ACTIVE_THEME = 'fitness'; // Options: 'nutrition', 'fitness', 'gym', 'sports', 'wellness', 'sage-sanctuary', 'tropical-wellness', 'forest-vitality'
+
+// ============================================================================
+// DARK MODE TOGGLE - SWITCH BETWEEN DARK AND LIGHT BACKGROUNDS
+// ============================================================================
+
+export const DARK_MODE = false; // true = dark backgrounds (current), false = light backgrounds
 
 // ============================================================================
 // THEME DEFINITIONS
@@ -132,6 +138,150 @@ export const themes = {
       info: '#06b6d4',          // Info cyan
     },
     identity: 'calm, balance, peace, holistic',
+  },
+
+  // SAGE SANCTUARY THEME - Gentle, calming, natural (sage & teal)
+  // From Coolors: https://coolors.co/cad2c5-84a98c-52796f-354f52-2f3e46
+  'sage-sanctuary': {
+    name: 'Sage Sanctuary',
+    colors: {
+      primary: '#52796f',        // Deep teal - main CTAs
+      primaryHover: '#354f52',   // Darker teal - hover states
+      primaryLight: '#84a98c',   // Sage green - light accents
+      
+      secondary: '#84a98c',      // Sage green - secondary actions
+      secondaryHover: '#52796f', // Darker sage - hover states
+      secondaryLight: '#cad2c5', // Light sage - highlights
+      
+      accent: '#cad2c5',         // Light sage - special highlights
+      accentHover: '#84a98c',    // Darker accent - hover states
+      
+      success: '#52796f',        // Success teal
+      warning: '#84a98c',        // Warning sage
+      danger: '#354f52',         // Danger dark teal
+      info: '#52796f',          // Info teal
+    },
+    identity: 'gentle, calming, natural, sanctuary',
+  },
+
+  // TROPICAL WELLNESS THEME - Vibrant, tropical, refreshing (full shade system)
+  // Advanced implementation with complete shade ranges (50-950)
+  'tropical-wellness': {
+    name: 'Tropical Wellness',
+    colors: {
+      // Primary: Tropical Teal
+      primary: '#609f97',        // Base tropical teal (500)
+      primaryHover: '#4d8079',   // Darker teal (600)
+      primaryLight: '#80b3ac',   // Light teal (400)
+      
+      // Secondary: Cerulean Blue
+      secondary: '#5097af',      // Base cerulean (500)
+      secondaryHover: '#40798c', // Darker cerulean (600)
+      secondaryLight: '#73acbf', // Light cerulean (400)
+      
+      // Accent: Tea Green
+      accent: '#79a857',         // Base tea green (500)
+      accentHover: '#618745',    // Darker tea green (600)
+      
+      // Semantic colors
+      success: '#639c6c',        // Muted teal (500)
+      warning: '#94ba78',        // Tea green light (400)
+      danger: '#ef4444',         // Standard danger red
+      info: '#5097af',          // Cerulean (500)
+    },
+    // Full shade system for advanced usage
+    shades: {
+      'tropical-teal': {
+        50: '#eff5f5',
+        100: '#dfecea',
+        200: '#bfd9d5',
+        300: '#9fc6c1',
+        400: '#80b3ac',
+        500: '#609f97',
+        600: '#4d8079',
+        700: '#39605b',
+        800: '#26403c',
+        900: '#13201e',
+        950: '#0d1615',
+      },
+      'muted-teal': {
+        50: '#eff5f0',
+        100: '#e0ebe2',
+        200: '#c1d7c4',
+        300: '#a2c3a7',
+        400: '#83af89',
+        500: '#639c6c',
+        600: '#507c56',
+        700: '#3c5d41',
+        800: '#283e2b',
+        900: '#141f16',
+        950: '#0e160f',
+      },
+      'tea-green': {
+        50: '#f2f6ee',
+        100: '#e4eedd',
+        200: '#c9dcbc',
+        300: '#aecb9a',
+        400: '#94ba78',
+        500: '#79a857',
+        600: '#618745',
+        700: '#486534',
+        800: '#304323',
+        900: '#182211',
+        950: '#11180c',
+      },
+      'cerulean': {
+        50: '#eef5f7',
+        100: '#dceaef',
+        200: '#b9d5df',
+        300: '#96c1cf',
+        400: '#73acbf',
+        500: '#5097af',
+        600: '#40798c',
+        700: '#305b69',
+        800: '#203c46',
+        900: '#101e23',
+        950: '#0b1518',
+      },
+      'jet-black': {
+        50: '#eef4f6',
+        100: '#ddeaee',
+        200: '#bbd5dd',
+        300: '#99c0cc',
+        400: '#77abbb',
+        500: '#5596aa',
+        600: '#447888',
+        700: '#335a66',
+        800: '#223c44',
+        900: '#111e22',
+        950: '#0c1518',
+      },
+    },
+    identity: 'vibrant, tropical, refreshing, wellness',
+  },
+
+  // FOREST VITALITY THEME - Earthy, grounded, natural (forest greens & golden)
+  // From Coolors: https://coolors.co/b39c4d-768948-607744-34623f-1e2f23
+  'forest-vitality': {
+    name: 'Forest Vitality',
+    colors: {
+      primary: '#34623f',        // Forest green - strong, natural
+      primaryHover: '#1e2f23',   // Dark forest - hover states
+      primaryLight: '#607744',   // Darker olive - light accents
+      
+      secondary: '#b39c4d',      // Golden mustard - energy, warmth
+      secondaryHover: '#968143', // Darker golden - hover states
+      secondaryLight: '#c9b76d', // Light golden - highlights
+      
+      accent: '#768948',         // Olive green - balance
+      accentHover: '#607744',    // Darker olive - hover states
+      
+      success: '#34623f',        // Success forest green
+      warning: '#b39c4d',        // Warning golden
+      danger: '#ef4444',         // Danger red
+      info: '#607744',          // Info olive
+    },
+    identity: 'earthy, grounded, natural, vitality',
   },
 };
 

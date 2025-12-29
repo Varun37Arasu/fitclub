@@ -7,7 +7,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Dark background colors (theme-independent)
+        // Background colors (changes with DARK_MODE in themes.config.js)
+        bg: {
+          primary: 'rgb(var(--bg-primary-rgb) / <alpha-value>)',
+          secondary: 'rgb(var(--bg-secondary-rgb) / <alpha-value>)',
+          tertiary: 'rgb(var(--bg-tertiary-rgb) / <alpha-value>)',
+          accent: 'rgb(var(--bg-accent-rgb) / <alpha-value>)',
+        },
+        
+        // Text colors (changes with DARK_MODE in themes.config.js)
+        txt: {
+          primary: 'rgb(var(--text-primary-rgb) / <alpha-value>)',
+          secondary: 'rgb(var(--text-secondary-rgb) / <alpha-value>)',
+          tertiary: 'rgb(var(--text-tertiary-rgb) / <alpha-value>)',
+          muted: 'rgb(var(--text-muted-rgb) / <alpha-value>)',
+        },
+        
+        // Legacy dark colors (deprecated - use bg-* instead)
+        // Kept for backward compatibility
         dark: {
           primary: '#0f0f0f',
           secondary: '#1a1a1a',
@@ -33,10 +50,78 @@ export default {
         },
         
         // Semantic colors using CSS variables
-        success: 'var(--color-success)',
-        warning: 'var(--color-warning)',
-        danger: 'var(--color-danger)',
-        info: 'var(--color-info)',
+        success: 'rgb(var(--color-success-rgb) / <alpha-value>)',
+        warning: 'rgb(var(--color-warning-rgb) / <alpha-value>)',
+        danger: 'rgb(var(--color-danger-rgb) / <alpha-value>)',
+        info: 'rgb(var(--color-info-rgb) / <alpha-value>)',
+        
+        // Advanced shade system (for themes with full shade ranges like Tropical Wellness)
+        // Usage: bg-tropical-teal-500, text-cerulean-400, border-tea-green-600, etc.
+        'tropical-teal': {
+          50: 'rgb(var(--color-tropical-teal-50-rgb) / <alpha-value>)',
+          100: 'rgb(var(--color-tropical-teal-100-rgb) / <alpha-value>)',
+          200: 'rgb(var(--color-tropical-teal-200-rgb) / <alpha-value>)',
+          300: 'rgb(var(--color-tropical-teal-300-rgb) / <alpha-value>)',
+          400: 'rgb(var(--color-tropical-teal-400-rgb) / <alpha-value>)',
+          500: 'rgb(var(--color-tropical-teal-500-rgb) / <alpha-value>)',
+          600: 'rgb(var(--color-tropical-teal-600-rgb) / <alpha-value>)',
+          700: 'rgb(var(--color-tropical-teal-700-rgb) / <alpha-value>)',
+          800: 'rgb(var(--color-tropical-teal-800-rgb) / <alpha-value>)',
+          900: 'rgb(var(--color-tropical-teal-900-rgb) / <alpha-value>)',
+          950: 'rgb(var(--color-tropical-teal-950-rgb) / <alpha-value>)',
+        },
+        'muted-teal': {
+          50: 'rgb(var(--color-muted-teal-50-rgb) / <alpha-value>)',
+          100: 'rgb(var(--color-muted-teal-100-rgb) / <alpha-value>)',
+          200: 'rgb(var(--color-muted-teal-200-rgb) / <alpha-value>)',
+          300: 'rgb(var(--color-muted-teal-300-rgb) / <alpha-value>)',
+          400: 'rgb(var(--color-muted-teal-400-rgb) / <alpha-value>)',
+          500: 'rgb(var(--color-muted-teal-500-rgb) / <alpha-value>)',
+          600: 'rgb(var(--color-muted-teal-600-rgb) / <alpha-value>)',
+          700: 'rgb(var(--color-muted-teal-700-rgb) / <alpha-value>)',
+          800: 'rgb(var(--color-muted-teal-800-rgb) / <alpha-value>)',
+          900: 'rgb(var(--color-muted-teal-900-rgb) / <alpha-value>)',
+          950: 'rgb(var(--color-muted-teal-950-rgb) / <alpha-value>)',
+        },
+        'tea-green': {
+          50: 'rgb(var(--color-tea-green-50-rgb) / <alpha-value>)',
+          100: 'rgb(var(--color-tea-green-100-rgb) / <alpha-value>)',
+          200: 'rgb(var(--color-tea-green-200-rgb) / <alpha-value>)',
+          300: 'rgb(var(--color-tea-green-300-rgb) / <alpha-value>)',
+          400: 'rgb(var(--color-tea-green-400-rgb) / <alpha-value>)',
+          500: 'rgb(var(--color-tea-green-500-rgb) / <alpha-value>)',
+          600: 'rgb(var(--color-tea-green-600-rgb) / <alpha-value>)',
+          700: 'rgb(var(--color-tea-green-700-rgb) / <alpha-value>)',
+          800: 'rgb(var(--color-tea-green-800-rgb) / <alpha-value>)',
+          900: 'rgb(var(--color-tea-green-900-rgb) / <alpha-value>)',
+          950: 'rgb(var(--color-tea-green-950-rgb) / <alpha-value>)',
+        },
+        'cerulean': {
+          50: 'rgb(var(--color-cerulean-50-rgb) / <alpha-value>)',
+          100: 'rgb(var(--color-cerulean-100-rgb) / <alpha-value>)',
+          200: 'rgb(var(--color-cerulean-200-rgb) / <alpha-value>)',
+          300: 'rgb(var(--color-cerulean-300-rgb) / <alpha-value>)',
+          400: 'rgb(var(--color-cerulean-400-rgb) / <alpha-value>)',
+          500: 'rgb(var(--color-cerulean-500-rgb) / <alpha-value>)',
+          600: 'rgb(var(--color-cerulean-600-rgb) / <alpha-value>)',
+          700: 'rgb(var(--color-cerulean-700-rgb) / <alpha-value>)',
+          800: 'rgb(var(--color-cerulean-800-rgb) / <alpha-value>)',
+          900: 'rgb(var(--color-cerulean-900-rgb) / <alpha-value>)',
+          950: 'rgb(var(--color-cerulean-950-rgb) / <alpha-value>)',
+        },
+        'jet-black': {
+          50: 'rgb(var(--color-jet-black-50-rgb) / <alpha-value>)',
+          100: 'rgb(var(--color-jet-black-100-rgb) / <alpha-value>)',
+          200: 'rgb(var(--color-jet-black-200-rgb) / <alpha-value>)',
+          300: 'rgb(var(--color-jet-black-300-rgb) / <alpha-value>)',
+          400: 'rgb(var(--color-jet-black-400-rgb) / <alpha-value>)',
+          500: 'rgb(var(--color-jet-black-500-rgb) / <alpha-value>)',
+          600: 'rgb(var(--color-jet-black-600-rgb) / <alpha-value>)',
+          700: 'rgb(var(--color-jet-black-700-rgb) / <alpha-value>)',
+          800: 'rgb(var(--color-jet-black-800-rgb) / <alpha-value>)',
+          900: 'rgb(var(--color-jet-black-900-rgb) / <alpha-value>)',
+          950: 'rgb(var(--color-jet-black-950-rgb) / <alpha-value>)',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

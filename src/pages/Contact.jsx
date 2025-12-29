@@ -51,7 +51,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-20 bg-[#0f0f0f]">
+    <div className="pt-20 bg-bg-primary">
       {/* Hero Section */}
        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
          {/* Full Viewport Background */}
@@ -61,7 +61,7 @@ const Contact = () => {
              alt="Gym background"
              className="w-full h-full object-cover"
            />
-           <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black"></div>
+           <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/90 via-bg-primary/70 to-bg-primary"></div>
            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20"></div>
          </div>
 
@@ -71,10 +71,10 @@ const Contact = () => {
               <span className="text-primary font-bold text-xs md:text-sm tracking-wider break-words">{heroData.badge}</span>
             </div>
              <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-black leading-tight mb-4 md:mb-6 break-words px-2">
-               <span className="block text-white">{heroData.title.line1}</span>
+               <span className="block text-txt-primary">{heroData.title.line1}</span>
                <span className="block text-primary neon-text">{heroData.title.line2}</span>
              </h1>
-             <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2">
+             <p className="text-base md:text-xl text-txt-secondary max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2">
                {heroData.description}
              </p>
           </div>
@@ -82,7 +82,7 @@ const Contact = () => {
       </section>
 
       {/* Main Contact Section - Split Layout */}
-      <section className="section-padding bg-[#1a1a1a]">
+      <section className="section-padding bg-bg-secondary">
         <div className="container-custom">
            <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
              {/* Contact Form - Modern Design */}
@@ -90,13 +90,13 @@ const Contact = () => {
                {/* Decorative elements */}
                <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl opacity-30"></div>
                
-               <div className="relative bg-black/60 backdrop-blur-xl border-2 border-gray-800 p-8">
+               <div className="relative bg-bg-secondary backdrop-blur-xl border-2 border-gray-200 p-8">
                  <div className="mb-6">
-                   <h2 className="text-3xl font-heading font-black text-white mb-2">
+                   <h2 className="text-3xl font-heading font-black text-txt-primary mb-2">
                      {formSectionData.heading.line1}<br />
                      <span className="text-primary">{formSectionData.heading.line2}</span>
                    </h2>
-                   <p className="text-base text-gray-300">
+                   <p className="text-base text-txt-secondary">
                      {formSectionData.subheading}
                    </p>
                  </div>
@@ -111,7 +111,7 @@ const Contact = () => {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-gray-300 font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
+                  <label className="block text-txt-secondary font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
                     FULL NAME *
                   </label>
                   <input
@@ -120,14 +120,14 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full bg-black/60 border-2 border-gray-800 focus:border-primary px-6 py-4 text-white transition-all outline-none"
+                    className="w-full bg-bg-secondary border-2 border-gray-200 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none"
                     placeholder="Enter your full name"
                   />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-gray-300 font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
+                    <label className="block text-txt-secondary font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
                       EMAIL *
                     </label>
                     <input
@@ -136,13 +136,13 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full bg-black/60 border-2 border-gray-800 focus:border-primary px-6 py-4 text-white transition-all outline-none"
+                      className="w-full bg-bg-secondary border-2 border-gray-200 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none"
                       placeholder="your@email.com"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-gray-300 font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
+                    <label className="block text-txt-secondary font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
                       PHONE *
                     </label>
                     <input
@@ -151,14 +151,14 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full bg-black/60 border-2 border-gray-800 focus:border-primary px-6 py-4 text-white transition-all outline-none"
+                      className="w-full bg-bg-secondary border-2 border-gray-200 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none"
                       placeholder="+91 98765 43210"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
+                  <label className="block text-txt-secondary font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
                     FITNESS GOAL *
                   </label>
                   <select
@@ -166,7 +166,7 @@ const Contact = () => {
                     value={formData.goal}
                     onChange={handleChange}
                     required
-                      className="w-full bg-black/60 border-2 border-gray-800 focus:border-primary px-6 py-4 text-white transition-all outline-none cursor-pointer"
+                      className="w-full bg-bg-secondary border-2 border-gray-200 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none cursor-pointer"
                   >
                     {formGoalsData.map((goal, idx) => (
                       <option key={idx} value={goal.value}>{goal.label}</option>
@@ -175,7 +175,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
+                  <label className="block text-txt-secondary font-bold mb-3 text-xs md:text-sm tracking-wider break-words">
                     MESSAGE
                   </label>
                   <textarea
@@ -183,7 +183,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows="5"
-                    className="w-full bg-black/60 border-2 border-gray-800 focus:border-primary px-6 py-4 text-white transition-all outline-none resize-none"
+                    className="w-full bg-bg-secondary border-2 border-gray-200 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none resize-none"
                     placeholder="Tell us about your current fitness level, any injuries, and your specific goals..."
                   ></textarea>
                 </div>
@@ -202,18 +202,18 @@ const Contact = () => {
              <div className="space-y-6">
                {/* Contact Cards */}
                <div className="contact-card space-y-4">
-                 <h3 className="text-2xl font-heading font-black text-white mb-6">
+                 <h3 className="text-2xl font-heading font-black text-txt-primary mb-6">
                    {contactInfoData.heading.split(' ')[0]} <span className="text-primary">{contactInfoData.heading.split(' ')[1]}</span>
                  </h3>
 
                 {contactInfoData.cards.map((item, idx) => (
                    <div
                      key={idx}
-                     className="bg-black/40 backdrop-blur-sm border border-gray-800 hover:border-primary p-4 transition-all"
+                     className="bg-bg-secondary backdrop-blur-sm border border-gray-200 hover:border-primary p-4 transition-all"
                    >
                      <div className="text-xs text-primary font-bold uppercase mb-2">{item.title}</div>
                      {item.info.map((line, i) => (
-                       <p key={i} className="text-sm text-gray-300">
+                       <p key={i} className="text-sm text-txt-secondary">
                          {line}
                        </p>
                      ))}
@@ -223,10 +223,10 @@ const Contact = () => {
 
                {/* Google Maps Embed */}
                <div className="contact-card">
-                 <h3 className="text-xl font-heading font-black text-white mb-4">
+                 <h3 className="text-xl font-heading font-black text-txt-primary mb-4">
                    {mapData.heading.split(' ')[0]} <span className="text-primary">{mapData.heading.split(' ')[1]}</span>
                  </h3>
-                 <div className="relative h-[300px] bg-black/40 border-2 border-gray-800 overflow-hidden">
+                 <div className="relative h-[300px] bg-bg-secondary border-2 border-gray-200 overflow-hidden">
                   {/* Google Maps iframe */}
                   <iframe
                     src={mapData.embedUrl}
@@ -245,7 +245,7 @@ const Contact = () => {
                    href={mapData.directionsLink}
                    target="_blank"
                    rel="noopener noreferrer"
-                   className="mt-3 inline-block text-primary hover:text-white text-sm font-bold transition-colors"
+                   className="mt-3 inline-block text-primary hover:text-txt-primary text-sm font-bold transition-colors"
                  >
                    {mapData.directionsText}
                  </a>
@@ -256,9 +256,9 @@ const Contact = () => {
       </section>
 
        {/* FAQ Section - Move to separate page or simplify */}
-       {/* <section className="section-padding bg-[#1a1a1a]">
+       {/* <section className="section-padding bg-bg-secondary">
          <div className="container-custom">
-           <h2 className="text-4xl md:text-5xl font-heading font-black text-white mb-12 text-center">
+           <h2 className="text-4xl md:text-5xl font-heading font-black text-txt-primary mb-12 text-center">
              {faqData.heading.split(' ').slice(0, 2).join(' ')} <span className="text-primary">{faqData.heading.split(' ').slice(2).join(' ')}</span>
            </h2>
 
@@ -266,12 +266,12 @@ const Contact = () => {
             {faqData.faqs.map((faq, idx) => (
                <div
                  key={idx}
-                 className="bg-black/40 backdrop-blur-sm border-l-4 border-primary p-6 hover:bg-black/60 transition-colors"
+                 className="bg-bg-secondary backdrop-blur-sm border-l-4 border-primary p-6 hover:bg-bg-secondary transition-colors"
                >
-                 <h3 className="text-lg font-heading font-bold text-white mb-2">
+                 <h3 className="text-lg font-heading font-bold text-txt-primary mb-2">
                    {faq.q}
                  </h3>
-                 <p className="text-base text-gray-300 leading-relaxed">{faq.a}</p>
+                 <p className="text-base text-txt-secondary leading-relaxed">{faq.a}</p>
                </div>
              ))}
           </div>
@@ -279,17 +279,17 @@ const Contact = () => {
       </section> */}
 
        {/* Final CTA */}
-       <section className="section-padding bg-[#0f0f0f] relative overflow-hidden">
+       <section className="section-padding bg-bg-primary relative overflow-hidden">
          <div className="absolute inset-0 opacity-10">
            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,_primary_0%,_transparent_60%)]"></div>
          </div>
 
          <div className="container-custom relative z-10">
            <div className="max-w-4xl mx-auto text-center">
-             <h2 className="text-5xl md:text-6xl font-heading font-black text-white mb-6">
+             <h2 className="text-5xl md:text-6xl font-heading font-black text-txt-primary mb-6">
                {ctaData.heading.line1}<br />{ctaData.heading.line2.split(' ')[0]} <span className="text-primary">{ctaData.heading.line2.split(' ').slice(1).join(' ')}</span>
              </h2>
-             <p className="text-xl text-gray-300 mb-10">
+             <p className="text-xl text-txt-secondary mb-10">
                {ctaData.description}
              </p>
              <a href={ctaData.buttonLink} className="btn-primary text-lg px-12 py-4">

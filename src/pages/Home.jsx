@@ -137,7 +137,7 @@ const Home = () => {
              alt="Gym background"
              className="w-full h-full object-cover"
            />
-           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black"></div>
+           <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/90 via-bg-primary/70 to-bg-primary"></div>
            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20"></div>
          </div>
 
@@ -147,12 +147,12 @@ const Home = () => {
                <span className="text-primary font-bold text-xs md:text-sm uppercase tracking-wider">{heroData.badge}</span>
              </div>
              <h1 className="text-[clamp(2.5rem,8vw,8rem)] font-heading font-black leading-[0.95] tracking-tight mb-4 md:mb-6 px-2">
-               <span className="block text-white">{heroData.title.line1}</span>
+               <span className="block text-txt-primary">{heroData.title.line1}</span>
                <span className="block text-primary neon-text">{heroData.title.line2}</span>
              </h1>
            </div>
 
-           <p className="hero-subtitle text-base md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-4">
+           <p className="hero-subtitle text-base md:text-xl lg:text-2xl text-txt-secondary max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-4">
              {heroData.description}
            </p>
 
@@ -168,11 +168,11 @@ const Home = () => {
            {/* Animated Stats */}
            <div className="hero-stats grid grid-cols-3 gap-4 max-w-3xl mx-auto">
              {heroStatsData.map((stat, idx) => (
-               <div key={idx} className="bg-[#1a1a1a] border-2 border-primary p-4 text-center">
+               <div key={idx} className="bg-bg-secondary border-2 border-primary p-4 text-center">
                  <div className="text-4xl md:text-5xl font-heading font-black text-primary mb-1">
                    {counter[stat.key]}{stat.suffix}
                  </div>
-                 <div className="text-xs text-gray-400 uppercase font-bold">{stat.label}</div>
+                 <div className="text-xs text-txt-muted uppercase font-bold">{stat.label}</div>
                </div>
              ))}
            </div>
@@ -187,49 +187,49 @@ const Home = () => {
       </section>
 
        {/* WHY CHOOSE US - Bento Grid */}
-       <section className="bento-section section-padding bg-[#1a1a1a] relative">
+       <section className="bento-section section-padding bg-bg-secondary relative">
          <div className="container-custom">
            <div className="text-center">
-             <h2 className="text-5xl md:text-6xl font-heading font-black text-white mb-4">
+             <h2 className="text-5xl md:text-6xl font-heading font-black text-txt-primary mb-4">
                {whyChooseUsData.heading.split(' ').slice(0, 2).join(' ')} <span className="text-primary">{whyChooseUsData.heading.split(' ').slice(2).join(' ')}</span>
              </h2>
-             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+             <p className="text-xl text-txt-muted max-w-2xl mx-auto">
                {whyChooseUsData.subheading}
              </p>
            </div>
 
            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-6xl mx-auto">
              {/* Large Feature Card */}
-             <div className="bento-card md:col-span-8 bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-primary p-10 transition-all">
+             <div className="bento-card md:col-span-8 bg-bg-secondary backdrop-blur-sm border-2 border-gray-200 hover:border-primary p-10 transition-all">
                <div className="mb-6">
                  <div className="text-sm text-primary font-bold uppercase mb-2">{whyChooseUsData.mainFeature.badge}</div>
-                 <h3 className="text-4xl font-heading font-black text-white mb-4">
+                 <h3 className="text-4xl font-heading font-black text-txt-primary mb-4">
                    {whyChooseUsData.mainFeature.title}
                  </h3>
-                 <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                 <p className="text-lg text-txt-secondary leading-relaxed mb-6">
                    {whyChooseUsData.mainFeature.description}
                  </p>
                </div>
                <div className="grid grid-cols-3 gap-4">
                  {whyChooseUsData.mainFeature.stats.map((stat, idx) => (
-                   <div key={idx} className="text-center p-4 bg-black/60 border border-primary/30">
+                   <div key={idx} className="text-center p-4 bg-bg-secondary border border-primary/30">
                      <div className="text-3xl font-heading font-black text-primary mb-1">{stat.value}</div>
-                     <div className="text-xs text-gray-400 uppercase">{stat.label}</div>
+                     <div className="text-xs text-txt-muted uppercase">{stat.label}</div>
                    </div>
                  ))}
                </div>
              </div>
 
              {/* Progress Tracking */}
-             <div className="bento-card md:col-span-4 bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-primary p-8 transition-all">
+             <div className="bento-card md:col-span-4 bg-bg-secondary backdrop-blur-sm border-2 border-gray-200 hover:border-primary p-8 transition-all">
                <div className="text-sm text-primary font-bold uppercase mb-2">{whyChooseUsData.progressTracking.badge}</div>
-               <h3 className="text-2xl font-heading font-black text-white mb-6">
+               <h3 className="text-2xl font-heading font-black text-txt-primary mb-6">
                  {whyChooseUsData.progressTracking.title}
                </h3>
                <div className="space-y-4">
                  {whyChooseUsData.progressTracking.metrics.map((metric, i) => (
                    <div key={i}>
-                     <div className="flex justify-between text-sm text-gray-400 mb-2">
+                     <div className="flex justify-between text-sm text-txt-muted mb-2">
                        <span>{metric.label}</span>
                        <span>{metric.value}%</span>
                      </div>
@@ -242,17 +242,17 @@ const Home = () => {
              </div>
 
              {/* Nutrition Plans */}
-             <div className="bento-card md:col-span-6 bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-primary p-8 transition-all">
+             <div className="bento-card md:col-span-6 bg-bg-secondary backdrop-blur-sm border-2 border-gray-200 hover:border-primary p-8 transition-all">
                <div className="text-sm text-primary font-bold uppercase mb-2">{whyChooseUsData.nutrition.badge}</div>
-               <h3 className="text-3xl font-heading font-black text-white mb-4">
+               <h3 className="text-3xl font-heading font-black text-txt-primary mb-4">
                  {whyChooseUsData.nutrition.title}
                </h3>
-               <p className="text-gray-300 leading-relaxed mb-6">
+               <p className="text-txt-secondary leading-relaxed mb-6">
                  {whyChooseUsData.nutrition.description}
                </p>
                <ul className="space-y-2">
                  {whyChooseUsData.nutrition.features.map((item, i) => (
-                   <li key={i} className="flex items-center gap-2 text-gray-300">
+                   <li key={i} className="flex items-center gap-2 text-txt-secondary">
                      <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
                      <span>{item}</span>
                    </li>
@@ -261,23 +261,23 @@ const Home = () => {
              </div>
 
              {/* 24/7 Support */}
-             <div className="bento-card md:col-span-3 bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-primary p-8 transition-all text-center flex flex-col justify-center">
+             <div className="bento-card md:col-span-3 bg-bg-secondary backdrop-blur-sm border-2 border-gray-200 hover:border-primary p-8 transition-all text-center flex flex-col justify-center">
                <div className="text-sm text-primary font-bold uppercase mb-2">{whyChooseUsData.support.badge}</div>
-               <h3 className="text-2xl font-heading font-black text-white mb-2">
+               <h3 className="text-2xl font-heading font-black text-txt-primary mb-2">
                  {whyChooseUsData.support.title}
                </h3>
-               <p className="text-sm text-gray-400">
+               <p className="text-sm text-txt-muted">
                  {whyChooseUsData.support.description}
                </p>
              </div>
 
              {/* Proven Results */}
-             <div className="bento-card md:col-span-3 bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-primary p-8 transition-all text-center flex flex-col justify-center">
+             <div className="bento-card md:col-span-3 bg-bg-secondary backdrop-blur-sm border-2 border-gray-200 hover:border-primary p-8 transition-all text-center flex flex-col justify-center">
                <div className="text-sm text-primary font-bold uppercase mb-2">{whyChooseUsData.methods.badge}</div>
-               <h3 className="text-2xl font-heading font-black text-white mb-2">
+               <h3 className="text-2xl font-heading font-black text-txt-primary mb-2">
                  {whyChooseUsData.methods.title}
                </h3>
-               <p className="text-sm text-gray-400">
+               <p className="text-sm text-txt-muted">
                  {whyChooseUsData.methods.description}
                </p>
              </div>
@@ -286,13 +286,13 @@ const Home = () => {
        </section>
 
        {/* PROGRAMS SECTION */}
-       <section className="stack-section section-padding bg-[#0f0f0f] relative overflow-hidden">
+       <section className="stack-section section-padding bg-bg-primary relative overflow-hidden">
          <div className="container-custom">
            <div className="text-center mb-16">
-             <h2 className="text-5xl md:text-6xl font-heading font-black text-white mb-4">
+             <h2 className="text-5xl md:text-6xl font-heading font-black text-txt-primary mb-4">
                {programsData.heading.split(' ')[0]} <span className="text-primary">{programsData.heading.split(' ')[1]}</span>
              </h2>
-             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+             <p className="text-xl text-txt-muted max-w-2xl mx-auto">
                {programsData.subheading}
              </p>
            </div>
@@ -302,7 +302,7 @@ const Home = () => {
               <div key={idx} className="stack-card relative">
                  <div className="absolute -top-8 right-6 z-20 flex items-center gap-4">
                    {program.popular && (
-                     <div className={`px-4 py-2 bg-primary ${program.moneyBack ? 'relative -top-6' : ''} text-white text-xs font-bold uppercase`}>
+                     <div className={`px-4 py-2 bg-primary ${program.moneyBack ? 'relative -top-6' : ''} text-txt-primary text-xs font-bold uppercase`}>
                        Most Popular
                      </div>
                    )}
@@ -311,15 +311,15 @@ const Home = () => {
                    )}
                  </div>
 
-                 <div className={`bg-[#1a1a1a] border-2 ${program.popular ? 'border-primary' : 'border-gray-700'} p-8 md:p-12 hover:border-primary transition-all`}>
+                 <div className={`bg-bg-secondary border-2 ${program.popular ? 'border-primary' : 'border-gray-300'} p-8 md:p-12 hover:border-primary transition-all`}>
                    <div className="grid md:grid-cols-3 gap-8 items-center">
                      <div className="md:col-span-2">
-                       <h3 className="text-3xl md:text-4xl font-heading font-black text-white mb-3">{program.title}</h3>
-                       <p className="text-lg text-gray-300 mb-6 leading-relaxed">{program.description}</p>
+                       <h3 className="text-3xl md:text-4xl font-heading font-black text-txt-primary mb-3">{program.title}</h3>
+                       <p className="text-lg text-txt-secondary mb-6 leading-relaxed">{program.description}</p>
                        <div className="flex flex-wrap gap-3 mb-6">
                          {program.features.map((feature, i) => (
-                           <div key={i} className="px-4 py-2 bg-black/60 border border-gray-800 text-sm">
-                             <span className="text-gray-300">{feature}</span>
+                           <div key={i} className="px-4 py-2 bg-bg-secondary border border-gray-200 text-sm">
+                             <span className="text-txt-secondary">{feature}</span>
                            </div>
                          ))}
                        </div>
@@ -329,9 +329,9 @@ const Home = () => {
                      </div>
 
                      <div className="text-center">
-                       <div className="bg-black/60 border-2 border-primary p-6">
+                       <div className="bg-bg-secondary border-2 border-primary p-6">
                          <div className="text-4xl font-heading font-black text-primary mb-1">{program.price}</div>
-                         <div className="text-xs text-gray-400">Starting From</div>
+                         <div className="text-xs text-txt-muted">Starting From</div>
                        </div>
                      </div>
                   </div>
@@ -349,13 +349,13 @@ const Home = () => {
       </section>
 
        {/* TRANSFORMATION SHOWCASE */}
-       <section className="split-section pb-20 md:section-padding bg-[#1a1a1a] relative overflow-hidden">
+       <section className="split-section pb-20 md:section-padding bg-bg-secondary relative overflow-hidden">
          <div className="container-custom">
            <div className="text-center mb-16 lg:mb-32">
-             <h2 className="text-4xl md:text-6xl font-heading font-black text-white mb-4">
+             <h2 className="text-4xl md:text-6xl font-heading font-black text-txt-primary mb-4">
                {transformationShowcaseData.heading.split(' ')[0]} <span className="text-primary">{transformationShowcaseData.heading.split(' ')[1]}</span>
              </h2>
-             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+             <p className="text-xl text-txt-muted max-w-2xl mx-auto">
                {transformationShowcaseData.subheading}
              </p>
            </div>
@@ -368,12 +368,12 @@ const Home = () => {
                    alt="Transformation"
                    className="w-full h-full object-cover"
                  />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                 <div className="absolute inset-0 bg-gradient-to-t from-bg-primary/80 via-transparent to-transparent"></div>
                  <div className="absolute bottom-6 left-6 right-6">
-                   <h3 className="text-3xl font-heading font-black text-white mb-3">{transformationShowcaseData.featured.name}</h3>
+                   <h3 className="text-3xl font-heading font-black text-txt-primary mb-3">{transformationShowcaseData.featured.name}</h3>
                    <div className="flex gap-3 text-sm font-bold">
                      {transformationShowcaseData.featured.results.map((result, idx) => (
-                       <span key={idx} className="px-4 py-2 bg-primary text-white">{result.text}</span>
+                       <span key={idx} className="px-4 py-2 bg-primary text-txt-primary">{result.text}</span>
                      ))}
                    </div>
                  </div>
@@ -382,9 +382,9 @@ const Home = () => {
 
              <div className="parallax-right space-y-6">
                {transformationShowcaseData.stats.map((stat, idx) => (
-                 <div key={idx} className="bg-black/40 backdrop-blur-sm border-l-4 border-primary p-6">
+                 <div key={idx} className="bg-bg-secondary backdrop-blur-sm border-l-4 border-primary p-6">
                    <div className="text-5xl font-heading font-black text-primary mb-2">{stat.value}</div>
-                   <div className="text-lg text-gray-300">{stat.label}</div>
+                   <div className="text-lg text-txt-secondary">{stat.label}</div>
                  </div>
                ))}
 
@@ -397,27 +397,27 @@ const Home = () => {
       </section>
 
        {/* CLIENT TESTIMONIALS */}
-       <section className="testimonials-section section-padding bg-[#0f0f0f]">
+       <section className="testimonials-section section-padding bg-bg-primary">
          <div className="container-custom px-4">
            <div className="text-center mb-8 md:mb-12">
-             <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black text-white mb-3 md:mb-4">
+             <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black text-txt-primary mb-3 md:mb-4">
                {clientReviewsData.heading.split(' ')[0]} <span className="text-primary">{clientReviewsData.heading.split(' ')[1]}</span>
              </h2>
-             <p className="text-base md:text-xl text-gray-400 max-w-2xl mx-auto px-4">
+             <p className="text-base md:text-xl text-txt-muted max-w-2xl mx-auto px-4">
                {clientReviewsData.subheading}
              </p>
            </div>
 
            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
              {clientReviewsData.reviews.map((testimonial, idx) => (
-               <div key={idx} className="testimonial-slide will-change-transform bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-primary p-4 md:p-6 transition-all">
+               <div key={idx} className="testimonial-slide will-change-transform bg-bg-secondary backdrop-blur-sm border-2 border-gray-200 hover:border-primary p-4 md:p-6 transition-all">
                  <div className="flex gap-1 mb-3 md:mb-4">
                    {[...Array(testimonial.rating)].map((_, i) => (
                      <span key={i} className="text-lg md:text-xl text-primary">★</span>
                    ))}
                  </div>
-                 <p className="text-sm md:text-base text-gray-300 italic mb-3 md:mb-4 leading-relaxed">"{testimonial.text}"</p>
-                 <p className="font-heading font-bold text-white text-sm md:text-base">— {testimonial.name}</p>
+                 <p className="text-sm md:text-base text-txt-secondary italic mb-3 md:mb-4 leading-relaxed">"{testimonial.text}"</p>
+                 <p className="font-heading font-bold text-txt-primary text-sm md:text-base">— {testimonial.name}</p>
                </div>
              ))}
            </div>
@@ -431,7 +431,7 @@ const Home = () => {
        </section>
 
        {/* FINAL CTA */}
-       <section className="section-padding bg-[#1a1a1a] relative overflow-hidden">
+       <section className="section-padding bg-bg-secondary relative overflow-hidden">
          <div className="absolute inset-0 opacity-10">
            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_50%,_primary_0%,_transparent_50%)]"></div>
            <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_50%,_secondary_0%,_transparent_50%)]"></div>
@@ -439,10 +439,10 @@ const Home = () => {
 
          <div className="container-custom relative z-10">
            <div className="max-w-4xl mx-auto text-center">
-             <h2 className="text-5xl md:text-6xl font-heading font-black text-white mb-6">
+             <h2 className="text-5xl md:text-6xl font-heading font-black text-txt-primary mb-6">
                {finalCtaData.heading.line1}<br />{finalCtaData.heading.line2.split(' ')[0]} <span className="text-primary">{finalCtaData.heading.line2.split(' ')[1]}</span>
              </h2>
-             <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+             <p className="text-xl text-txt-secondary mb-10 leading-relaxed">
                {finalCtaData.description}
              </p>
              <div className="flex flex-wrap gap-6 justify-center">

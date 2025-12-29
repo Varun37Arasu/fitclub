@@ -26,27 +26,27 @@ const Payment = () => {
   };
 
   return (
-    <div className="pt-20 bg-[#0f0f0f]">
+    <div className="pt-20 bg-bg-primary">
       {/* Hero Section */}
       <section className="relative pt-28 min-h-screen flex flex-col items-center justify-center overflow-hidden px-4">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0f0f0f] to-[#0f0f0f]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/90 via-bg-primary/70 to-bg-primary"></div>
           <div className="absolute top-20 right-10 w-[500px] h-[500px] bg-primary opacity-10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-orange-500 opacity-10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-secondary opacity-10 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container-custom relative z-10 text-center">
           <div className="payment-hero-title">
             <div className="inline-block px-6 py-3 bg-primary border-2 border-white mb-6">
-              <span className="text-white font-heading font-black text-lg uppercase tracking-wider">Secure Payment</span>
+              <span className="text-txt-primary font-heading font-black text-lg uppercase tracking-wider">Secure Payment</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-black text-white mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-black text-txt-primary mb-6 leading-tight">
               COMPLETE YOUR
               <span className="block text-primary neon-text">TRANSFORMATION</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+            <p className="text-lg md:text-xl text-txt-secondary max-w-3xl mx-auto mb-12">
               Secure payment powered by Razorpay. All major payment methods accepted.
             </p>
 
@@ -61,17 +61,17 @@ const Payment = () => {
             {/* Money Back Guarantee */}
             <div className="max-w-2xl mx-auto mt-12 bg-gradient-to-br from-green-900/20 to-transparent border-2 border-green-500/50 p-6">
               <div className="text-4xl mb-3">✓</div>
-              <h3 className="text-2xl font-heading font-black text-white mb-2">
+              <h3 className="text-2xl font-heading font-black text-txt-primary mb-2">
                 100% MONEY-BACK GUARANTEE
               </h3>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-txt-secondary">
                 Not satisfied? Get a full refund within 30 days. No questions asked.
               </p>
             </div>
 
             {/* Help Section */}
-            <div className="mt-12 mb-10 pt-8 border-t border-gray-800 max-w-2xl mx-auto">
-              <p className="text-gray-400 mb-4">Need help with payment?</p>
+            <div className="mt-12 mb-10 pt-8 border-t border-gray-200 max-w-2xl mx-auto">
+              <p className="text-txt-muted mb-4">Need help with payment?</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact" className="btn-secondary text-base px-8 py-3">
                   Contact Support
@@ -80,7 +80,7 @@ const Payment = () => {
                   href="https://wa.me/919876543210" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="bg-green-600 hover:bg-green-700 text-white font-bold text-base px-8 py-3 transition-all"
+                  className="bg-green-600 hover:bg-green-700 text-txt-primary font-bold text-base px-8 py-3 transition-all"
                 >
                   WhatsApp Us
                 </a>

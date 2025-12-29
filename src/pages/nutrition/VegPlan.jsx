@@ -20,7 +20,7 @@ const VegPlan = () => {
   }, []);
 
   return (
-    <div className="bg-[#0f0f0f]">
+    <div className="bg-bg-primary">
       {/* Hero Section - KEEP AS IS */}
       <section className="relative min-h-screen flex flex-col items-start justify-center overflow-hidden pb-8 pt-24">
         <div className="absolute inset-0 pt-20 md:pt-24">
@@ -29,24 +29,25 @@ const VegPlan = () => {
             alt="Vegetarian Nutrition"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/90 via-bg-primary/70 to-bg-primary"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20"></div>
         </div>
 
         <div className="container-custom relative z-10 px-4 flex-1 flex items-center justify-center">
           <div className="program-hero-title text-center max-w-full w-full">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 mb-6 md:mb-8">
               <div className="px-4 py-2 md:px-8 md:py-4 bg-gradient-to-r from-primary to-secondary border-2 md:border-4 border-black">
-                <span className="text-white font-heading font-black text-sm md:text-2xl tracking-wider break-words">{vegPlanData.hero.badge}</span>
+                <span className="text-txt-primary font-heading font-black text-sm md:text-2xl tracking-wider break-words">{vegPlanData.hero.badge}</span>
               </div>
               {vegPlanData.hero.moneyBackGuarantee && (
                 <MoneyBackBadge className="h-20 md:h-28 w-20 md:w-28" />
               )}
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-black leading-[0.95] tracking-tighter mb-6 md:mb-8 break-words px-2 max-w-full">
-              <span className="block text-white">{vegPlanData.hero.title.split(' ')[0]}</span>
+              <span className="block text-txt-primary">{vegPlanData.hero.title.split(' ')[0]}</span>
               <span className="block text-primary neon-text">{vegPlanData.hero.title.split(' ').slice(1).join(' ')}</span>
             </h1>
-            <p className="text-base md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2">
+            <p className="text-base md:text-xl lg:text-2xl text-txt-secondary max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2">
               {vegPlanData.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center w-full sm:w-auto px-4">
@@ -62,9 +63,9 @@ const VegPlan = () => {
           <div className="container-custom">
             <div className="grid grid-cols-3 gap-3 md:gap-6 max-w-4xl mx-auto">
               {vegPlanData.stats.map((stat, idx) => (
-                <div key={idx} className="bg-black/70 backdrop-blur-sm border border-gray-700 md:border-2 p-3 md:p-6 text-center">
+                <div key={idx} className="bg-bg-secondary/70 backdrop-blur-sm border border-gray-300 md:border-2 p-3 md:p-6 text-center">
                   <div className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-primary mb-1 md:mb-2">{stat.value}</div>
-                  <div className="text-xs md:text-sm text-gray-300 break-words leading-tight">{stat.label}</div>
+                  <div className="text-xs md:text-sm text-txt-secondary break-words leading-tight">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -73,52 +74,52 @@ const VegPlan = () => {
       </section>
 
       {/* Science-Based Approach */}
-      <section className="section-padding bg-[#1a1a1a]">
+      <section className="section-padding bg-bg-secondary">
         <div className="container-custom px-4">
-          <h2 className="text-4xl md:text-6xl font-heading font-black text-white mb-16 text-center">
+          <h2 className="text-4xl md:text-6xl font-heading font-black text-txt-primary mb-16 text-center">
             SCIENCE-BACKED <span className="text-primary">NUTRITION</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div className="bg-black/60 border-l-4 border-primary p-8">
-              <h3 className="text-2xl font-heading font-black text-white mb-4">Protein Optimization</h3>
-              <p className="text-gray-300 leading-relaxed mb-4">
+            <div className="bg-bg-secondary border-l-4 border-primary p-8">
+              <h3 className="text-2xl font-heading font-black text-txt-primary mb-4">Protein Optimization</h3>
+              <p className="text-txt-secondary leading-relaxed mb-4">
                 Plant-based proteins combined strategically to provide all 9 essential amino acids. Each meal designed to maximize muscle protein synthesis through proper timing and combinations.
               </p>
-              <div className="flex items-center gap-4 text-sm text-gray-400">
+              <div className="flex items-center gap-4 text-sm text-txt-muted">
                 <span className="px-3 py-1 bg-primary/20 border border-primary/50">150g+ Daily Protein</span>
                 <span className="px-3 py-1 bg-primary/20 border border-primary/50">Complete Amino Profile</span>
               </div>
             </div>
 
-            <div className="bg-black/60 border-l-4 border-primary p-8">
-              <h3 className="text-2xl font-heading font-black text-white mb-4">Nutrient Density Focus</h3>
-              <p className="text-gray-300 leading-relaxed mb-4">
+            <div className="bg-bg-secondary border-l-4 border-primary p-8">
+              <h3 className="text-2xl font-heading font-black text-txt-primary mb-4">Nutrient Density Focus</h3>
+              <p className="text-txt-secondary leading-relaxed mb-4">
                 Every meal provides maximum micronutrients per calorie. Strategic supplementation fills gaps ensuring optimal hormone production, recovery, and performance.
               </p>
-              <div className="flex items-center gap-4 text-sm text-gray-400">
+              <div className="flex items-center gap-4 text-sm text-txt-muted">
                 <span className="px-3 py-1 bg-primary/20 border border-primary/50">Vitamin B12 Optimized</span>
                 <span className="px-3 py-1 bg-primary/20 border border-primary/50">Iron Absorption</span>
               </div>
             </div>
 
-            <div className="bg-black/60 border-l-4 border-primary p-8">
-              <h3 className="text-2xl font-heading font-black text-white mb-4">Metabolic Adaptation</h3>
-              <p className="text-gray-300 leading-relaxed mb-4">
+            <div className="bg-bg-secondary border-l-4 border-primary p-8">
+              <h3 className="text-2xl font-heading font-black text-txt-primary mb-4">Metabolic Adaptation</h3>
+              <p className="text-txt-secondary leading-relaxed mb-4">
                 Periodized carbohydrate intake aligned with training intensity. Higher carbs on training days, moderate on rest days to optimize body composition without metabolic slowdown.
               </p>
-              <div className="flex items-center gap-4 text-sm text-gray-400">
+              <div className="flex items-center gap-4 text-sm text-txt-muted">
                 <span className="px-3 py-1 bg-primary/20 border border-primary/50">Carb Cycling</span>
                 <span className="px-3 py-1 bg-primary/20 border border-primary/50">Metabolic Flexibility</span>
               </div>
             </div>
 
-            <div className="bg-black/60 border-l-4 border-primary p-8">
-              <h3 className="text-2xl font-heading font-black text-white mb-4">Gut Health Priority</h3>
-              <p className="text-gray-300 leading-relaxed mb-4">
+            <div className="bg-bg-secondary border-l-4 border-primary p-8">
+              <h3 className="text-2xl font-heading font-black text-txt-primary mb-4">Gut Health Priority</h3>
+              <p className="text-txt-secondary leading-relaxed mb-4">
                 Fiber-rich whole foods support microbiome diversity. Fermented foods and targeted probiotics enhance nutrient absorption and immune function.
               </p>
-              <div className="flex items-center gap-4 text-sm text-gray-400">
+              <div className="flex items-center gap-4 text-sm text-txt-muted">
                 <span className="px-3 py-1 bg-primary/20 border border-primary/50">35g+ Daily Fiber</span>
                 <span className="px-3 py-1 bg-primary/20 border border-primary/50">Probiotic Support</span>
               </div>
@@ -128,9 +129,9 @@ const VegPlan = () => {
       </section>
 
       {/* Meal Structure System */}
-      <section className="section-padding bg-[#0f0f0f]">
+      <section className="section-padding bg-bg-primary">
         <div className="container-custom px-4">
-          <h2 className="text-4xl md:text-6xl font-heading font-black text-white mb-16 text-center">
+          <h2 className="text-4xl md:text-6xl font-heading font-black text-txt-primary mb-16 text-center">
             DAILY MEAL <span className="text-primary">STRUCTURE</span>
           </h2>
 
@@ -143,17 +144,17 @@ const VegPlan = () => {
               { time: "05:30 PM", meal: "Pre-Evening Snack", focus: "Sustained energy + protein", calories: "300-400 kcal" },
               { time: "08:00 PM", meal: "Dinner", focus: "Protein + vegetables + healthy fats", calories: "500-600 kcal" }
             ].map((meal, idx) => (
-              <div key={idx} className="bg-black/40 border border-gray-800 hover:border-primary transition-all">
+              <div key={idx} className="bg-bg-secondary border border-gray-200 hover:border-primary transition-all">
                 <div className="grid md:grid-cols-12 items-center">
-                  <div className="md:col-span-2 bg-primary/10 border-r border-gray-800 p-6">
+                  <div className="md:col-span-2 bg-primary/10 border-r border-gray-200 p-6">
                     <div className="text-2xl font-heading font-black text-primary">{meal.time}</div>
                   </div>
                   <div className="md:col-span-7 p-6">
-                    <h3 className="text-xl font-heading font-black text-white mb-2">{meal.meal}</h3>
-                    <p className="text-gray-400 text-sm">{meal.focus}</p>
+                    <h3 className="text-xl font-heading font-black text-txt-primary mb-2">{meal.meal}</h3>
+                    <p className="text-txt-muted text-sm">{meal.focus}</p>
                   </div>
                   <div className="md:col-span-3 p-6 text-right">
-                    <div className="text-lg font-bold text-gray-300">{meal.calories}</div>
+                    <div className="text-lg font-bold text-txt-secondary">{meal.calories}</div>
                   </div>
                 </div>
               </div>
@@ -161,17 +162,17 @@ const VegPlan = () => {
           </div>
 
           <div className="mt-12 max-w-3xl mx-auto bg-gradient-to-r from-primary/10 to-transparent border-l-4 border-primary p-6">
-            <p className="text-gray-300 leading-relaxed">
-              <span className="text-white font-bold">Total Daily Intake:</span> 2500-3050 calories across 6 strategically timed meals. Macros adjust based on training schedule and individual metabolic response.
+            <p className="text-txt-secondary leading-relaxed">
+              <span className="text-txt-primary font-bold">Total Daily Intake:</span> 2500-3050 calories across 6 strategically timed meals. Macros adjust based on training schedule and individual metabolic response.
             </p>
           </div>
         </div>
       </section>
 
       {/* Nutrient Breakdown */}
-      <section className="section-padding bg-[#1a1a1a]">
+      <section className="section-padding bg-bg-secondary">
         <div className="container-custom px-4">
-          <h2 className="text-4xl md:text-6xl font-heading font-black text-white mb-16 text-center">
+          <h2 className="text-4xl md:text-6xl font-heading font-black text-txt-primary mb-16 text-center">
             MACRO & MICRO <span className="text-primary">TARGETS</span>
           </h2>
 
@@ -181,12 +182,12 @@ const VegPlan = () => {
               <h3 className="text-2xl font-heading font-black text-primary mb-6 border-b-2 border-primary pb-3">MACRONUTRIENTS</h3>
               
               <div className="space-y-4">
-                <div className="bg-black/40 p-6 border-l-4 border-primary">
+                <div className="bg-bg-secondary p-6 border-l-4 border-primary">
                   <div className="flex justify-between items-center mb-3">
-                    <span className="text-xl font-heading font-black text-white">PROTEIN</span>
+                    <span className="text-xl font-heading font-black text-txt-primary">PROTEIN</span>
                     <span className="text-2xl font-heading font-black text-primary">150-180g</span>
                   </div>
-                  <div className="space-y-2 text-sm text-gray-400">
+                  <div className="space-y-2 text-sm text-txt-muted">
                     <p>Paneer, Tofu, Lentils, Chickpeas, Greek Yogurt, Protein Powder</p>
                     <div className="flex gap-2 mt-2">
                       <span className="px-2 py-1 bg-primary/20 text-xs">Muscle Preservation</span>
@@ -196,12 +197,12 @@ const VegPlan = () => {
                   </div>
                 </div>
 
-                <div className="bg-black/40 p-6 border-l-4 border-blue-500">
+                <div className="bg-bg-secondary p-6 border-l-4 border-blue-500">
                   <div className="flex justify-between items-center mb-3">
-                    <span className="text-xl font-heading font-black text-white">CARBOHYDRATES</span>
+                    <span className="text-xl font-heading font-black text-txt-primary">CARBOHYDRATES</span>
                     <span className="text-2xl font-heading font-black text-blue-500">250-350g</span>
                   </div>
-                  <div className="space-y-2 text-sm text-gray-400">
+                  <div className="space-y-2 text-sm text-txt-muted">
                     <p>Brown Rice, Quinoa, Oats, Sweet Potato, Fruits, Vegetables</p>
                     <div className="flex gap-2 mt-2">
                       <span className="px-2 py-1 bg-blue-500/20 text-xs">Energy</span>
@@ -211,12 +212,12 @@ const VegPlan = () => {
                   </div>
                 </div>
 
-                <div className="bg-black/40 p-6 border-l-4 border-green-500">
+                <div className="bg-bg-secondary p-6 border-l-4 border-green-500">
                   <div className="flex justify-between items-center mb-3">
-                    <span className="text-xl font-heading font-black text-white">FATS</span>
+                    <span className="text-xl font-heading font-black text-txt-primary">FATS</span>
                     <span className="text-2xl font-heading font-black text-green-500">60-80g</span>
                   </div>
-                  <div className="space-y-2 text-sm text-gray-400">
+                  <div className="space-y-2 text-sm text-txt-muted">
                     <p>Nuts, Seeds, Avocado, Olive Oil, Coconut, Ghee</p>
                     <div className="flex gap-2 mt-2">
                       <span className="px-2 py-1 bg-green-500/20 text-xs">Hormones</span>
@@ -243,10 +244,10 @@ const VegPlan = () => {
                   { nutrient: "Magnesium", amount: "400mg", source: "Nuts + Whole Grains" },
                   { nutrient: "Fiber", amount: "35g+", source: "Whole Foods" }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-black/60 border border-gray-800 p-4">
-                    <h4 className="text-white font-heading font-black text-sm mb-1">{item.nutrient}</h4>
+                  <div key={idx} className="bg-bg-secondary border border-gray-200 p-4">
+                    <h4 className="text-txt-primary font-heading font-black text-sm mb-1">{item.nutrient}</h4>
                     <div className="text-primary font-bold text-lg mb-2">{item.amount}</div>
-                    <p className="text-gray-400 text-xs">{item.source}</p>
+                    <p className="text-txt-muted text-xs">{item.source}</p>
                   </div>
                 ))}
               </div>
@@ -256,9 +257,9 @@ const VegPlan = () => {
       </section>
 
       {/* Progress Timeline */}
-      <section className="section-padding bg-[#0f0f0f]">
+      <section className="section-padding bg-bg-primary">
         <div className="container-custom px-4">
-          <h2 className="text-4xl md:text-6xl font-heading font-black text-white mb-16 text-center">
+          <h2 className="text-4xl md:text-6xl font-heading font-black text-txt-primary mb-16 text-center">
             YOUR <span className="text-primary">TRANSFORMATION</span> JOURNEY
           </h2>
 
@@ -274,12 +275,12 @@ const VegPlan = () => {
                 <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-primary to-transparent"></div>
                 <div className="absolute left-0 top-2 w-4 h-4 bg-primary rounded-full border-4 border-[#0f0f0f]"></div>
                 
-                <div className="bg-black/40 border border-gray-800 hover:border-primary transition-all p-6">
+                <div className="bg-bg-secondary border border-gray-200 hover:border-primary transition-all p-6">
                   <div className="flex items-center gap-4 mb-3">
                     <span className="text-sm font-bold text-primary bg-primary/20 px-3 py-1">{phase.week}</span>
-                    <h3 className="text-xl font-heading font-black text-white">{phase.title}</h3>
+                    <h3 className="text-xl font-heading font-black text-txt-primary">{phase.title}</h3>
                   </div>
-                  <p className="text-gray-400 leading-relaxed">{phase.description}</p>
+                  <p className="text-txt-muted leading-relaxed">{phase.description}</p>
                 </div>
               </div>
             ))}
@@ -288,9 +289,9 @@ const VegPlan = () => {
       </section>
 
       {/* Professional Support */}
-      <section className="section-padding bg-[#1a1a1a]">
+      <section className="section-padding bg-bg-secondary">
         <div className="container-custom px-4">
-          <h2 className="text-4xl md:text-6xl font-heading font-black text-white mb-16 text-center">
+          <h2 className="text-4xl md:text-6xl font-heading font-black text-txt-primary mb-16 text-center">
             PROFESSIONAL <span className="text-primary">GUIDANCE</span>
           </h2>
 
@@ -300,11 +301,11 @@ const VegPlan = () => {
               { title: "24/7 Expert Access", points: ["WhatsApp support group", "Quick response to questions", "Recipe modifications help", "Supplement guidance"] },
               { title: "Custom Resources", points: ["200+ vegetarian recipes", "Meal prep video guides", "Shopping list templates", "Restaurant eating strategies"] }
             ].map((service, idx) => (
-              <div key={idx} className="bg-black/60 border-2 border-gray-800 hover:border-primary p-8 transition-all">
+              <div key={idx} className="bg-bg-secondary border-2 border-gray-200 hover:border-primary p-8 transition-all">
                 <h3 className="text-2xl font-heading font-black text-primary mb-6">{service.title}</h3>
                 <ul className="space-y-3">
                   {service.points.map((point, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-300">
+                    <li key={i} className="flex items-start gap-3 text-txt-secondary">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></div>
                       <span className="text-sm">{point}</span>
                     </li>
@@ -317,25 +318,25 @@ const VegPlan = () => {
       </section>
 
       {/* Investment */}
-      <section className="section-padding bg-[#0f0f0f]">
+      <section className="section-padding bg-bg-primary">
         <div className="container-custom px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-6xl font-heading font-black text-white mb-6">
+            <h2 className="text-4xl md:text-6xl font-heading font-black text-txt-primary mb-6">
               START YOUR <span className="text-primary">TRANSFORMATION</span>
             </h2>
-            <p className="text-xl text-gray-300 mb-12">
+            <p className="text-xl text-txt-secondary mb-12">
               Monthly subscription includes everything you need for sustainable results
             </p>
 
             <div className="bg-gradient-to-br from-primary/10 to-transparent border-2 border-primary p-12 mb-8">
               <div className="text-4xl md:text-6xl font-heading font-black text-primary mb-4">{vegPlanData.hero.price}</div>
-              <p className="text-gray-300 mb-8">Cancel anytime. No contracts. Results guaranteed.</p>
+              <p className="text-txt-secondary mb-8">Cancel anytime. No contracts. Results guaranteed.</p>
               
               <Link to="/payment?plan=veg" className="btn-primary text-xl px-16 py-6 inline-block mb-8">
                 GET STARTED NOW
               </Link>
 
-              <div className="grid md:grid-cols-2 gap-4 text-left mt-8 pt-8 border-t border-gray-700">
+              <div className="grid md:grid-cols-2 gap-4 text-left mt-8 pt-8 border-t border-gray-300">
                 {[
                   "Personalized meal plans updated weekly",
                   "24/7 nutritionist support via WhatsApp",
@@ -346,17 +347,17 @@ const VegPlan = () => {
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className="w-5 h-5 bg-primary flex items-center justify-center mt-0.5">
-                      <span className="text-white text-xs font-bold">✓</span>
+                      <span className="text-txt-primary text-xs font-bold">✓</span>
                     </div>
-                    <span className="text-sm text-gray-300">{item}</span>
+                    <span className="text-sm text-txt-secondary">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             <div className="bg-green-900/20 border-2 border-green-500/50 p-6">
-              <h3 className="text-2xl font-heading font-black text-white mb-2">30-DAY MONEY-BACK GUARANTEE</h3>
-              <p className="text-gray-300">Not satisfied with your results? Get a full refund. No questions asked.</p>
+              <h3 className="text-2xl font-heading font-black text-txt-primary mb-2">30-DAY MONEY-BACK GUARANTEE</h3>
+              <p className="text-txt-secondary">Not satisfied with your results? Get a full refund. No questions asked.</p>
             </div>
           </div>
         </div>

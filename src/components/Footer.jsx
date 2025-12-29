@@ -15,7 +15,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#141414] border-t border-gray-700 relative overflow-hidden">
+    <footer className="bg-bg-tertiary border-t border-txt-muted/30 relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary rounded-full blur-3xl opacity-10"></div>
 
@@ -32,7 +32,7 @@ const Footer = () => {
                 />
               )}
             </Link>
-            <p className="text-gray-400 text-sm md:text-lg leading-relaxed max-w-md mb-6 md:mb-8">
+            <p className="text-txt-muted text-sm md:text-lg leading-relaxed max-w-md mb-6 md:mb-8">
               {companyInfo.description}
             </p>
             <div className="flex gap-3 md:gap-4">
@@ -42,7 +42,7 @@ const Footer = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 md:w-12 md:h-12 bg-[#242424] border border-gray-700 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-all hover:scale-110"
+                  className="w-10 h-10 md:w-12 md:h-12 bg-bg-accent border border-txt-muted/30 flex items-center justify-center text-txt-muted hover:text-primary hover:border-primary transition-all hover:scale-110"
                   aria-label={social.name}
                 >
                   {getSocialIcon(social.icon)}
@@ -53,13 +53,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg md:text-xl font-heading font-black text-white mb-4 md:mb-6 uppercase">Navigate</h3>
+            <h3 className="text-lg md:text-xl font-heading font-black text-txt-primary mb-4 md:mb-6 uppercase">Navigate</h3>
             <ul className="space-y-3 md:space-y-4">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-gray-400 font-medium hover:text-primary transition-colors inline-flex items-center gap-2"
+                    className="text-txt-muted font-medium hover:text-primary transition-colors inline-flex items-center gap-2"
                   >
                     <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
                     {link.name}
@@ -71,8 +71,8 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg md:text-xl font-heading font-black text-white mb-4 md:mb-6 uppercase">Contact</h3>
-            <ul className="space-y-3 md:space-y-4 text-gray-400">
+            <h3 className="text-lg md:text-xl font-heading font-black text-txt-primary mb-4 md:mb-6 uppercase">Contact</h3>
+            <ul className="space-y-3 md:space-y-4 text-txt-muted">
               <li className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -97,11 +97,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 md:mt-12 lg:mt-16 pt-6 md:pt-8 border-t border-gray-700 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-xs md:text-sm text-center md:text-left">
+        <div className="mt-8 md:mt-12 lg:mt-16 pt-6 md:pt-8 border-t border-txt-muted/30 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-txt-muted text-xs md:text-sm text-center md:text-left">
             {copyrightText}
           </p>
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-gray-500 text-xs md:text-sm">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-txt-muted text-xs md:text-sm">
             {legalLinks.map((link) => (
               <a key={link.name} href={link.url} className="hover:text-primary transition-colors">
                 {link.name}

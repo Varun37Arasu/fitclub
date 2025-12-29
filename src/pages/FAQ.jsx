@@ -76,7 +76,7 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="pt-20 bg-[#0f0f0f] min-h-screen">
+    <div className="pt-20 bg-bg-primary min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -85,7 +85,7 @@ const FAQ = () => {
             alt="Gym background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/90 via-bg-primary/70 to-bg-primary"></div>
           <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20"></div>
         </div>
 
@@ -94,21 +94,21 @@ const FAQ = () => {
             <span className="text-primary font-bold text-sm uppercase tracking-wider">Help Center</span>
           </div>
           <h1 className="text-6xl md:text-8xl font-heading font-black leading-tight mb-6">
-            <span className="block text-white">Frequently Asked</span>
+            <span className="block text-txt-primary">Frequently Asked</span>
             <span className="block text-primary neon-text">Questions</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-txt-secondary max-w-3xl mx-auto leading-relaxed">
             Find answers to common questions about our programs, training, and services.
           </p>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding bg-[#1a1a1a]">
+      <section className="section-padding bg-bg-secondary">
         <div className="container-custom max-w-5xl mx-auto">
           {faqs.map((category, categoryIndex) => (
             <div key={categoryIndex} className="mb-16">
-              <h2 className="text-3xl font-heading font-black text-white mb-8 border-l-4 border-primary pl-6">
+              <h2 className="text-3xl font-heading font-black text-txt-primary mb-8 border-l-4 border-primary pl-6">
                 {category.category}
               </h2>
               <div className="space-y-4">
@@ -118,13 +118,13 @@ const FAQ = () => {
                   return (
                     <div
                       key={index}
-                      className="bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-primary transition-all"
+                      className="bg-bg-secondary backdrop-blur-sm border-2 border-gray-200 hover:border-primary transition-all"
                     >
                       <button
                         onClick={() => setOpenIndex(isOpen ? null : globalIndex)}
                         className="w-full p-6 text-left flex justify-between items-center"
                       >
-                        <h3 className="text-lg font-heading font-bold text-white pr-4">
+                        <h3 className="text-lg font-heading font-bold text-txt-primary pr-4">
                           {faq.q}
                         </h3>
                         <span className={`text-primary text-2xl transition-transform ${isOpen ? 'rotate-45' : ''}`}>
@@ -133,7 +133,7 @@ const FAQ = () => {
                       </button>
                       {isOpen && (
                         <div className="px-6 pb-6">
-                          <p className="text-base text-gray-300 leading-relaxed border-t border-gray-800 pt-4">
+                          <p className="text-base text-txt-secondary leading-relaxed border-t border-gray-200 pt-4">
                             {faq.a}
                           </p>
                         </div>
@@ -148,13 +148,13 @@ const FAQ = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-[#0f0f0f]">
+      <section className="section-padding bg-bg-primary">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-5xl md:text-6xl font-heading font-black text-white mb-6">
+            <h2 className="text-5xl md:text-6xl font-heading font-black text-txt-primary mb-6">
               Still Have <span className="text-primary">Questions?</span>
             </h2>
-            <p className="text-xl text-gray-300 mb-10">
+            <p className="text-xl text-txt-secondary mb-10">
               Our team is here to help. Book a free consultation or contact us directly.
             </p>
             <div className="flex flex-wrap gap-6 justify-center">

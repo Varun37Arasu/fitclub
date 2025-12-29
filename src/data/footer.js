@@ -1,4 +1,5 @@
 // Footer Data
+import { contactInfoData } from './contact';
 
 export const logoData = {
   image: '/logo10.png',
@@ -20,9 +21,9 @@ export const quickLinks = [
 ];
 
 export const contactInfo = {
-  address: 'Mumbai, India',
-  phone: '+91 98765 43210',
-  email: 'contact@fitclub.com',
+  address: contactInfoData.cards[0].info[0],
+  phone: contactInfoData.cards[2].info[0],
+  email: contactInfoData.cards[1].info[0],
 };
 
 export const socialLinks = [

@@ -1,7 +1,8 @@
 import { FaWhatsapp } from 'react-icons/fa';
+import { contactInfoData } from '../data/contact';
 
 const WhatsAppButton = () => {
-  const whatsappNumber = '+919876543210'; // Update with your actual WhatsApp number
+  const whatsappNumber = contactInfoData.cards[2].info[0]; // Update with your actual WhatsApp number
   const whatsappMessage = 'Hi! I would like to know more about your fitness programs.';
   const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
 
