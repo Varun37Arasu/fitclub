@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { logoData, navLinks, serviceLinks, ctaButton } from '../data/navigation';
 import ThemeToggle from './ThemeToggle';
+import ThemePaletteSelector from './ThemePaletteSelector';
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -129,14 +130,16 @@ const Navigation = () => {
               {ctaButton.text}
             </Link>
             
-            {/* Theme Toggle */}
-            <div className="ml-2 xl:ml-3">
+            {/* Theme Controls */}
+            <div className="flex items-center gap-2 ml-2 xl:ml-3">
+              {/* <ThemePaletteSelector /> */}
               <ThemeToggle />
             </div>
           </div>
 
           {/* Mobile Actions */}
           <div className="flex items-center gap-2 lg:hidden">
+            {/* <ThemePaletteSelector /> */}
             <ThemeToggle />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

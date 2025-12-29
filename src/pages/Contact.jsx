@@ -39,11 +39,35 @@ const Contact = () => {
   return () => ctx.revert();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-    setFormData({ name: '', email: '', phone: '', goal: '', message: '' });
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          fitnessGoal: formData.goal,
+          message: formData.message
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 5000);
+        setFormData({ name: '', email: '', phone: '', goal: '', message: '' });
+      } else {
+        alert('Failed to submit form. Please try again or contact us directly.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Failed to submit form. Please try again or contact us directly.');
+    }
   };
 
   const handleChange = (e) => {
