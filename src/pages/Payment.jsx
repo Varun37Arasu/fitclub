@@ -31,19 +31,19 @@ const Payment = () => {
       <section className="relative pt-28 min-h-screen flex flex-col items-center justify-center overflow-hidden px-4">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0f0f0f] to-[#0f0f0f]"></div>
-          <div className="absolute top-20 right-10 w-[500px] h-[500px] bg-[#ff4500] opacity-10 rounded-full blur-3xl"></div>
+          <div className="absolute top-20 right-10 w-[500px] h-[500px] bg-primary opacity-10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-orange-500 opacity-10 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container-custom relative z-10 text-center">
           <div className="payment-hero-title">
-            <div className="inline-block px-6 py-3 bg-[#ff4500] border-2 border-white mb-6">
+            <div className="inline-block px-6 py-3 bg-primary border-2 border-white mb-6">
               <span className="text-white font-heading font-black text-lg uppercase tracking-wider">Secure Payment</span>
             </div>
             
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-black text-white mb-6 leading-tight">
               COMPLETE YOUR
-              <span className="block text-[#ff4500] neon-text">TRANSFORMATION</span>
+              <span className="block text-primary neon-text">TRANSFORMATION</span>
             </h1>
             
             <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-12">

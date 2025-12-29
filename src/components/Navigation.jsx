@@ -29,10 +29,10 @@ const Navigation = () => {
                 alt="URS Kings Nutrition"
                 className="h-12 md:h-16 lg:h-20 xl:h-24 w-auto transition-transform duration-300 group-hover:scale-105"
               />
-              <span className="hidden sm:block text-lg md:text-2xl lg:text-3xl font-heading font-black text-white uppercase tracking-tight hover:text-[#ff4500] transition-colors leading-tight">
+              <span className="hidden sm:block text-lg md:text-2xl lg:text-3xl font-heading font-black text-white uppercase tracking-tight hover:text-primary transition-colors leading-tight">
                 {logoPrefix}
                 <br />
-                <span className="text-[#ff4500]">{logoData.highlight}</span>
+                <span className="text-primary">{logoData.highlight}</span>
               </span>
             </>
             )}
@@ -45,13 +45,13 @@ const Navigation = () => {
                 key={link.path}
                 to={link.path}
                 className={`relative px-3 xl:px-5 py-3 text-xs xl:text-sm font-bold uppercase tracking-wider transition-all ${location.pathname === link.path
-                    ? 'text-[#ff4500]'
+                    ? 'text-primary'
                     : 'text-gray-300 hover:text-white'
                   }`}
               >
                 {link.name}
                 {location.pathname === link.path && (
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 bg-[#ff4500]"></div>
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 bg-primary"></div>
                 )}
               </Link>
             ))}
@@ -65,7 +65,7 @@ const Navigation = () => {
               <Link
                 to="/services"
                 className={`relative px-3 xl:px-5 py-3 text-xs xl:text-sm font-bold uppercase tracking-wider transition-all inline-flex items-center gap-1 xl:gap-2 ${location.pathname.startsWith('/services') || location.pathname.startsWith('/nutrition')
-                    ? 'text-[#ff4500]'
+                    ? 'text-primary'
                     : 'text-gray-300 hover:text-white'
                   }`}
               >
@@ -74,7 +74,7 @@ const Navigation = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
                 {(location.pathname.startsWith('/services') || location.pathname.startsWith('/nutrition')) && (
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 bg-[#ff4500]"></div>
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 bg-primary"></div>
                 )}
               </Link>
 
@@ -116,7 +116,7 @@ const Navigation = () => {
 
                 <Link
                   to="/services"
-                  className="block px-6 py-4 text-sm font-bold text-[#ff4500] hover:bg-[#242424] transition-all text-center"
+                  className="block px-6 py-4 text-sm font-bold text-primary hover:bg-[#242424] transition-all text-center"
                   onClick={() => setServicesOpen(false)}
                 >
                   VIEW ALL PROGRAMS →
@@ -132,7 +132,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden w-10 h-10 flex items-center justify-center text-white hover:text-[#ff4500] transition-colors flex-shrink-0 bg-[#242424] border border-gray-700 rounded"
+            className="lg:hidden w-10 h-10 flex items-center justify-center text-white hover:text-primary transition-colors flex-shrink-0 bg-[#242424] border border-gray-700 rounded"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -157,7 +157,7 @@ const Navigation = () => {
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all ${location.pathname === link.path
-                      ? 'text-[#ff4500] bg-[#242424]'
+                      ? 'text-primary bg-[#242424]'
                       : 'text-gray-300 hover:text-white hover:bg-[#242424]'
                     }`}
                 >
@@ -175,7 +175,7 @@ const Navigation = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block px-6 py-3 text-sm font-medium transition-all ${
                       location.pathname === link.path 
-                        ? 'text-[#ff4500] bg-[#242424]' 
+                        ? 'text-primary bg-[#242424]' 
                         : 'text-gray-300 hover:text-white hover:bg-[#242424]'
                     }`}
                   >
@@ -191,7 +191,7 @@ const Navigation = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block px-6 py-3 text-sm font-medium transition-all ${
                       location.pathname === link.path 
-                        ? 'text-[#ff4500] bg-[#242424]' 
+                        ? 'text-primary bg-[#242424]' 
                         : 'text-gray-300 hover:text-white hover:bg-[#242424]'
                     }`}
                   >
@@ -201,7 +201,7 @@ const Navigation = () => {
                 <Link
                   to="/services"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-6 py-3 text-sm font-bold text-[#ff4500] hover:bg-[#242424] transition-all border-t border-gray-700 mt-2"
+                  className="block px-6 py-3 text-sm font-bold text-primary hover:bg-[#242424] transition-all border-t border-gray-700 mt-2"
                 >
                   View All Programs →
                 </Link>

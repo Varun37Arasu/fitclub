@@ -24,10 +24,10 @@ export const eightWeekData = {
     { title: 'LIFESTYLE COACHING', desc: 'Habit formation strategies', num: '06' },
   ],
   trainingPhases: [
-    { phase: 'WEEKS 1-2', title: 'FOUNDATION', focus: 'Form mastery & base conditioning', color: '#ff4500' },
-    { phase: 'WEEKS 3-4', title: 'STRENGTH', focus: 'Progressive overload begins', color: '#ff6b00' },
-    { phase: 'WEEKS 5-6', title: 'HYPERTROPHY', focus: 'Muscle building intensifies', color: '#ff8c00' },
-    { phase: 'WEEKS 7-8', title: 'PEAK', focus: 'Maximum output & definition', color: '#ffa500' },
+    { phase: 'WEEKS 1-2', title: 'FOUNDATION', focus: 'Form mastery & base conditioning', color: 'primary-light' },
+    { phase: 'WEEKS 3-4', title: 'STRENGTH', focus: 'Progressive overload begins', color: 'primary' },
+    { phase: 'WEEKS 5-6', title: 'HYPERTROPHY', focus: 'Muscle building intensifies', color: 'primary-hover' },
+    { phase: 'WEEKS 7-8', title: 'PEAK', focus: 'Maximum output & definition', color: 'secondary' },
   ],
   beforeAfter: [
     { name: 'Arjun K.', lost: '12 kg', gained: '8 kg muscle', weeks: '8', image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=800' },
@@ -65,10 +65,10 @@ export const twelveWeekData = {
     { title: 'MINDSET COACHING', desc: 'Mental performance training', num: '06' },
   ],
   trainingPhases: [
-    { phase: 'WEEKS 1-3', title: 'FOUNDATION BUILD', focus: 'Strength foundation & conditioning', color: '#ff4500' },
-    { phase: 'WEEKS 4-6', title: 'MUSCLE DEVELOPMENT', focus: 'Hypertrophy & power building', color: '#ff6b00' },
-    { phase: 'WEEKS 7-9', title: 'METABOLIC BOOST', focus: 'Fat burning & endurance', color: '#ff8c00' },
-    { phase: 'WEEKS 10-12', title: 'DEFINITION PHASE', focus: 'Sculpting & peak conditioning', color: '#ffa500' },
+    { phase: 'WEEKS 1-3', title: 'FOUNDATION BUILD', focus: 'Strength foundation & conditioning', color: 'primary-light' },
+    { phase: 'WEEKS 4-6', title: 'MUSCLE DEVELOPMENT', focus: 'Hypertrophy & power building', color: 'primary' },
+    { phase: 'WEEKS 7-9', title: 'METABOLIC BOOST', focus: 'Fat burning & endurance', color: 'primary-hover' },
+    { phase: 'WEEKS 10-12', title: 'DEFINITION PHASE', focus: 'Sculpting & peak conditioning', color: 'secondary' },
   ],
   beforeAfter: [
     { name: 'Vikram M.', lost: '18 kg', gained: '12 kg muscle', weeks: '12', image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=800' },
@@ -106,10 +106,10 @@ export const twentyFourWeekData = {
     { title: 'LIFESTYLE OVERHAUL', desc: 'Complete life coaching', num: '06' },
   ],
   trainingPhases: [
-    { phase: 'WEEKS 1-6', title: 'BASE BUILDING', focus: 'Foundation & strength development', color: '#ff4500' },
-    { phase: 'WEEKS 7-12', title: 'MUSCLE MASS', focus: 'Maximum hypertrophy phase', color: '#ff6b00' },
-    { phase: 'WEEKS 13-18', title: 'POWER & PERFORMANCE', focus: 'Athletic performance optimization', color: '#ff8c00' },
-    { phase: 'WEEKS 19-24', title: 'ELITE DEFINITION', focus: 'Peak physique sculpting', color: '#ffa500' },
+    { phase: 'WEEKS 1-6', title: 'BASE BUILDING', focus: 'Foundation & strength development', color: 'primary-light' },
+    { phase: 'WEEKS 7-12', title: 'MUSCLE MASS', focus: 'Maximum hypertrophy phase', color: 'primary' },
+    { phase: 'WEEKS 13-18', title: 'POWER & PERFORMANCE', focus: 'Athletic performance optimization', color: 'primary-hover' },
+    { phase: 'WEEKS 19-24', title: 'ELITE DEFINITION', focus: 'Peak physique sculpting', color: 'secondary' },
   ],
   beforeAfter: [
     { name: 'Rahul T.', lost: '25 kg', gained: '18 kg muscle', weeks: '24', image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800' },
@@ -147,10 +147,10 @@ export const annualData = {
     { title: 'LIFE TRANSFORMATION', desc: 'Complete lifestyle coaching', num: '06' },
   ],
   trainingPhases: [
-    { phase: 'Q1 (WEEKS 1-13)', title: 'TRANSFORMATION', focus: 'Initial dramatic changes', color: '#ff4500' },
-    { phase: 'Q2 (WEEKS 14-26)', title: 'OPTIMIZATION', focus: 'Peak performance building', color: '#ff6b00' },
-    { phase: 'Q3 (WEEKS 27-39)', title: 'MASTERY', focus: 'Athletic excellence', color: '#ff8c00' },
-    { phase: 'Q4 (WEEKS 40-52)', title: 'LEGACY', focus: 'Sustaining peak condition', color: '#ffa500' },
+    { phase: 'Q1 (WEEKS 1-13)', title: 'TRANSFORMATION', focus: 'Initial dramatic changes', color: 'primary-light' },
+    { phase: 'Q2 (WEEKS 14-26)', title: 'OPTIMIZATION', focus: 'Peak performance building', color: 'primary' },
+    { phase: 'Q3 (WEEKS 27-39)', title: 'MASTERY', focus: 'Athletic excellence', color: 'primary-hover' },
+    { phase: 'Q4 (WEEKS 40-52)', title: 'LEGACY', focus: 'Sustaining peak condition', color: 'secondary' },
   ],
   beforeAfter: [
     { name: 'Aditya S.', lost: '35 kg', gained: '25 kg muscle', weeks: '52', image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800' },

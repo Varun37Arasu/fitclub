@@ -62,17 +62,17 @@ const Contact = () => {
              className="w-full h-full object-cover"
            />
            <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black"></div>
-           <div className="absolute inset-0 bg-gradient-to-tr from-[#ff4500]/20 via-transparent to-[#ff8c00]/20"></div>
+           <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20"></div>
          </div>
 
         <div className="container-custom relative z-10 px-4">
           <div className="contact-hero-title text-center max-w-full">
-            <div className="inline-block px-4 py-2 md:px-6 md:py-2 bg-[#ff4500]/20 border border-[#ff4500] rounded mb-4 md:mb-6">
-              <span className="text-[#ff4500] font-bold text-xs md:text-sm tracking-wider break-words">{heroData.badge}</span>
+            <div className="inline-block px-4 py-2 md:px-6 md:py-2 bg-primary/20 border border-primary rounded mb-4 md:mb-6">
+              <span className="text-primary font-bold text-xs md:text-sm tracking-wider break-words">{heroData.badge}</span>
             </div>
              <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-black leading-tight mb-4 md:mb-6 break-words px-2">
                <span className="block text-white">{heroData.title.line1}</span>
-               <span className="block text-[#ff4500] neon-text">{heroData.title.line2}</span>
+               <span className="block text-primary neon-text">{heroData.title.line2}</span>
              </h1>
              <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2">
                {heroData.description}
@@ -88,13 +88,13 @@ const Contact = () => {
              {/* Contact Form - Modern Design */}
              <div className="relative">
                {/* Decorative elements */}
-               <div className="absolute -inset-4 bg-gradient-to-r from-[#ff4500]/20 to-[#ff8c00]/20 blur-3xl opacity-30"></div>
+               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl opacity-30"></div>
                
                <div className="relative bg-black/60 backdrop-blur-xl border-2 border-gray-800 p-8">
                  <div className="mb-6">
                    <h2 className="text-3xl font-heading font-black text-white mb-2">
                      {formSectionData.heading.line1}<br />
-                     <span className="text-[#ff4500]">{formSectionData.heading.line2}</span>
+                     <span className="text-primary">{formSectionData.heading.line2}</span>
                    </h2>
                    <p className="text-base text-gray-300">
                      {formSectionData.subheading}
@@ -102,7 +102,7 @@ const Contact = () => {
                  </div>
 
               {submitted && (
-                <div className="mb-8 bg-[#ff4500] border-4 border-black p-6 transform -rotate-1 animate-bounce">
+                <div className="mb-8 bg-primary border-4 border-black p-6 transform -rotate-1 animate-bounce">
                   <p className="text-black font-heading font-black text-xl uppercase text-center">
                     {formSectionData.successMessage}
                   </p>
@@ -120,7 +120,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full bg-black/60 border-2 border-gray-800 focus:border-[#ff4500] px-6 py-4 text-white transition-all outline-none"
+                    className="w-full bg-black/60 border-2 border-gray-800 focus:border-primary px-6 py-4 text-white transition-all outline-none"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -136,7 +136,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full bg-black/60 border-2 border-gray-800 focus:border-[#ff4500] px-6 py-4 text-white transition-all outline-none"
+                      className="w-full bg-black/60 border-2 border-gray-800 focus:border-primary px-6 py-4 text-white transition-all outline-none"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -151,7 +151,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full bg-black/60 border-2 border-gray-800 focus:border-[#ff4500] px-6 py-4 text-white transition-all outline-none"
+                      className="w-full bg-black/60 border-2 border-gray-800 focus:border-primary px-6 py-4 text-white transition-all outline-none"
                       placeholder="+91 98765 43210"
                     />
                   </div>
@@ -166,7 +166,7 @@ const Contact = () => {
                     value={formData.goal}
                     onChange={handleChange}
                     required
-                      className="w-full bg-black/60 border-2 border-gray-800 focus:border-[#ff4500] px-6 py-4 text-white transition-all outline-none cursor-pointer"
+                      className="w-full bg-black/60 border-2 border-gray-800 focus:border-primary px-6 py-4 text-white transition-all outline-none cursor-pointer"
                   >
                     {formGoalsData.map((goal, idx) => (
                       <option key={idx} value={goal.value}>{goal.label}</option>
@@ -183,7 +183,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows="5"
-                    className="w-full bg-black/60 border-2 border-gray-800 focus:border-[#ff4500] px-6 py-4 text-white transition-all outline-none resize-none"
+                    className="w-full bg-black/60 border-2 border-gray-800 focus:border-primary px-6 py-4 text-white transition-all outline-none resize-none"
                     placeholder="Tell us about your current fitness level, any injuries, and your specific goals..."
                   ></textarea>
                 </div>
@@ -203,15 +203,15 @@ const Contact = () => {
                {/* Contact Cards */}
                <div className="contact-card space-y-4">
                  <h3 className="text-2xl font-heading font-black text-white mb-6">
-                   {contactInfoData.heading.split(' ')[0]} <span className="text-[#ff4500]">{contactInfoData.heading.split(' ')[1]}</span>
+                   {contactInfoData.heading.split(' ')[0]} <span className="text-primary">{contactInfoData.heading.split(' ')[1]}</span>
                  </h3>
 
                 {contactInfoData.cards.map((item, idx) => (
                    <div
                      key={idx}
-                     className="bg-black/40 backdrop-blur-sm border border-gray-800 hover:border-[#ff4500] p-4 transition-all"
+                     className="bg-black/40 backdrop-blur-sm border border-gray-800 hover:border-primary p-4 transition-all"
                    >
-                     <div className="text-xs text-[#ff4500] font-bold uppercase mb-2">{item.title}</div>
+                     <div className="text-xs text-primary font-bold uppercase mb-2">{item.title}</div>
                      {item.info.map((line, i) => (
                        <p key={i} className="text-sm text-gray-300">
                          {line}
@@ -224,7 +224,7 @@ const Contact = () => {
                {/* Google Maps Embed */}
                <div className="contact-card">
                  <h3 className="text-xl font-heading font-black text-white mb-4">
-                   {mapData.heading.split(' ')[0]} <span className="text-[#ff4500]">{mapData.heading.split(' ')[1]}</span>
+                   {mapData.heading.split(' ')[0]} <span className="text-primary">{mapData.heading.split(' ')[1]}</span>
                  </h3>
                  <div className="relative h-[300px] bg-black/40 border-2 border-gray-800 overflow-hidden">
                   {/* Google Maps iframe */}
@@ -245,7 +245,7 @@ const Contact = () => {
                    href={mapData.directionsLink}
                    target="_blank"
                    rel="noopener noreferrer"
-                   className="mt-3 inline-block text-[#ff4500] hover:text-white text-sm font-bold transition-colors"
+                   className="mt-3 inline-block text-primary hover:text-white text-sm font-bold transition-colors"
                  >
                    {mapData.directionsText}
                  </a>
@@ -259,14 +259,14 @@ const Contact = () => {
        {/* <section className="section-padding bg-[#1a1a1a]">
          <div className="container-custom">
            <h2 className="text-4xl md:text-5xl font-heading font-black text-white mb-12 text-center">
-             {faqData.heading.split(' ').slice(0, 2).join(' ')} <span className="text-[#ff4500]">{faqData.heading.split(' ').slice(2).join(' ')}</span>
+             {faqData.heading.split(' ').slice(0, 2).join(' ')} <span className="text-primary">{faqData.heading.split(' ').slice(2).join(' ')}</span>
            </h2>
 
            <div className="max-w-4xl mx-auto space-y-4">
             {faqData.faqs.map((faq, idx) => (
                <div
                  key={idx}
-                 className="bg-black/40 backdrop-blur-sm border-l-4 border-[#ff4500] p-6 hover:bg-black/60 transition-colors"
+                 className="bg-black/40 backdrop-blur-sm border-l-4 border-primary p-6 hover:bg-black/60 transition-colors"
                >
                  <h3 className="text-lg font-heading font-bold text-white mb-2">
                    {faq.q}
@@ -281,13 +281,13 @@ const Contact = () => {
        {/* Final CTA */}
        <section className="section-padding bg-[#0f0f0f] relative overflow-hidden">
          <div className="absolute inset-0 opacity-10">
-           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,_#ff4500_0%,_transparent_60%)]"></div>
+           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,_primary_0%,_transparent_60%)]"></div>
          </div>
 
          <div className="container-custom relative z-10">
            <div className="max-w-4xl mx-auto text-center">
              <h2 className="text-5xl md:text-6xl font-heading font-black text-white mb-6">
-               {ctaData.heading.line1}<br />{ctaData.heading.line2.split(' ')[0]} <span className="text-[#ff4500]">{ctaData.heading.line2.split(' ').slice(1).join(' ')}</span>
+               {ctaData.heading.line1}<br />{ctaData.heading.line2.split(' ')[0]} <span className="text-primary">{ctaData.heading.line2.split(' ').slice(1).join(' ')}</span>
              </h2>
              <p className="text-xl text-gray-300 mb-10">
                {ctaData.description}

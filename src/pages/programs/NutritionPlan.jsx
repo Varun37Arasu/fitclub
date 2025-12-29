@@ -25,12 +25,12 @@ const NutritionPlan = () => {
 
         <div className="container-custom relative z-10 flex items-center justify-center">
           <div className="program-hero-title text-center px-4 w-full max-w-full overflow-hidden">
-            <div className="inline-block px-4 py-2 md:px-6 md:py-2 bg-[#ff4500] mb-6 md:mb-8">
+            <div className="inline-block px-4 py-2 md:px-6 md:py-2 bg-primary mb-6 md:mb-8">
               <span className="text-white font-heading font-black text-xs md:text-sm lg:text-base uppercase tracking-widest break-words">{nutritionData.hero.badge}</span>
             </div>
             <h1 className="text-[clamp(2.5rem,8vw,8rem)] font-heading font-black leading-[0.9] tracking-tighter mb-6 md:mb-8 break-words hyphens-auto">
               <span className="block text-white">{nutritionData.hero.title.split(' ')[0]}</span>
-              <span className="block text-[#ff4500] neon-text">{nutritionData.hero.title.split(' ')[1]}</span>
+              <span className="block text-primary neon-text">{nutritionData.hero.title.split(' ')[1]}</span>
             </h1>
             <p className="text-base md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2 break-words">
               {nutritionData.hero.description}
@@ -49,7 +49,7 @@ const NutritionPlan = () => {
             <div className="grid grid-cols-3 gap-3 md:gap-6 max-w-3xl mx-auto">
               {nutritionData.stats.map((stat, idx) => (
                 <div key={idx} className="bg-black/60 border border-gray-700 md:border-2 p-3 md:p-6 text-center">
-                  <div className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-[#ff4500] mb-1 md:mb-2">{stat.value}</div>
+                  <div className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-primary mb-1 md:mb-2">{stat.value}</div>
                   <div className="text-xs md:text-sm text-gray-300 break-words leading-tight">{stat.label}</div>
                 </div>
               ))}
@@ -62,21 +62,21 @@ const NutritionPlan = () => {
       <section className="section-padding bg-[#1a1a1a]">
         <div className="container-custom px-4">
           <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-white mb-8 md:mb-12 text-center break-words">
-            WHAT YOU <span className="text-[#ff4500]">GET</span>
+            WHAT YOU <span className="text-primary">GET</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             {nutritionData.included.map((feature, idx) => (
               <div
                 key={idx}
-                className="bg-black/40 backdrop-blur-sm border-2 border-gray-700 hover:border-[#ff4500] rounded-xl md:rounded-2xl p-4 md:p-6 transition-all group relative overflow-hidden"
+                className="bg-black/40 backdrop-blur-sm border-2 border-gray-700 hover:border-primary rounded-xl md:rounded-2xl p-4 md:p-6 transition-all group relative overflow-hidden"
               >
-                <div className="absolute top-4 right-4 text-6xl md:text-7xl font-heading font-black text-[#ff4500]/10 group-hover:text-[#ff4500]/20 transition-colors">
+                <div className="absolute top-4 right-4 text-6xl md:text-7xl font-heading font-black text-primary/10 group-hover:text-primary/20 transition-colors">
                   {feature.num}
                 </div>
                 <div className="relative z-10">
-                  <div className="w-12 h-12 md:w-16 md:h-16 border-3 border-[#ff4500] flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
-                    <span className="text-xl md:text-2xl font-heading font-black text-[#ff4500]">{feature.num}</span>
+                  <div className="w-12 h-12 md:w-16 md:h-16 border-3 border-primary flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <span className="text-xl md:text-2xl font-heading font-black text-primary">{feature.num}</span>
                   </div>
                   <h3 className="text-base md:text-xl lg:text-2xl font-heading font-black text-white mb-2 md:mb-3 break-words leading-tight">{feature.title}</h3>
                   <p className="text-xs md:text-sm text-gray-300 leading-relaxed break-words">{feature.desc}</p>
@@ -91,16 +91,16 @@ const NutritionPlan = () => {
       <section className="section-padding bg-[#0f0f0f]">
         <div className="container-custom">
           <h2 className="text-5xl md:text-7xl font-heading font-black text-white mb-16 uppercase">
-            SAMPLE <span className="text-[#ff4500]">DAY</span>
+            SAMPLE <span className="text-primary">DAY</span>
           </h2>
 
           <div className="max-w-4xl space-y-6">
             {nutritionData.sampleDay.map((meal, idx) => (
-              <div key={idx} className="bg-[#1a1a1a] border-l-4 border-[#ff4500] p-6 hover:translate-x-2 transition-transform">
+              <div key={idx} className="bg-[#1a1a1a] border-l-4 border-primary p-6 hover:translate-x-2 transition-transform">
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-2">
-                      <span className="text-2xl font-heading font-black text-[#ff4500]">{meal.meal}</span>
+                      <span className="text-2xl font-heading font-black text-primary">{meal.meal}</span>
                       <span className="text-sm text-gray-400">{meal.time}</span>
                     </div>
                     <p className="text-lg text-white mb-1">{meal.food}</p>
@@ -118,7 +118,7 @@ const NutritionPlan = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-5xl md:text-7xl font-heading font-black text-white mb-8 uppercase leading-tight">
-              {nutritionData.cta.heading.split(' ').slice(0, 2).join(' ')} <span className="text-[#ff4500]">{nutritionData.cta.heading.split(' ').slice(2).join(' ')}</span>
+              {nutritionData.cta.heading.split(' ').slice(0, 2).join(' ')} <span className="text-primary">{nutritionData.cta.heading.split(' ').slice(2).join(' ')}</span>
             </h2>
             <p className="text-2xl text-gray-300 mb-12">
               {nutritionData.cta.description}

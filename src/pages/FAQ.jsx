@@ -86,16 +86,16 @@ const FAQ = () => {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black"></div>
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#ff4500]/20 via-transparent to-[#ff8c00]/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20"></div>
         </div>
 
         <div className="container-custom relative z-10 text-center">
-          <div className="inline-block px-6 py-2 bg-[#ff4500]/20 border border-[#ff4500] rounded mb-6">
-            <span className="text-[#ff4500] font-bold text-sm uppercase tracking-wider">Help Center</span>
+          <div className="inline-block px-6 py-2 bg-primary/20 border border-primary rounded mb-6">
+            <span className="text-primary font-bold text-sm uppercase tracking-wider">Help Center</span>
           </div>
           <h1 className="text-6xl md:text-8xl font-heading font-black leading-tight mb-6">
             <span className="block text-white">Frequently Asked</span>
-            <span className="block text-[#ff4500] neon-text">Questions</span>
+            <span className="block text-primary neon-text">Questions</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Find answers to common questions about our programs, training, and services.
@@ -108,7 +108,7 @@ const FAQ = () => {
         <div className="container-custom max-w-5xl mx-auto">
           {faqs.map((category, categoryIndex) => (
             <div key={categoryIndex} className="mb-16">
-              <h2 className="text-3xl font-heading font-black text-white mb-8 border-l-4 border-[#ff4500] pl-6">
+              <h2 className="text-3xl font-heading font-black text-white mb-8 border-l-4 border-primary pl-6">
                 {category.category}
               </h2>
               <div className="space-y-4">
@@ -118,7 +118,7 @@ const FAQ = () => {
                   return (
                     <div
                       key={index}
-                      className="bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-[#ff4500] transition-all"
+                      className="bg-black/40 backdrop-blur-sm border-2 border-gray-800 hover:border-primary transition-all"
                     >
                       <button
                         onClick={() => setOpenIndex(isOpen ? null : globalIndex)}
@@ -127,7 +127,7 @@ const FAQ = () => {
                         <h3 className="text-lg font-heading font-bold text-white pr-4">
                           {faq.q}
                         </h3>
-                        <span className={`text-[#ff4500] text-2xl transition-transform ${isOpen ? 'rotate-45' : ''}`}>
+                        <span className={`text-primary text-2xl transition-transform ${isOpen ? 'rotate-45' : ''}`}>
                           +
                         </span>
                       </button>
@@ -152,7 +152,7 @@ const FAQ = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-5xl md:text-6xl font-heading font-black text-white mb-6">
-              Still Have <span className="text-[#ff4500]">Questions?</span>
+              Still Have <span className="text-primary">Questions?</span>
             </h2>
             <p className="text-xl text-gray-300 mb-10">
               Our team is here to help. Book a free consultation or contact us directly.

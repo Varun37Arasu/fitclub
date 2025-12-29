@@ -36,7 +36,7 @@ const VegPlan = () => {
         <div className="container-custom relative z-10 px-4 flex-1 flex items-center justify-center">
           <div className="program-hero-title text-center max-w-full w-full">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 mb-6 md:mb-8">
-              <div className="px-4 py-2 md:px-8 md:py-4 bg-gradient-to-r from-orange-500 to-amber-600 border-2 md:border-4 border-black">
+              <div className="px-4 py-2 md:px-8 md:py-4 bg-gradient-to-r from-primary to-secondary border-2 md:border-4 border-black">
                 <span className="text-white font-heading font-black text-sm md:text-2xl tracking-wider break-words">{vegPlanData.hero.badge}</span>
               </div>
               {vegPlanData.hero.moneyBackGuarantee && (
@@ -45,7 +45,7 @@ const VegPlan = () => {
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-black leading-[0.95] tracking-tighter mb-6 md:mb-8 break-words px-2 max-w-full">
               <span className="block text-white">{vegPlanData.hero.title.split(' ')[0]}</span>
-              <span className="block text-orange-500 neon-text">{vegPlanData.hero.title.split(' ').slice(1).join(' ')}</span>
+              <span className="block text-primary neon-text">{vegPlanData.hero.title.split(' ').slice(1).join(' ')}</span>
             </h1>
             <p className="text-base md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2">
               {vegPlanData.hero.description}
@@ -64,7 +64,7 @@ const VegPlan = () => {
             <div className="grid grid-cols-3 gap-3 md:gap-6 max-w-4xl mx-auto">
               {vegPlanData.stats.map((stat, idx) => (
                 <div key={idx} className="bg-black/70 backdrop-blur-sm border border-gray-700 md:border-2 p-3 md:p-6 text-center">
-                  <div className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-orange-500 mb-1 md:mb-2">{stat.value}</div>
+                  <div className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-primary mb-1 md:mb-2">{stat.value}</div>
                   <div className="text-xs md:text-sm text-gray-300 break-words leading-tight">{stat.label}</div>
                 </div>
               ))}
@@ -76,11 +76,11 @@ const VegPlan = () => {
       {/* What's Included - Redesigned with Split Layout */}
       <section id="details" className="section-padding bg-[#0f0f0f] relative overflow-hidden">
         {/* Diagonal accent */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-500/5 to-transparent"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent"></div>
         
         <div className="container-custom px-4 relative z-10">
           <h2 className="text-3xl md:text-5xl lg:text-7xl font-heading font-black text-white mb-16 text-center">
-            WHAT'S <span className="text-orange-500">INCLUDED</span>
+            WHAT'S <span className="text-primary">INCLUDED</span>
           </h2>
           
           <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
@@ -90,20 +90,20 @@ const VegPlan = () => {
                 className="group relative"
               >
                 {/* Number bar */}
-                <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 to-amber-600"></div>
+                <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-primary to-secondary"></div>
                 
-                <div className="bg-gradient-to-br from-black to-[#0f0f0f] border-l-4 border-orange-500 p-8 hover:border-amber-600 transition-all">
+                <div className="bg-gradient-to-br from-black to-[#0f0f0f] border-l-4 border-primary p-8 hover:border-secondary transition-all">
                   <div className="flex items-start gap-6">
                     {/* Large number */}
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-orange-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <div className="w-16 h-16 bg-primary flex items-center justify-center group-hover:scale-110 transition-transform">
                         <span className="text-3xl font-heading font-black text-white">{feature.num}</span>
                       </div>
                     </div>
                     
                     {/* Content */}
                     <div className="flex-1">
-                      <h3 className="text-2xl font-heading font-black text-white mb-3 group-hover:text-orange-500 transition-colors">
+                      <h3 className="text-2xl font-heading font-black text-white mb-3 group-hover:text-primary transition-colors">
                         {feature.title}
                       </h3>
                       <p className="text-gray-400 leading-relaxed">
@@ -111,7 +111,7 @@ const VegPlan = () => {
                       </p>
                       
                       {/* Accent line */}
-                      <div className="mt-4 h-0.5 w-0 bg-orange-500 group-hover:w-full transition-all duration-500"></div>
+                      <div className="mt-4 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-500"></div>
                     </div>
                   </div>
                 </div>
@@ -127,10 +127,10 @@ const VegPlan = () => {
           <div className="max-w-5xl mx-auto">
             <div className="relative">
               {/* Large quote mark */}
-              <div className="absolute -top-8 -left-4 text-9xl font-serif text-orange-500/20 leading-none">"</div>
+              <div className="absolute -top-8 -left-4 text-9xl font-serif text-primary/20 leading-none">"</div>
               
-              <div className="relative bg-black/60 border-l-8 border-orange-500 p-12 md:p-16">
-                <h2 className="text-2xl md:text-3xl font-heading font-black text-orange-500 mb-6 uppercase tracking-wide">
+              <div className="relative bg-black/60 border-l-8 border-primary p-12 md:p-16">
+                <h2 className="text-2xl md:text-3xl font-heading font-black text-primary mb-6 uppercase tracking-wide">
                   Our Philosophy
                 </h2>
                 <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light italic">
@@ -139,7 +139,7 @@ const VegPlan = () => {
               </div>
               
               {/* Closing quote */}
-              <div className="absolute -bottom-8 -right-4 text-9xl font-serif text-orange-500/20 leading-none">"</div>
+              <div className="absolute -bottom-8 -right-4 text-9xl font-serif text-primary/20 leading-none">"</div>
             </div>
           </div>
         </div>
@@ -149,7 +149,7 @@ const VegPlan = () => {
       <section className="section-padding bg-[#1a1a1a]">
         <div className="container-custom px-4">
           <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-white mb-8 md:mb-12 text-center">
-            NUTRITION <span className="text-orange-500">SOURCES</span>
+            NUTRITION <span className="text-primary">SOURCES</span>
           </h2>
           
           {/* Simple Clean Grid */}
@@ -157,14 +157,14 @@ const VegPlan = () => {
             {vegPlanData.foodCategories.map((category, idx) => (
               <div 
                 key={idx} 
-                className="group relative bg-black/60 border-2 border-gray-800 hover:border-orange-500 p-6 transition-all duration-300 overflow-hidden"
+                className="group relative bg-black/60 border-2 border-gray-800 hover:border-primary p-6 transition-all duration-300 overflow-hidden"
               >
                 {/* Subtle gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:to-transparent transition-all duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/10 group-hover:to-transparent transition-all duration-300"></div>
                 
                 <div className="relative z-10">
                   {/* Category Title */}
-                  <h3 className="text-xl md:text-2xl font-heading font-black text-white uppercase mb-4 group-hover:text-orange-500 transition-colors">
+                  <h3 className="text-xl md:text-2xl font-heading font-black text-white uppercase mb-4 group-hover:text-primary transition-colors">
                     {category.name}
                   </h3>
 
@@ -175,7 +175,7 @@ const VegPlan = () => {
                         key={i} 
                         className="flex items-center gap-3 text-gray-300 group-hover:text-white transition-colors"
                       >
-                        <div className="w-1.5 h-1.5 bg-orange-500 rounded-full flex-shrink-0"></div>
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></div>
                         <span className="text-sm font-medium">{item}</span>
                       </div>
                     ))}
@@ -183,7 +183,7 @@ const VegPlan = () => {
                 </div>
 
                 {/* Simple accent line */}
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-500"></div>
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-500"></div>
               </div>
             ))}
           </div>
@@ -194,13 +194,13 @@ const VegPlan = () => {
       <section className="section-padding bg-[#0f0f0f]">
         <div className="container-custom px-4">
           <h2 className="text-3xl md:text-5xl lg:text-7xl font-heading font-black text-white mb-16 text-center">
-            MACRO <span className="text-orange-500">BREAKDOWN</span>
+            MACRO <span className="text-primary">BREAKDOWN</span>
           </h2>
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8">
               {vegPlanData.macroBreakdown.goals.map((goal, idx) => (
-                <div key={idx} className="bg-black border-2 border-gray-800 hover:border-orange-500 p-8 transition-all group">
-                  <h3 className="text-2xl font-heading font-black text-orange-500 mb-8 text-center uppercase tracking-wider">{goal.goal}</h3>
+                <div key={idx} className="bg-black border-2 border-gray-800 hover:border-primary p-8 transition-all group">
+                  <h3 className="text-2xl font-heading font-black text-primary mb-8 text-center uppercase tracking-wider">{goal.goal}</h3>
                   
                   <div className="space-y-6">
                     {/* Protein */}
@@ -210,7 +210,7 @@ const VegPlan = () => {
                         <span className="text-xl font-heading font-black text-white">{goal.protein}</span>
                       </div>
                       <div className="h-2 bg-gray-800 overflow-hidden">
-                        <div className="h-full bg-gradient-to-r from-orange-500 to-amber-600" style={{width: goal.protein}}></div>
+                        <div className="h-full bg-gradient-to-r from-primary to-secondary" style={{width: goal.protein}}></div>
                       </div>
                     </div>
                     
@@ -221,7 +221,7 @@ const VegPlan = () => {
                         <span className="text-xl font-heading font-black text-white">{goal.carbs}</span>
                       </div>
                       <div className="h-2 bg-gray-800 overflow-hidden">
-                        <div className="h-full bg-gradient-to-r from-orange-500 to-amber-600" style={{width: goal.carbs}}></div>
+                        <div className="h-full bg-gradient-to-r from-primary to-secondary" style={{width: goal.carbs}}></div>
                       </div>
                     </div>
                     
@@ -232,15 +232,15 @@ const VegPlan = () => {
                         <span className="text-xl font-heading font-black text-white">{goal.fats}</span>
                       </div>
                       <div className="h-2 bg-gray-800 overflow-hidden">
-                        <div className="h-full bg-gradient-to-r from-orange-500 to-amber-600" style={{width: goal.fats}}></div>
+                        <div className="h-full bg-gradient-to-r from-primary to-secondary" style={{width: goal.fats}}></div>
                       </div>
                     </div>
                     
                     {/* Calories */}
-                    <div className="pt-6 border-t-2 border-orange-500/30">
+                    <div className="pt-6 border-t-2 border-primary/30">
                       <div className="flex justify-between items-center">
                         <span className="text-sm font-bold text-gray-400 uppercase">Daily Calories</span>
-                        <span className="text-3xl font-heading font-black text-orange-500">{goal.calories}</span>
+                        <span className="text-3xl font-heading font-black text-primary">{goal.calories}</span>
                       </div>
                     </div>
                   </div>
@@ -255,11 +255,11 @@ const VegPlan = () => {
       <section className="section-padding bg-[#1a1a1a]">
         <div className="container-custom px-4">
           <h2 className="text-3xl md:text-5xl lg:text-7xl font-heading font-black text-white mb-16 text-center">
-            SUCCESS <span className="text-orange-500">STORIES</span>
+            SUCCESS <span className="text-primary">STORIES</span>
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {vegPlanData.successStories.map((story, idx) => (
-              <div key={idx} className="group relative overflow-hidden bg-black border-2 border-gray-800 hover:border-orange-500 transition-all">
+              <div key={idx} className="group relative overflow-hidden bg-black border-2 border-gray-800 hover:border-primary transition-all">
                 {/* Image */}
                 <div className="aspect-[4/5] overflow-hidden">
                   <img 
@@ -273,15 +273,15 @@ const VegPlan = () => {
                 
                 {/* Content overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <div className="border-l-4 border-orange-500 pl-4">
+                  <div className="border-l-4 border-primary pl-4">
                     <h3 className="text-3xl font-heading font-black text-white mb-2">{story.name}</h3>
-                    <p className="text-xl text-orange-500 font-bold mb-1">{story.result}</p>
+                    <p className="text-xl text-primary font-bold mb-1">{story.result}</p>
                     <p className="text-gray-400 text-sm uppercase tracking-wider">{story.duration}</p>
                   </div>
                 </div>
                 
                 {/* Corner accent */}
-                <div className="absolute top-0 right-0 w-20 h-20 border-t-4 border-r-4 border-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute top-0 right-0 w-20 h-20 border-t-4 border-r-4 border-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
             ))}
           </div>

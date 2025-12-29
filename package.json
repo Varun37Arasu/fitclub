@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "npm run generate-theme && vite",
+    "build": "npm run generate-theme && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate-theme": "node generate-theme-css.js"
   },
   "dependencies": {
     "gsap": "^3.13.0",
