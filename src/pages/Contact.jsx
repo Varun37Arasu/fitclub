@@ -90,7 +90,7 @@ const Contact = () => {
                {/* Decorative elements */}
                <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl opacity-30"></div>
                
-               <div className="relative bg-bg-secondary backdrop-blur-xl border-2 border-gray-200 p-8">
+               <div className="relative bg-bg-secondary border-[1px] border-gray-300 shadow-md p-8">
                  <div className="mb-6">
                    <h2 className="text-3xl font-heading font-black text-txt-primary mb-2">
                      {formSectionData.heading.line1}<br />
@@ -120,7 +120,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full bg-bg-secondary border-2 border-gray-200 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none"
+                    className="w-full bg-bg-secondary border-[1px] border-gray-300 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -136,7 +136,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full bg-bg-secondary border-2 border-gray-200 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none"
+                      className="w-full bg-bg-secondary border-[1px] border-gray-300 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -151,7 +151,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full bg-bg-secondary border-2 border-gray-200 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none"
+                      className="w-full bg-bg-secondary border-[1px] border-gray-300 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none"
                       placeholder="+91 98765 43210"
                     />
                   </div>
@@ -166,7 +166,7 @@ const Contact = () => {
                     value={formData.goal}
                     onChange={handleChange}
                     required
-                      className="w-full bg-bg-secondary border-2 border-gray-200 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none cursor-pointer"
+                      className="w-full bg-bg-secondary border-[1px] border-gray-300 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none cursor-pointer"
                   >
                     {formGoalsData.map((goal, idx) => (
                       <option key={idx} value={goal.value}>{goal.label}</option>
@@ -183,7 +183,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows="5"
-                    className="w-full bg-bg-secondary border-2 border-gray-200 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none resize-none"
+                    className="w-full bg-bg-secondary border-[1px] border-gray-300 focus:border-primary px-6 py-4 text-txt-primary transition-all outline-none resize-none"
                     placeholder="Tell us about your current fitness level, any injuries, and your specific goals..."
                   ></textarea>
                 </div>
@@ -209,7 +209,7 @@ const Contact = () => {
                 {contactInfoData.cards.map((item, idx) => (
                    <div
                      key={idx}
-                     className="bg-bg-secondary backdrop-blur-sm border border-gray-200 hover:border-primary p-4 transition-all"
+                     className="bg-bg-secondary border-[1px] border-gray-300 hover:border-primary hover:shadow-lg p-6 transition-all"
                    >
                      <div className="text-xs text-primary font-bold uppercase mb-2">{item.title}</div>
                      {item.info.map((line, i) => (
@@ -226,7 +226,7 @@ const Contact = () => {
                  <h3 className="text-xl font-heading font-black text-txt-primary mb-4">
                    {mapData.heading.split(' ')[0]} <span className="text-primary">{mapData.heading.split(' ')[1]}</span>
                  </h3>
-                 <div className="relative h-[300px] bg-bg-secondary border-2 border-gray-200 overflow-hidden">
+                 <div className="relative h-[300px] bg-bg-secondary border-2 border-gray-300 overflow-hidden shadow-md hover:shadow-lg transition-shadow">
                   {/* Google Maps iframe */}
                   <iframe
                     src={mapData.embedUrl}
@@ -266,7 +266,7 @@ const Contact = () => {
             {faqData.faqs.map((faq, idx) => (
                <div
                  key={idx}
-                 className="bg-bg-secondary backdrop-blur-sm border-l-4 border-primary p-6 hover:bg-bg-secondary transition-colors"
+                 className="bg-bg-secondary border-l-4 border-primary p-6 hover:bg-bg-accent transition-colors"
                >
                  <h3 className="text-lg font-heading font-bold text-txt-primary mb-2">
                    {faq.q}

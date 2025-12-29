@@ -60,7 +60,7 @@
   }
 
   .contact-card {
-    @apply bg-black/40 backdrop-blur-sm border-2 border-gray-800 p-6 md:p-8;
+    @apply bg-bg-secondary border-[1px] border-gray-300 shadow-md p-6 md:p-8;
   }
   
   /* Hero title fixes for mobile */

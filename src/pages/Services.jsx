@@ -331,12 +331,12 @@ gsap.from('.program-card', {
                 {comparisonData.rows.map((row, idx) => (
                   <tr 
                     key={idx}
-                    className={`comparison-row ${idx < comparisonData.rows.length - 1 ? 'border-b-2 border-gray-300' : ''} hover:bg-[#242424] transition-colors`}
+                    className={`comparison-row ${idx < comparisonData.rows.length - 1 ? 'border-b-2 border-gray-300' : ''} hover:bg-bg-tertiary transition-colors cursor-pointer`}
                   >
                     <td className="p-8 font-bold text-txt-primary text-lg">{row.feature}</td>
-                    <td className="p-8 text-center text-gray-200 text-lg">{row.fourWeek}</td>
-                    <td className={`p-8 text-center text-primary font-bold ${row.eightWeek === '✓' ? 'text-2xl' : 'text-lg'} bg-[#242424]`}>{row.eightWeek}</td>
-                    <td className={`p-8 text-center text-gray-200 ${row.nutrition === '✓' ? 'text-2xl' : 'text-lg'}`}>{row.nutrition}</td>
+                    <td className="p-8 text-center text-txt-secondary text-lg">{row.fourWeek}</td>
+                    <td className={`p-8 text-center text-primary font-bold ${row.eightWeek === '✓' ? 'text-2xl' : 'text-lg'} bg-bg-accent border-x-4 border-primary`}>{row.eightWeek}</td>
+                    <td className={`p-8 text-center text-txt-secondary ${row.nutrition === '✓' ? 'text-2xl' : 'text-lg'}`}>{row.nutrition}</td>
                   </tr>
                 ))}
               </tbody>
