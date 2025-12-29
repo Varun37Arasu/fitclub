@@ -182,7 +182,7 @@ const Testimonials = () => {
       {/* Video Testimonials Section */}
       <section className="section-padding bg-bg-secondary">
         <div className="container-custom">
-          <h2 className="text-5xl md:text-7xl font-heading font-black text-txt-primary mb-16 uppercase text-center">
+          <h2 className="text-4xl md:text-7xl font-heading font-black text-txt-primary mb-16 uppercase text-center">
             {videoTestimonialsData.heading.split(' ')[0]} <span className="text-primary">{videoTestimonialsData.heading.split(' ')[1]}</span>
           </h2>
 

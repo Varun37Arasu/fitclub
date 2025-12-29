@@ -1,0 +1,38 @@
+IMPORTANT: PLACEHOLDER PDFs NEEDED
+
+The backend is fully configured and ready to send emails with PDF attachments.
+
+However, you need to create and upload the actual plan PDFs before the system can work.
+
+REQUIRED FILES (7 PDFs):
+1. veg-plan.pdf
+2. non-veg-plan.pdf
+3. keto-plan.pdf
+4. 8-week-plan.pdf
+5. 12-week-plan.pdf
+6. 24-week-plan.pdf
+7. annual-plan.pdf
+
+QUICK START (For Testing):
+If you want to test the email system before creating full PDFs:
+
+1. Create 7 simple PDFs with placeholder content (see README.md for template)
+2. Name them exactly as listed above
+3. Place them in this folder
+4. Push to GitHub - Vercel will auto-deploy
+5. Test payment flow - you'll receive the PDF via email
+
+FULL PRODUCTION:
+Once you have professional meal plans and workout programs ready:
+
+1. Design them in Canva, Google Docs, or Word
+2. Export as PDF (2-5 MB recommended)
+3. Replace the placeholder PDFs with your professional ones
+4. Push to GitHub
+
+The email system will automatically attach the correct PDF based on the plan purchased.
+
+---
+
+See README.md in this folder for detailed instructions on creating PDFs.
+
